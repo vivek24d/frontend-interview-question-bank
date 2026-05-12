@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechPrep — Interview Questions Hub</title>
+  <meta name="description" content="Master your technical interview with 1350+ curated questions across JavaScript, Angular, React, AWS, DSA, System Design, Security, Performance, and Debugging." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">TechPrep</span>
+      </div>
+      <nav class="nav-topics" id="navTopics"></nav>
+      <div class="header-actions">
+        <button class="btn-icon" id="searchToggle" title="Search" aria-label="Toggle search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="btn-icon" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+      <div class="search-inner">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Search questions..." autocomplete="off" />
+        <kbd>ESC to close</kbd>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">1,350+ Questions · 9 Topics</div>
+      <h1 class="hero-title">Ace Your<br /><span class="gradient-text">Tech Interview</span></h1>
+      <p class="hero-sub">Comprehensive question bank with detailed answers across Easy, Medium &amp; Hard difficulties — from JS basics to System Design.</p>
+      <div class="hero-stats" id="heroStats"></div>
+      <a href="#questions" class="btn-primary" id="startBtn">Start Practicing →</a>
+    </div>
+    <div class="hero-visual">
+      <div class="code-card">
+        <div class="code-header"><span></span><span></span><span></span></div>
+        <pre class="code-body"><code><span class="c-purple">const</span> <span class="c-blue">candidate</span> <span class="c-white">= {</span>
+  <span class="c-green">topic</span><span class="c-white">:</span> <span class="c-yellow">"JavaScript"</span><span class="c-white">,</span>
+  <span class="c-green">level</span><span class="c-white">:</span> <span class="c-yellow">"Senior"</span><span class="c-white">,</span>
+  <span class="c-green">ready</span><span class="c-white">:</span> <span class="c-purple">true</span>
+<span class="c-white">};</span>
+
+<span class="c-purple">if</span> <span class="c-white">(candidate.ready) {</span>
+  <span class="c-blue">console</span><span class="c-white">.</span><span class="c-green">log</span><span class="c-white">(</span><span class="c-yellow">"🚀 You're hired!"</span><span class="c-white">);</span>
+<span class="c-white">}</span></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main" id="questions">
+    <!-- Filters -->
+    <div class="filters-bar" id="filtersBar">
+      <div class="filters-inner">
+        <div class="topic-tabs" id="topicTabs"></div>
+        <div class="filter-controls">
+          <div class="difficulty-pills" id="difficultyPills">
+            <button class="pill active" data-diff="all">All</button>
+            <button class="pill easy" data-diff="easy">Easy</button>
+            <button class="pill medium" data-diff="medium">Medium</button>
+            <button class="pill hard" data-diff="hard">Hard</button>
+          </div>
+          <div class="view-toggle">
+            <button class="view-btn active" id="listView" title="List view" aria-label="List view">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </button>
+            <button class="view-btn" id="gridView" title="Grid view" aria-label="Grid view">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="results-meta" id="resultsMeta"></div>
+    </div>
+
+    <!-- Questions Container -->
+    <div class="questions-container" id="questionsContainer">
+      <div class="questions-list" id="questionsList"></div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
+  </main>
+
+  <!-- Question Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div class="modal-meta">
+          <span class="modal-topic" id="modalTopic"></span>
+          <span class="modal-badge" id="modalDiff"></span>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <h2 class="modal-question" id="modalQuestion"></h2>
+        <div class="modal-answer-section">
+          <div class="answer-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Answer
+          </div>
+          <div class="modal-answer" id="modalAnswer"></div>
+        </div>
+        <div class="modal-code-section" id="modalCodeSection">
+          <div class="answer-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Example
+          </div>
+          <pre class="modal-code" id="modalCode"></pre>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-nav" id="prevQuestion">← Prev</button>
+        <span class="modal-counter" id="modalCounter"></span>
+        <button class="btn-nav" id="nextQuestion">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="data/javascript.js"></script>
+  <script src="data/angular.js"></script>
+  <script src="data/react.js"></script>
+  <script src="data/aws.js"></script>
+  <script src="data/dsa.js"></script>
+  <script src="data/debugging.js"></script>
+  <script src="data/systemdesign.js"></script>
+  <script src="data/security.js"></script>
+  <script src="data/performance.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
