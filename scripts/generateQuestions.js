@@ -32,20 +32,85 @@ function generateData(topicId, globalVarName, config) {
     }
 
     let answerText = "";
+
+    // Diverse scenario answer openers
+    const scenarioOpeners = [
+      `To tackle this ${concept.name} problem, start by reproducing the issue in a controlled environment and gathering metrics. `,
+      `Diagnosing this ${concept.name} issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. `,
+      `A solid strategy for this ${concept.name} challenge is to map out the data flow first, then identify where things deviate from expectations. `,
+      `When facing a ${concept.name} scenario like this, prioritize understanding the failure mode before jumping to a fix. `,
+      `The key to resolving this ${concept.name} issue is breaking it into smaller, verifiable steps and validating each hypothesis. `,
+      `Start by asking: what changed? For ${concept.name}, tracing recent deployments or config changes often reveals the root cause quickly. `,
+      `For a ${concept.name} problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. `,
+      `Approaching this ${concept.name} challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. `,
+    ];
+
+    // Diverse scenario middles by difficulty
+    const scenarioMiddlesHard = [
+      `At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. `,
+      `Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. `,
+      `For hard problems involving ${concept.name}, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. `,
+      `Deep-dive with a profiler or distributed trace to identify the hotspot. Hard ${concept.name} issues often hide in micro-optimizations or subtle state inconsistencies. `,
+    ];
+    const scenarioMiddlesMedium = [
+      `Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. `,
+      `Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. `,
+      `Review related code paths and check for similar patterns that might harbor the same ${concept.name} issue elsewhere in the codebase. `,
+    ];
+
+    // Diverse scenario closers
+    const scenarioClosers = [
+      `Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.`,
+      `Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.`,
+      `After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around ${concept.name}.`,
+      `Wrap up by adding observability (alerts, dashboards) specifically around ${concept.name} so future occurrences are caught automatically before users notice.`,
+      `Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.`,
+    ];
+
+    // Diverse conceptual answer openers
+    const conceptOpeners = [
+      `${concept.name} is a foundational concept that directly influences how scalable and maintainable your code is. ${concept.desc || ''} `,
+      `Understanding ${concept.name} deeply is what separates mid-level from senior engineers. ${concept.desc || ''} `,
+      `${concept.name} solves a specific class of problems in frontend/backend development. ${concept.desc || ''} `,
+      `A clear grasp of ${concept.name} lets you make better architectural trade-offs. ${concept.desc || ''} `,
+      `${concept.name} comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge. ${concept.desc || ''} `,
+      `To answer this well, think about ${concept.name} from first principles: what problem does it exist to solve, and what are its limits? ${concept.desc || ''} `,
+    ];
+
+    const conceptMiddlesEasy = [
+      `For beginners, the key insight is understanding the "why" behind ${concept.name}, not just the syntax. `,
+      `A practical way to internalize ${concept.name} is to build a small demo that isolates it from other concerns. `,
+    ];
+    const conceptMiddlesMedium = [
+      `At an intermediate level, focus on how ${concept.name} interacts with related browser APIs, frameworks, or runtime environments. `,
+      `Mid-level engineers should be comfortable explaining the performance trade-offs of ${concept.name} and when NOT to use it. `,
+      `Understanding ${concept.name} at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments. `,
+    ];
+    const conceptMiddlesHard = [
+      `At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to ${concept.name}. `,
+      `Hard questions around ${concept.name} probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies. `,
+      `Expert-level use of ${concept.name} involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood. `,
+    ];
+
+    const conceptClosers = [
+      `Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.`,
+      `Demonstrating real-world usage of ${concept.name}, including mistakes you've made and lessons learned, makes for a compelling interview answer.`,
+      `The strongest candidates connect ${concept.name} to business outcomes: faster page loads, fewer bugs, better user retention.`,
+      `Pair your explanation of ${concept.name} with a brief code example or architecture diagram to make the concept concrete for the interviewer.`,
+      `Showing you understand the trade-offs of ${concept.name} — not just when to use it but when to avoid it — signals senior-level thinking.`,
+    ];
+
     if (isScenario) {
-        answerText = `In this scenario involving ${concept.name}, the first step is to analyze the requirements and constraints. `;
-        if (difficulty === 'hard') {
-            answerText += `Because this is a complex situation, you should evaluate the edge cases and consider fallback strategies. For example, if ${concept.name} fails or causes bottlenecks, consider alternative patterns like state synchronization, throttling, or virtualization. `;
-        }
-        answerText += `Next, implement the solution ensuring best practices like error handling and performance optimization are in place. Use the STAR (Situation, Task, Action, Result) method to explain your thought process during an interview.`;
+      answerText = sample(scenarioOpeners);
+      if (difficulty === 'hard') answerText += sample(scenarioMiddlesHard);
+      else if (difficulty === 'medium') answerText += sample(scenarioMiddlesMedium);
+      answerText += sample(scenarioClosers);
     } else {
-        answerText = `When dealing with ${concept.name}, it is important to consider its core principles. ${concept.desc || ''} `;
-        if (difficulty === 'medium') {
-            answerText += `This is particularly useful when optimizing or structuring larger applications to avoid prop-drilling or excessive rendering. `;
-        } else if (difficulty === 'hard') {
-            answerText += `Advanced edge cases arise, requiring deep understanding of the internal mechanisms. Keep in mind performance and memory implications. `;
-        }
-        answerText += `Overall, mastering ${concept.name} enables developers to write robust and scalable solutions.`;
+      answerText = sample(conceptOpeners);
+      if (difficulty === 'easy') answerText += sample(conceptMiddlesEasy);
+      else if (difficulty === 'medium') answerText += sample(conceptMiddlesMedium);
+      else if (difficulty === 'hard') answerText += sample(conceptMiddlesHard);
+      answerText += ' ' + sample(conceptClosers);
     }
 
     let codeSnippet = '';
