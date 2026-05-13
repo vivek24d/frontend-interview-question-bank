@@ -1,232 +1,361 @@
-/* app.js — TechPrep Interview Questions App */
+/* TechPrep App Logic */
+
 const TOPICS = [
-  { id: 'all', label: 'All Topics', color: '#6c63ff' },
+  { id: 'all', label: 'All Topics', color: '#6366f1' },
   { id: 'javascript', label: 'JavaScript', color: '#f7df1e' },
+  { id: 'typescript', label: 'TypeScript', color: '#3178c6' },
+  { id: 'api', label: 'API & Web', color: '#0ea5e9' },
+  { id: 'react', label: 'React.js', color: '#61dafb' },
   { id: 'angular', label: 'Angular', color: '#dd0031' },
-  { id: 'react', label: 'React', color: '#61dafb' },
-  { id: 'aws', label: 'AWS', color: '#ff9900' },
-  { id: 'dsa', label: 'DSA', color: '#a78bfa' },
-  { id: 'debugging', label: 'Debugging', color: '#34d399' },
-  { id: 'systemdesign', label: 'System Design', color: '#60a5fa' },
-  { id: 'security', label: 'Security', color: '#f87171' },
-  { id: 'performance', label: 'Performance', color: '#fb923c' },
+  { id: 'aws', label: 'AWS Cloud', color: '#ff9900' },
+  { id: 'systemdesign', label: 'System Design', color: '#a855f7' },
+  { id: 'dsa', label: 'Data Structures', color: '#ec4899' },
+  { id: 'security', label: 'Security', color: '#ef4444' },
+  { id: 'performance', label: 'Performance', color: '#f59e0b' },
+  { id: 'debugging', label: 'Debugging', color: '#10b981' }
 ];
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 24;
+
 let state = {
-  topic: 'all', diff: 'all', search: '', page: 1,
-  view: 'list', modalIdx: -1, filtered: []
+  topic: 'all',
+  diff: 'all',
+  type: 'all',
+  search: '',
+  page: 1,
+  modalIdx: -1,
+  filtered: [],
+  selected: new Set()
 };
 
-const ALL_QUESTIONS = () => [
-  ...(window.JS_QUESTIONS || []),
-  ...(window.ANGULAR_QUESTIONS || []),
+// safely aggregate all data
+const getQuestions = () => [
+  ...(window.JAVASCRIPT_QUESTIONS || []),
+  ...(window.TYPESCRIPT_QUESTIONS || []),
+  ...(window.API_QUESTIONS || []),
   ...(window.REACT_QUESTIONS || []),
+  ...(window.ANGULAR_QUESTIONS || []),
   ...(window.AWS_QUESTIONS || []),
-  ...(window.DSA_QUESTIONS || []),
-  ...(window.DEBUGGING_QUESTIONS || []),
   ...(window.SYSTEMDESIGN_QUESTIONS || []),
+  ...(window.DSA_QUESTIONS || []),
   ...(window.SECURITY_QUESTIONS || []),
   ...(window.PERFORMANCE_QUESTIONS || []),
+  ...(window.DEBUGGING_QUESTIONS || [])
 ];
 
-// ---- DOM refs ----
+// DOM
 const $navTopics = document.getElementById('navTopics');
-const $topicTabs = document.getElementById('topicTabs');
-const $diffPills = document.getElementById('difficultyPills');
-const $qList = document.getElementById('questionsList');
+const $diffFilters = document.getElementById('diffFilters');
+const $typeFilters = document.getElementById('typeFilters');
+const $qGrid = document.getElementById('qGrid');
 const $pagination = document.getElementById('pagination');
-const $resultsMeta = document.getElementById('resultsMeta');
-const $heroStats = document.getElementById('heroStats');
-const $modalOverlay = document.getElementById('modalOverlay');
-const $modal = document.getElementById('modal');
-const $searchBar = document.getElementById('searchBar');
 const $searchInput = document.getElementById('searchInput');
-const $toast = document.getElementById('toast');
+const $statsRow = document.getElementById('statsRow');
+const $pageTitle = document.getElementById('pageTitle');
+const $pageDesc = document.getElementById('pageDesc');
 
-// ---- Init ----
+const $modalOverlay = document.getElementById('modalOverlay');
+const $modalClose = document.getElementById('modalClose');
+const $modalTopic = document.getElementById('modalTopic');
+const $modalDiff = document.getElementById('modalDiff');
+const $modalQ = document.getElementById('modalQ');
+const $modalA = document.getElementById('modalA');
+const $prevBtn = document.getElementById('prevBtn');
+const $nextBtn = document.getElementById('nextBtn');
+const $modalCounter = document.getElementById('modalCounter');
+
+const $selectionBar = document.getElementById('selectionBar');
+const $selCount = document.getElementById('selCount');
+const $exportCandBtn = document.getElementById('exportCandBtn');
+const $exportIntBtn = document.getElementById('exportIntBtn');
+
 function init() {
   buildNav();
-  buildTopicTabs();
-  buildHeroStats();
+  updateStats();
   render();
 
-  // Difficulty pills
-  $diffPills.addEventListener('click', e => {
-    const btn = e.target.closest('.pill');
-    if (!btn) return;
-    state.diff = btn.dataset.diff;
-    state.page = 1;
-    $diffPills.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    render();
-  });
-
   // Search
-  document.getElementById('searchToggle').addEventListener('click', () => {
-    $searchBar.classList.toggle('open');
-    if ($searchBar.classList.contains('open')) $searchInput.focus();
-  });
-  $searchInput.addEventListener('input', () => {
-    state.search = $searchInput.value.toLowerCase();
+  $searchInput.addEventListener('input', e => {
+    state.search = e.target.value.toLowerCase();
     state.page = 1;
     render();
   });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closeModal(); $searchBar.classList.remove('open'); }
+
+  // Diff
+  $diffFilters.addEventListener('click', e => {
+    if (!e.target.classList.contains('diff-pill')) return;
+    $diffFilters.querySelectorAll('.diff-pill').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    state.diff = e.target.dataset.diff;
+    state.page = 1;
+    render();
   });
 
-  // View toggle
-  document.getElementById('listView').addEventListener('click', () => setView('list'));
-  document.getElementById('gridView').addEventListener('click', () => setView('grid'));
+  // Type
+  $typeFilters.addEventListener('click', e => {
+    if (!e.target.classList.contains('diff-pill')) return;
+    $typeFilters.querySelectorAll('.diff-pill').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    state.type = e.target.dataset.type;
+    state.page = 1;
+    render();
+  });
 
   // Theme
-  document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+  document.getElementById('btnDark').addEventListener('click', () => setTheme('dark'));
+  document.getElementById('btnLight').addEventListener('click', () => setTheme('light'));
 
-  // Modal nav
-  document.getElementById('prevQuestion').addEventListener('click', () => navigateModal(-1));
-  document.getElementById('nextQuestion').addEventListener('click', () => navigateModal(1));
-  document.getElementById('modalClose').addEventListener('click', closeModal);
-  $modalOverlay.addEventListener('click', e => { if (e.target === $modalOverlay) closeModal(); });
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  setTheme(savedTheme);
+
+  // Modal
+  $modalClose.addEventListener('click', closeModal);
+  $modalOverlay.addEventListener('click', e => { if(e.target === $modalOverlay) closeModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+    if ($modalOverlay.classList.contains('open')) {
+      if (e.key === 'ArrowLeft') navModal(-1);
+      if (e.key === 'ArrowRight') navModal(1);
+    }
+  });
+
+  $prevBtn.addEventListener('click', () => navModal(-1));
+  $nextBtn.addEventListener('click', () => navModal(1));
+
+  // Export
+  $exportCandBtn.addEventListener('click', () => exportDoc(false));
+  $exportIntBtn.addEventListener('click', () => exportDoc(true));
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  document.getElementById('btnDark').classList.toggle('active', theme === 'dark');
+  document.getElementById('btnLight').classList.toggle('active', theme === 'light');
 }
 
 function buildNav() {
-  $navTopics.innerHTML = TOPICS.map(t =>
-    `<button class="nav-topic-btn${t.id === 'all' ? ' active' : ''}" data-topic="${t.id}">${t.label}</button>`
-  ).join('');
-  $navTopics.addEventListener('click', e => {
-    const btn = e.target.closest('.nav-topic-btn');
-    if (!btn) return;
-    selectTopic(btn.dataset.topic);
-    $navTopics.querySelectorAll('.nav-topic-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('questions').scrollIntoView({ behavior: 'smooth' });
-  });
-}
-
-function buildTopicTabs() {
-  const all = ALL_QUESTIONS();
-  $topicTabs.innerHTML = TOPICS.map(t => {
-    const cnt = t.id === 'all' ? all.length : all.filter(q => q.topic === t.id).length;
-    return `<button class="topic-tab${t.id === state.topic ? ' active' : ''}" data-topic="${t.id}">
-      <span class="tab-dot" style="background:${t.color}"></span>
-      ${t.label}
-      <span class="tab-count">${cnt}</span>
-    </button>`;
+  const allQ = getQuestions();
+  $navTopics.innerHTML = TOPICS.map(t => {
+    const count = t.id === 'all' ? allQ.length : allQ.filter(q => q.topic === t.id).length;
+    return `
+      <button class="topic-btn ${t.id === state.topic ? 'active' : ''}" data-topic="${t.id}">
+        <div class="topic-btn-content">
+          <span class="topic-dot" style="background-color: ${t.color}"></span>
+          ${t.label}
+        </div>
+        <span style="font-size:0.75rem; opacity:0.8">${count}</span>
+      </button>
+    `;
   }).join('');
-  $topicTabs.addEventListener('click', e => {
-    const btn = e.target.closest('.topic-tab');
+
+  $navTopics.addEventListener('click', e => {
+    const btn = e.target.closest('.topic-btn');
     if (!btn) return;
-    selectTopic(btn.dataset.topic);
-    $topicTabs.querySelectorAll('.topic-tab').forEach(b => b.classList.remove('active'));
+    $navTopics.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    
+    state.topic = btn.dataset.topic;
+    state.page = 1;
+    
+    const tData = TOPICS.find(t => t.id === state.topic);
+    $pageTitle.textContent = tData.label;
+    $pageDesc.textContent = state.topic === 'all' ? 'Explore thousands of high-quality, real-world technical scenarios.' : `Deep dive into advanced ${tData.label} interview questions.`;
+    
+    updateStats();
+    render();
   });
 }
 
-function buildHeroStats() {
-  const all = ALL_QUESTIONS();
-  const topics = TOPICS.filter(t => t.id !== 'all');
-  $heroStats.innerHTML = [
-    { num: all.length + '+', lbl: 'Questions' },
-    { num: topics.length, lbl: 'Topics' },
-    { num: '3', lbl: 'Difficulty Levels' },
-  ].map(s => `<div class="stat-item"><div class="stat-num">${s.num}</div><div class="stat-lbl">${s.lbl}</div></div>`).join('');
+function updateStats() {
+  const qList = getQuestions().filter(q => state.topic === 'all' || q.topic === state.topic);
+  $statsRow.innerHTML = `
+    <div class="stat"><span class="stat-num">${qList.length}</span><span class="stat-lbl">Questions</span></div>
+    <div class="stat"><span class="stat-num">${qList.filter(q=>q.difficulty==='hard').length}</span><span class="stat-lbl">Hard Scenarios</span></div>
+  `;
 }
 
-function selectTopic(topic) {
-  state.topic = topic;
-  state.page = 1;
-  render();
+function hashStr(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return 'id_' + Math.abs(hash).toString(36);
 }
 
-function setView(v) {
-  state.view = v;
-  $qList.classList.toggle('grid-mode', v === 'grid');
-  document.getElementById('listView').classList.toggle('active', v === 'list');
-  document.getElementById('gridView').classList.toggle('active', v === 'grid');
-}
-
-// ---- Render ----
 function render() {
-  const all = ALL_QUESTIONS();
-  state.filtered = all.filter(q => {
-    if (state.topic !== 'all' && q.topic !== state.topic) return false;
-    if (state.diff !== 'all' && q.difficulty !== state.diff) return false;
-    if (state.search && !q.question.toLowerCase().includes(state.search) && !q.answer.toLowerCase().includes(state.search)) return false;
-    return true;
-  });
+  let list = getQuestions();
 
-  const total = state.filtered.length;
+  if (state.topic !== 'all') {
+    list = list.filter(q => q.topic === state.topic);
+  }
+  if (state.diff !== 'all') {
+    list = list.filter(q => q.difficulty === state.diff);
+  }
+  if (state.type !== 'all') {
+    list = list.filter(q => {
+      const isScenario = q.question.startsWith('Scenario:') || q.question.startsWith('Machine Coding:') || q.question.startsWith('Design architecture') || q.question.startsWith('You are debugging');
+      return state.type === 'scenario' ? isScenario : !isScenario;
+    });
+  }
+  if (state.search) {
+    list = list.filter(q => 
+      q.question.toLowerCase().includes(state.search) || 
+      q.answer.toLowerCase().includes(state.search)
+    );
+  }
+
+  state.filtered = list;
+  const total = list.length;
   const totalPages = Math.ceil(total / PAGE_SIZE);
   state.page = Math.min(state.page, Math.max(1, totalPages));
-  const start = (state.page - 1) * PAGE_SIZE;
-  const pageItems = state.filtered.slice(start, start + PAGE_SIZE);
-
-  $resultsMeta.textContent = `Showing ${start + 1}–${Math.min(start + PAGE_SIZE, total)} of ${total} questions`;
 
   if (total === 0) {
-    $qList.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><h3>No questions found</h3><p>Try adjusting your filters or search term.</p></div>`;
+    $qGrid.innerHTML = `
+      <div class="empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto; color: var(--text-muted)"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <h3>No matches found</h3>
+        <p>Try adjusting your search or filters.</p>
+      </div>`;
     $pagination.innerHTML = '';
     return;
   }
 
-  $qList.innerHTML = pageItems.map((q, i) => {
-    const topic = TOPICS.find(t => t.id === q.topic);
-    return `<div class="q-card" data-idx="${start + i}" role="button" tabindex="0" aria-label="${q.question}">
-      <span class="q-number">#${start + i + 1}</span>
-      <div class="q-body">
-        <div class="q-text">${escHtml(q.question)}</div>
+  const start = (state.page - 1) * PAGE_SIZE;
+  const pageItems = list.slice(start, start + PAGE_SIZE);
+
+  $qGrid.innerHTML = pageItems.map((q, i) => {
+    const tData = TOPICS.find(t => t.id === q.topic);
+    const qId = hashStr(q.topic + q.question);
+    q._id = qId; // store temporarily
+    
+    return `
+      <div class="q-card" data-idx="${start + i}">
         <div class="q-tags">
-          <span class="q-topic-tag" style="color:${topic?.color}">${topic?.label || q.topic}</span>
-          <span class="q-diff-badge ${q.difficulty}">${q.difficulty}</span>
+          <div style="display:flex; align-items:center;">
+            <input type="checkbox" class="q-checkbox" data-id="${qId}" ${state.selected.has(qId) ? 'checked' : ''}>
+            <span class="q-topic" style="color:${tData?.color}">
+              <span class="topic-dot" style="background-color:${tData?.color}"></span>
+              ${tData?.label || q.topic}
+            </span>
+          </div>
+          <span class="q-diff ${q.difficulty}">${q.difficulty}</span>
         </div>
+        <div class="q-text">${escapeHtml(q.question)}</div>
       </div>
-      <svg class="q-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-    </div>`;
+    `;
   }).join('');
 
-  // Card click
-  $qList.querySelectorAll('.q-card').forEach(card => {
-    const open = () => openModal(parseInt(card.dataset.idx));
-    card.addEventListener('click', open);
-    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
+  $qGrid.querySelectorAll('.q-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if(e.target.classList.contains('q-checkbox')) {
+        const id = e.target.dataset.id;
+        if(e.target.checked) state.selected.add(id);
+        else state.selected.delete(id);
+        updateSelection();
+        return;
+      }
+      openModal(parseInt(card.dataset.idx));
+    });
   });
 
   renderPagination(totalPages);
 }
 
+function updateSelection() {
+  $selCount.textContent = state.selected.size;
+  if(state.selected.size > 0) {
+    $selectionBar.classList.add('show');
+  } else {
+    $selectionBar.classList.remove('show');
+  }
+}
+
+document.getElementById('clearSelBtn').addEventListener('click', () => {
+  state.selected.clear();
+  updateSelection();
+  render(); // re-render to uncheck all checkboxes
+});
+
+function exportDoc(withAnswers) {
+  const allQ = getQuestions();
+  allQ.forEach(q => {
+    q._id = hashStr(q.topic + q.question);
+  });
+  
+  const selectedQs = allQ.filter(q => state.selected.has(q._id));
+  
+  let html = `
+    <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+    <head><meta charset='utf-8'><title>Interview Questions</title>
+    <style>
+      body { font-family: 'Calibri', sans-serif; }
+      h2 { color: #2c3e50; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+      .question { font-weight: bold; font-size: 14pt; margin-top: 20pt; }
+      .meta { color: #7f8c8d; font-size: 10pt; margin-bottom: 10pt; }
+      .answer { color: #34495e; margin-top: 10pt; font-style: italic; }
+    </style>
+    </head><body>
+    <h1>TechPrep Interview Questions</h1>
+    <p>Generated on ${new Date().toLocaleDateString()}</p>
+  `;
+  
+  selectedQs.forEach((q, idx) => {
+    html += `<div class="question">${idx + 1}. ${escapeHtml(q.question)}</div>`;
+    html += `<div class="meta">Topic: ${q.topic.toUpperCase()} | Difficulty: ${q.difficulty.toUpperCase()}</div>`;
+    if(withAnswers) {
+      html += `<div class="answer"><strong>Expected Answer:</strong><br/>${escapeHtml(q.answer)}</div>`;
+    }
+  });
+  
+  html += `</body></html>`;
+  
+  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `TechPrep_${withAnswers ? 'Interviewer' : 'Candidate'}_Questions.doc`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 function renderPagination(totalPages) {
   if (totalPages <= 1) { $pagination.innerHTML = ''; return; }
-  const p = state.page;
+  
   let btns = [];
-  btns.push(`<button class="page-btn" data-p="${p - 1}" ${p === 1 ? 'disabled' : ''}>← Prev</button>`);
-  const pages = paginationRange(p, totalPages);
-  pages.forEach(pg => {
-    if (pg === '...') btns.push(`<span style="color:var(--text3);padding:0 4px">…</span>`);
-    else btns.push(`<button class="page-btn${pg === p ? ' active' : ''}" data-p="${pg}">${pg}</button>`);
+  btns.push(`<button class="page-btn" data-p="${state.page - 1}" ${state.page === 1 ? 'disabled' : ''}>Prev</button>`);
+  
+  let pgs = [];
+  if (totalPages <= 7) {
+    for(let i=1; i<=totalPages; i++) pgs.push(i);
+  } else {
+    if (state.page <= 4) pgs = [1,2,3,4,5,'...',totalPages];
+    else if (state.page >= totalPages - 3) pgs = [1,'...',totalPages-4,totalPages-3,totalPages-2,totalPages-1,totalPages];
+    else pgs = [1,'...',state.page-1,state.page,state.page+1,'...',totalPages];
+  }
+
+  pgs.forEach(p => {
+    if (p === '...') btns.push(`<span style="color:var(--text-muted); align-self:center;">...</span>`);
+    else btns.push(`<button class="page-btn ${p === state.page ? 'active' : ''}" data-p="${p}">${p}</button>`);
   });
-  btns.push(`<button class="page-btn" data-p="${p + 1}" ${p === totalPages ? 'disabled' : ''}>Next →</button>`);
+
+  btns.push(`<button class="page-btn" data-p="${state.page + 1}" ${state.page === totalPages ? 'disabled' : ''}>Next</button>`);
   $pagination.innerHTML = btns.join('');
-  $pagination.querySelectorAll('.page-btn:not(:disabled)').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.page = parseInt(btn.dataset.p);
+  
+  $pagination.querySelectorAll('.page-btn:not(:disabled)').forEach(b => {
+    b.addEventListener('click', () => {
+      state.page = parseInt(b.dataset.p);
       render();
-      document.getElementById('questions').scrollIntoView({ behavior: 'smooth' });
+      document.querySelector('.content').scrollTo({top: 0, behavior: 'smooth'});
     });
   });
 }
 
-function paginationRange(current, total) {
-  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
-  if (current <= 4) return [1, 2, 3, 4, 5, '...', total];
-  if (current >= total - 3) return [1, '...', total - 4, total - 3, total - 2, total - 1, total];
-  return [1, '...', current - 1, current, current + 1, '...', total];
-}
-
-// ---- Modal ----
 function openModal(idx) {
   state.modalIdx = idx;
-  renderModal();
+  updateModal();
   $modalOverlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -236,52 +365,35 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-function navigateModal(dir) {
+function navModal(dir) {
   const newIdx = state.modalIdx + dir;
-  if (newIdx < 0 || newIdx >= state.filtered.length) return;
-  state.modalIdx = newIdx;
-  renderModal();
+  if (newIdx >= 0 && newIdx < state.filtered.length) {
+    state.modalIdx = newIdx;
+    updateModal();
+  }
 }
 
-function renderModal() {
+function updateModal() {
   const q = state.filtered[state.modalIdx];
-  if (!q) return;
-  const topic = TOPICS.find(t => t.id === q.topic);
-  document.getElementById('modalTopic').textContent = topic?.label || q.topic;
-  const badge = document.getElementById('modalDiff');
-  badge.textContent = q.difficulty;
-  badge.className = `modal-badge ${q.difficulty}`;
-  document.getElementById('modalQuestion').textContent = q.question;
-  document.getElementById('modalAnswer').textContent = q.answer;
-  const codeSection = document.getElementById('modalCodeSection');
-  const codeEl = document.getElementById('modalCode');
-  if (q.code) { codeSection.style.display = 'block'; codeEl.textContent = q.code; }
-  else { codeSection.style.display = 'none'; }
-  document.getElementById('modalCounter').textContent = `${state.modalIdx + 1} / ${state.filtered.length}`;
-  document.getElementById('prevQuestion').disabled = state.modalIdx === 0;
-  document.getElementById('nextQuestion').disabled = state.modalIdx === state.filtered.length - 1;
+  const tData = TOPICS.find(t => t.id === q.topic);
+  
+  $modalTopic.textContent = tData?.label || q.topic;
+  $modalTopic.style.color = tData?.color;
+  $modalDiff.textContent = q.difficulty;
+  $modalDiff.className = `q-diff ${q.difficulty}`;
+  
+  $modalQ.textContent = q.question;
+  $modalA.textContent = q.answer;
+  
+  $modalCounter.textContent = `Question ${state.modalIdx + 1} of ${state.filtered.length}`;
+  $prevBtn.disabled = state.modalIdx === 0;
+  $nextBtn.disabled = state.modalIdx === state.filtered.length - 1;
 }
 
-// ---- Theme ----
-function toggleTheme() {
-  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
-  document.querySelector('.icon-moon').classList.toggle('hidden', !isLight);
-  document.querySelector('.icon-sun').classList.toggle('hidden', isLight);
-  localStorage.setItem('theme', isLight ? 'dark' : 'light');
-}
-
-// ---- Utils ----
-function escHtml(str) {
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
-// Load saved theme
-const savedTheme = localStorage.getItem('theme') || 'dark';
-document.documentElement.setAttribute('data-theme', savedTheme);
-if (savedTheme === 'light') {
-  document.querySelector('.icon-moon').classList.add('hidden');
-  document.querySelector('.icon-sun').classList.remove('hidden');
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, m => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[m]);
 }
 
 window.addEventListener('DOMContentLoaded', init);

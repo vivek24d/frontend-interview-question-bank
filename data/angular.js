@@ -2,2101 +2,3501 @@ window.ANGULAR_QUESTIONS = [
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Observables (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "The key to resolving this Observables issue is breaking it into smaller, verifiable steps and validating each hypothesis. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding massive bundle size and achieving secure data handling.",
+    "answer": "To address the massive bundle size in this healthcare context, I would first isolate the data visualization. By implementing Route Guards, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a high-traffic application, you notice Routing being used improperly in the authentication flow, causing high latency spikes. Walk me through how you would optimize this using Components to achieve smooth 60fps scrolling.",
+    "answer": "When handling high latency spikes, Routing acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Components for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving 100% uptime.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the media upload usage. Then, slowly roll out Pipes behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees 100% uptime.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Components play a role in managing the form state?",
-    "answer": "Diagnosing this Components issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Wrap up by adding observability (alerts, dashboards) specifically around Components so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Dependency Injection.",
-    "answer": "Dependency Injection is a foundational concept that directly influences how scalable and maintainable your code is.  Hard questions around Dependency Injection probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Dependency Injection to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "During a critical code review for a data-intensive application, you notice Observables being used improperly in the media upload flow, causing frequent server crashes. Walk me through how you would optimize this using Components to achieve sub-second load times.",
+    "answer": "To address the frequent server crashes in this e-commerce context, I would first isolate the media upload. By implementing Observables, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
     "code": null
   },
   {
     "topic": "angular",
-    "difficulty": "easy",
-    "question": "How do you implement Dependency Injection in Angular?",
-    "answer": "To answer this well, think about Dependency Injection from first principles: what problem does it exist to solve, and what are its limits?  For beginners, the key insight is understanding the \"why\" behind Dependency Injection, not just the syntax.  Demonstrating real-world usage of Dependency Injection, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust checkout flow system for a video streaming platform. Ensure you incorporate Lazy Loading to prevent redundant network calls and optimize for WCAG compliance.",
+    "answer": "The root cause here is typical for high-traffic applications: redundant network calls degrades the checkout flow. Replacing the flawed logic with Lazy Loading provides a robust boundary. I'd pair this with Standalone Components to ensure we hit our WCAG compliance target safely.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "How do you implement Lazy Loading in Angular?",
-    "answer": "Lazy Loading comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an intermediate level, focus on how Lazy Loading interacts with related browser APIs, frameworks, or runtime environments.  Demonstrating real-world usage of Lazy Loading, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Change Detection play a role in managing the form state?",
-    "answer": "To tackle this Change Detection problem, start by reproducing the issue in a controlled environment and gathering metrics. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ChangeDetectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Standalone Components to optimize this?",
-    "answer": "Start by asking: what changed? For Standalone Components, tracing recent deployments or config changes often reveals the root cause quickly. For hard problems involving Standalone Components, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class StandaloneComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Observables play a role in managing the form state?",
-    "answer": "When facing a Observables scenario like this, prioritize understanding the failure mode before jumping to a fix. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Wrap up by adding observability (alerts, dashboards) specifically around Observables so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ObservablesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Lazy Loading.",
-    "answer": "Understanding Lazy Loading deeply is what separates mid-level from senior engineers.  Hard questions around Lazy Loading probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Lazy Loading to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "During a critical code review for a global scale application, you notice Observables being used improperly in the media upload flow, causing unpredictable race conditions. Walk me through how you would optimize this using Directives to achieve strict data consistency.",
+    "answer": "To address the unpredictable race conditions in this fintech context, I would first isolate the media upload. By implementing Observables, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Explain the lifecycle hooks associated with Change Detection.",
-    "answer": "Change Detection is a foundational concept that directly influences how scalable and maintainable your code is.  For beginners, the key insight is understanding the \"why\" behind Change Detection, not just the syntax.  Demonstrating real-world usage of Change Detection, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "NgRx is a foundational concept that directly influences how scalable and maintainable your code is.  Mid-level engineers should be comfortable explaining the performance trade-offs of NgRx and when NOT to use it.  Showing you understand the trade-offs of NgRx — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Lazy Loading to optimize this?",
-    "answer": "For a Lazy Loading problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Review related code paths and check for similar patterns that might harbor the same Lazy Loading issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Lazy Loading.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class LazyLoadingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Signals to optimize this?",
-    "answer": "Start by asking: what changed? For Signals, tracing recent deployments or config changes often reveals the root cause quickly. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Scenario: You are tasked with refactoring a high-traffic social media application that suffers from high latency spikes. Specifically, the user onboarding module is failing due to blocking the main thread. How would you leverage Directives alongside Routing to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "When handling high latency spikes, Directives acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Routing for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Directives solve this?",
-    "answer": "For a Directives problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to RxJS Operators. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving secure data handling.",
+    "answer": "To address the frequent UI freezing in this healthcare context, I would first isolate the payment processing. By implementing RxJS Operators, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Routing solve this?",
-    "answer": "Diagnosing this Routing issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Scenario: You are tasked with refactoring a enterprise video streaming application that suffers from high latency spikes. Specifically, the authentication module is failing due to unhandled exceptions. How would you leverage Lazy Loading alongside Dependency Injection to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the authentication usage. Then, slowly roll out Lazy Loading behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees minimal battery drain.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Components (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "When facing a Components scenario like this, prioritize understanding the failure mode before jumping to a fix. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Signals to prevent Change Detection errors?",
-    "answer": "To tackle this Signals problem, start by reproducing the issue in a controlled environment and gathering metrics. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Services (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "To tackle this Services problem, start by reproducing the issue in a controlled environment and gathering metrics. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around Services so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Observables in Angular?",
-    "answer": "Observables is a foundational concept that directly influences how scalable and maintainable your code is.  At an intermediate level, focus on how Observables interacts with related browser APIs, frameworks, or runtime environments.  Showing you understand the trade-offs of Observables — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Routing in Angular?",
-    "answer": "A clear grasp of Routing lets you make better architectural trade-offs.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Routing.  Showing you understand the trade-offs of Routing — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class RoutingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Services to prevent Change Detection errors?",
-    "answer": "Approaching this Services challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. For hard problems involving Services, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "NgRx solves a specific class of problems in frontend/backend development.  Understanding NgRx at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Showing you understand the trade-offs of NgRx — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Components.",
-    "answer": "Components comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Components.  Demonstrating real-world usage of Components, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Pipes to prevent Change Detection errors?",
-    "answer": "Approaching this Pipes challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Change Detection play a role in managing the form state?",
-    "answer": "When facing a Change Detection scenario like this, prioritize understanding the failure mode before jumping to a fix. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ChangeDetectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Standalone Components to prevent Change Detection errors?",
-    "answer": "Approaching this Standalone Components challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Observables in Angular?",
-    "answer": "To answer this well, think about Observables from first principles: what problem does it exist to solve, and what are its limits?  Hard questions around Observables probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Showing you understand the trade-offs of Observables — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement NgRx in Angular?",
-    "answer": "NgRx comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an intermediate level, focus on how NgRx interacts with related browser APIs, frameworks, or runtime environments.  Demonstrating real-world usage of NgRx, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Observables.",
-    "answer": "To answer this well, think about Observables from first principles: what problem does it exist to solve, and what are its limits?  Mid-level engineers should be comfortable explaining the performance trade-offs of Observables and when NOT to use it.  Pair your explanation of Observables with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Components (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "A solid strategy for this Components challenge is to map out the data flow first, then identify where things deviate from expectations. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around Components so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Lazy Loading in Angular?",
-    "answer": "Lazy Loading solves a specific class of problems in frontend/backend development.  Expert-level use of Lazy Loading involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Directives.",
-    "answer": "Understanding Directives deeply is what separates mid-level from senior engineers.  Mid-level engineers should be comfortable explaining the performance trade-offs of Directives and when NOT to use it.  The strongest candidates connect Directives to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Lazy Loading to optimize this?",
-    "answer": "The key to resolving this Lazy Loading issue is breaking it into smaller, verifiable steps and validating each hypothesis. For hard problems involving Lazy Loading, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Lazy Loading.",
+    "question": "During a critical code review for a rapidly scaling application, you notice RxJS Operators being used improperly in the payment processing flow, causing unpredictable race conditions. Walk me through how you would optimize this using Directives to achieve WCAG compliance.",
+    "answer": "To address the unpredictable race conditions in this fintech context, I would first isolate the payment processing. By implementing RxJS Operators, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Explain the lifecycle hooks associated with Services.",
-    "answer": "Understanding Services deeply is what separates mid-level from senior engineers.  A practical way to internalize Services is to build a small demo that isolates it from other concerns.  The strongest candidates connect Services to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Directives.",
-    "answer": "Directives solves a specific class of problems in frontend/backend development.  Understanding Directives at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  The strongest candidates connect Directives to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Explain the lifecycle hooks associated with Dependency Injection.",
-    "answer": "A clear grasp of Dependency Injection lets you make better architectural trade-offs.  A practical way to internalize Dependency Injection is to build a small demo that isolates it from other concerns.  Demonstrating real-world usage of Dependency Injection, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Routing.",
-    "answer": "Routing is a foundational concept that directly influences how scalable and maintainable your code is.  Hard questions around Routing probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Routing to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "How do you implement Change Detection in Angular?",
-    "answer": "Understanding Change Detection deeply is what separates mid-level from senior engineers.  For beginners, the key insight is understanding the \"why\" behind Change Detection, not just the syntax.  The strongest candidates connect Change Detection to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Standalone Components in Angular?",
-    "answer": "A clear grasp of Standalone Components lets you make better architectural trade-offs.  Mid-level engineers should be comfortable explaining the performance trade-offs of Standalone Components and when NOT to use it.  Pair your explanation of Standalone Components with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "question": "During a critical code review for a global scale application, you notice Directives being used improperly in the user onboarding flow, causing API rate limiting. Walk me through how you would optimize this using Lazy Loading to achieve strict data consistency.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the user onboarding usage. Then, slowly roll out Directives behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Dependency Injection play a role in managing the form state?",
-    "answer": "Diagnosing this Dependency Injection issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Dependency Injection issues often hide in micro-optimizations or subtle state inconsistencies. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the media upload system encounters blocking the main thread, how do you gracefully recover using Components?",
+    "answer": "The root cause here is typical for data-intensive applications: blocking the main thread degrades the media upload. Replacing the flawed logic with Components provides a robust boundary. I'd pair this with Route Guards to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a rapidly scaling application, you notice Route Guards being used improperly in the media upload flow, causing frequent UI freezing. Walk me through how you would optimize this using Observables to achieve smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for rapidly scaling applications: unoptimized loops degrades the media upload. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Observables to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to Lazy Loading. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving minimal battery drain.",
+    "answer": "To address the frequent server crashes in this real-time gaming context, I would first isolate the payment processing. By implementing Lazy Loading, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a legacy IoT dashboard application that suffers from high latency spikes. Specifically, the checkout flow module is failing due to excessive re-renders. How would you leverage Lazy Loading alongside Route Guards to resolve this, ensuring secure data handling is maintained?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the checkout flow usage. Then, slowly roll out Lazy Loading behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees secure data handling.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "How do you implement Services in Angular?",
-    "answer": "Services is a foundational concept that directly influences how scalable and maintainable your code is.  For beginners, the key insight is understanding the \"why\" behind Services, not just the syntax.  Showing you understand the trade-offs of Services — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "You are debugging a severe production issue in a real-time gaming app: inconsistent state bugs is crashing the data visualization. How can Standalone Components be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "The root cause here is typical for legacy applications: excessive re-renders degrades the data visualization. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with NgRx to ensure we hit our 100% uptime target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Change Detection play a role in managing the form state?",
-    "answer": "To tackle this Change Detection problem, start by reproducing the issue in a controlled environment and gathering metrics. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Change Detection.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Explain the lifecycle hooks associated with Standalone Components.",
-    "answer": "Standalone Components is a foundational concept that directly influences how scalable and maintainable your code is.  A practical way to internalize Standalone Components is to build a small demo that isolates it from other concerns.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class StandaloneComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Directives in Angular?",
-    "answer": "Directives is a foundational concept that directly influences how scalable and maintainable your code is.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Directives.  Showing you understand the trade-offs of Directives — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Components (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Approaching this Components challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Observables in Angular?",
-    "answer": "Observables is a foundational concept that directly influences how scalable and maintainable your code is.  Understanding Observables at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Showing you understand the trade-offs of Observables — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the media upload system encounters blocking the main thread, how do you gracefully recover using NgRx?",
+    "answer": "To address the massive bundle size in this fintech context, I would first isolate the media upload. By implementing NgRx, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "How do you implement Directives in Angular?",
-    "answer": "Understanding Directives deeply is what separates mid-level from senior engineers.  Hard questions around Directives probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does NgRx solve this?",
-    "answer": "Start by asking: what changed? For NgRx, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same NgRx issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Observables to optimize this?",
-    "answer": "A solid strategy for this Observables challenge is to map out the data flow first, then identify where things deviate from expectations. Review related code paths and check for similar patterns that might harbor the same Observables issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Observables.",
+    "question": "During a critical code review for a legacy application, you notice HttpInterceptor being used improperly in the user onboarding flow, causing API rate limiting. Walk me through how you would optimize this using Lazy Loading to achieve 100% uptime.",
+    "answer": "The root cause here is typical for legacy applications: unoptimized loops degrades the user onboarding. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our 100% uptime target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "How do you implement Directives in Angular?",
-    "answer": "Directives is a foundational concept that directly influences how scalable and maintainable your code is.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Directives.  The strongest candidates connect Directives to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does NgRx play a role in managing the form state?",
-    "answer": "To tackle this NgRx problem, start by reproducing the issue in a controlled environment and gathering metrics. Review related code paths and check for similar patterns that might harbor the same NgRx issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "NgRx solves a specific class of problems in frontend/backend development.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to NgRx.  Pair your explanation of NgRx with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Routing in Angular?",
-    "answer": "Routing solves a specific class of problems in frontend/backend development.  Mid-level engineers should be comfortable explaining the performance trade-offs of Routing and when NOT to use it.  The strongest candidates connect Routing to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class RoutingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Dependency Injection to prevent Change Detection errors?",
-    "answer": "Approaching this Dependency Injection challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Dependency Injection.",
+    "question": "During a critical code review for a enterprise application, you notice RxJS Operators being used improperly in the media upload flow, causing massive bundle size. Walk me through how you would optimize this using Signals to achieve minimal battery drain.",
+    "answer": "When handling massive bundle size, RxJS Operators acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Signals for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Directives to prevent Change Detection errors?",
-    "answer": "The key to resolving this Directives issue is breaking it into smaller, verifiable steps and validating each hypothesis. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Directives issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Routing play a role in managing the form state?",
-    "answer": "A solid strategy for this Routing challenge is to map out the data flow first, then identify where things deviate from expectations. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Routing to optimize this?",
-    "answer": "Start by asking: what changed? For Routing, tracing recent deployments or config changes often reveals the root cause quickly. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class RoutingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "How do you implement NgRx in Angular?",
-    "answer": "Understanding NgRx deeply is what separates mid-level from senior engineers.  For beginners, the key insight is understanding the \"why\" behind NgRx, not just the syntax.  Demonstrating real-world usage of NgRx, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Components solve this?",
-    "answer": "Diagnosing this Components issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Components issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Dependency Injection solve this?",
-    "answer": "For a Dependency Injection problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Standalone Components play a role in managing the form state?",
-    "answer": "Start by asking: what changed? For Standalone Components, tracing recent deployments or config changes often reveals the root cause quickly. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class StandaloneComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Routing to prevent Change Detection errors?",
-    "answer": "For a Routing problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Routing issues often hide in micro-optimizations or subtle state inconsistencies. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "You are debugging a severe production issue in a fintech app: massive bundle size is crashing the media upload. How can Lazy Loading be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "When handling massive bundle size, Lazy Loading acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Services for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Dependency Injection solve this?",
-    "answer": "A solid strategy for this Dependency Injection challenge is to map out the data flow first, then identify where things deviate from expectations. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Lazy Loading to optimize this?",
-    "answer": "For a Lazy Loading problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Lazy Loading.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class LazyLoadingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Pipes in Angular?",
-    "answer": "Pipes solves a specific class of problems in frontend/backend development.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Pipes.  Pair your explanation of Pipes with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "question": "Machine Coding: Implement a robust payment processing system for a social media platform. Ensure you incorporate RxJS Operators to prevent unoptimized loops and optimize for strict data consistency.",
+    "answer": "To address the unpredictable race conditions in this social media context, I would first isolate the payment processing. By implementing RxJS Operators, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Services to optimize this?",
-    "answer": "To tackle this Services problem, start by reproducing the issue in a controlled environment and gathering metrics. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Standalone Components. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving secure data handling.",
+    "answer": "To address the frequent UI freezing in this video streaming context, I would first isolate the search autocomplete. By implementing Standalone Components, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Change Detection.",
-    "answer": "Understanding Change Detection deeply is what separates mid-level from senior engineers.  Expert-level use of Change Detection involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Demonstrating real-world usage of Change Detection, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Signals (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "A solid strategy for this Signals challenge is to map out the data flow first, then identify where things deviate from expectations. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "Design architecture for a social media feature handling millions of requests. If the media upload system encounters redundant network calls, how do you gracefully recover using Signals?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the media upload usage. Then, slowly roll out Signals behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees 100% uptime.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use NgRx to optimize this?",
-    "answer": "Diagnosing this NgRx issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Signals to prevent Change Detection errors?",
-    "answer": "Approaching this Signals challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class SignalsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Pipes to optimize this?",
-    "answer": "A solid strategy for this Pipes challenge is to map out the data flow first, then identify where things deviate from expectations. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Pipes.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Standalone Components in Angular?",
-    "answer": "Standalone Components comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Expert-level use of Standalone Components involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Pair your explanation of Standalone Components with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class StandaloneComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Observables (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Diagnosing this Observables issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. For hard problems involving Observables, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "In a rapidly scaling environment, the authentication is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Standalone Components at the application layer mitigate unpredictable race conditions?",
+    "answer": "To address the unpredictable race conditions in this IoT dashboard context, I would first isolate the authentication. By implementing Standalone Components, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Pipes.",
-    "answer": "A clear grasp of Pipes lets you make better architectural trade-offs.  Expert-level use of Pipes involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Demonstrating real-world usage of Pipes, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Services in Angular?",
-    "answer": "To answer this well, think about Services from first principles: what problem does it exist to solve, and what are its limits?  Hard questions around Services probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Services to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving strict data consistency.",
+    "answer": "The root cause here is typical for enterprise applications: poor garbage collection degrades the payment processing. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Observables to ensure we hit our strict data consistency target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Pipes to prevent Change Detection errors?",
-    "answer": "When facing a Pipes scenario like this, prioritize understanding the failure mode before jumping to a fix. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Wrap up by adding observability (alerts, dashboards) specifically around Pipes so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Services play a role in managing the form state?",
-    "answer": "For a Services problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Explain the lifecycle hooks associated with Observables.",
-    "answer": "A clear grasp of Observables lets you make better architectural trade-offs.  A practical way to internalize Observables is to build a small demo that isolates it from other concerns.  Pair your explanation of Observables with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ObservablesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does NgRx play a role in managing the form state?",
-    "answer": "When facing a NgRx scenario like this, prioritize understanding the failure mode before jumping to a fix. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Observables in Angular?",
-    "answer": "A clear grasp of Observables lets you make better architectural trade-offs.  Hard questions around Observables probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Pair your explanation of Observables with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ObservablesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Lazy Loading play a role in managing the form state?",
-    "answer": "Approaching this Lazy Loading challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. For hard problems involving Lazy Loading, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Lazy Loading.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Components.",
-    "answer": "Components is a foundational concept that directly influences how scalable and maintainable your code is.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Components.  Pair your explanation of Components with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Directives.",
-    "answer": "To answer this well, think about Directives from first principles: what problem does it exist to solve, and what are its limits?  Hard questions around Directives probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Directives to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "Machine Coding: Implement a robust media upload system for a video streaming platform. Ensure you incorporate Components to prevent deadlocks and optimize for strict data consistency.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the media upload usage. Then, slowly roll out Components behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Observables solve this?",
-    "answer": "To tackle this Observables problem, start by reproducing the issue in a controlled environment and gathering metrics. Review related code paths and check for similar patterns that might harbor the same Observables issue elsewhere in the codebase. Wrap up by adding observability (alerts, dashboards) specifically around Observables so future occurrences are caught automatically before users notice.",
+    "question": "Machine Coding: Implement a robust data visualization system for a e-commerce platform. Ensure you incorporate Signals to prevent redundant network calls and optimize for strict data consistency.",
+    "answer": "To address the API rate limiting in this e-commerce context, I would first isolate the data visualization. By implementing Signals, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Pipes play a role in managing the form state?",
-    "answer": "To tackle this Pipes problem, start by reproducing the issue in a controlled environment and gathering metrics. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Pipes issues often hide in micro-optimizations or subtle state inconsistencies. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
+    "question": "During a critical code review for a high-traffic application, you notice Standalone Components being used improperly in the search autocomplete flow, causing frequent server crashes. Walk me through how you would optimize this using Routing to achieve secure data handling.",
+    "answer": "When handling frequent server crashes, Standalone Components acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Routing for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Services to optimize this?",
-    "answer": "Start by asking: what changed? For Services, tracing recent deployments or config changes often reveals the root cause quickly. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around Services so future occurrences are caught automatically before users notice.",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the media upload system encounters unoptimized loops, how do you gracefully recover using Services?",
+    "answer": "The root cause here is typical for legacy applications: unoptimized loops degrades the media upload. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Observables to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a SaaS platform app: high latency spikes is crashing the authentication. How can Dependency Injection be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "The root cause here is typical for mission-critical applications: poor garbage collection degrades the authentication. Replacing the flawed logic with Dependency Injection provides a robust boundary. I'd pair this with Standalone Components to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Services. Explain the technical trade-offs, particularly regarding API rate limiting and achieving strict data consistency.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the user onboarding usage. Then, slowly roll out Services behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Pipes (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "A solid strategy for this Pipes challenge is to map out the data flow first, then identify where things deviate from expectations. Wrap up by adding observability (alerts, dashboards) specifically around Pipes so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Services to optimize this?",
-    "answer": "Approaching this Services challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Services issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Scenario: You are tasked with refactoring a high-traffic social media application that suffers from unpredictable race conditions. Specifically, the checkout flow module is failing due to poor garbage collection. How would you leverage Lazy Loading alongside Standalone Components to resolve this, ensuring secure data handling is maintained?",
+    "answer": "The root cause here is typical for high-traffic applications: poor garbage collection degrades the checkout flow. Replacing the flawed logic with Lazy Loading provides a robust boundary. I'd pair this with Standalone Components to ensure we hit our secure data handling target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "How do you implement Components in Angular?",
-    "answer": "A clear grasp of Components lets you make better architectural trade-offs.  Hard questions around Components probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Demonstrating real-world usage of Components, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
+    "question": "In a high-traffic environment, the search autocomplete is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying NgRx at the application layer mitigate frequent UI freezing?",
+    "answer": "The root cause here is typical for high-traffic applications: redundant network calls degrades the search autocomplete. Replacing the flawed logic with NgRx provides a robust boundary. I'd pair this with Change Detection to ensure we hit our 100% uptime target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Change Detection to prevent Change Detection errors?",
-    "answer": "Start by asking: what changed? For Change Detection, tracing recent deployments or config changes often reveals the root cause quickly. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Design architecture for a social media feature handling millions of requests. If the user onboarding system encounters deadlocks, how do you gracefully recover using Dependency Injection?",
+    "answer": "To address the inconsistent state bugs in this social media context, I would first isolate the user onboarding. By implementing Dependency Injection, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
     "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Change Detection (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Start by asking: what changed? For Change Detection, tracing recent deployments or config changes often reveals the root cause quickly. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ChangeDetectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Observables.",
-    "answer": "Observables comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Observables.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ObservablesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Components (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Diagnosing this Components issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Wrap up by adding observability (alerts, dashboards) specifically around Components so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Signals play a role in managing the form state?",
-    "answer": "The key to resolving this Signals issue is breaking it into smaller, verifiable steps and validating each hypothesis. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Lazy Loading to prevent Change Detection errors?",
-    "answer": "The key to resolving this Lazy Loading issue is breaking it into smaller, verifiable steps and validating each hypothesis. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Lazy Loading issues often hide in micro-optimizations or subtle state inconsistencies. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class LazyLoadingService {\n  constructor() {}\n}"
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Observables (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Diagnosing this Observables issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Review related code paths and check for similar patterns that might harbor the same Observables issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Observables.",
+    "question": "Design architecture for a social media feature handling millions of requests. If the checkout flow system encounters poor garbage collection, how do you gracefully recover using Lazy Loading?",
+    "answer": "When handling massive bundle size, Lazy Loading acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize Observables for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Explain the lifecycle hooks associated with Components.",
-    "answer": "Understanding Components deeply is what separates mid-level from senior engineers.  For beginners, the key insight is understanding the \"why\" behind Components, not just the syntax.  Showing you understand the trade-offs of Components — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Directives to optimize this?",
-    "answer": "When facing a Directives scenario like this, prioritize understanding the failure mode before jumping to a fix. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Routing in Angular?",
-    "answer": "Routing comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Hard questions around Routing probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Demonstrating real-world usage of Routing, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Observables to optimize this?",
-    "answer": "The key to resolving this Observables issue is breaking it into smaller, verifiable steps and validating each hypothesis. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Observables.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "How do you implement Services in Angular?",
-    "answer": "To answer this well, think about Services from first principles: what problem does it exist to solve, and what are its limits?  A practical way to internalize Services is to build a small demo that isolates it from other concerns.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Directives solve this?",
-    "answer": "Start by asking: what changed? For Directives, tracing recent deployments or config changes often reveals the root cause quickly. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Directives issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Services in Angular?",
-    "answer": "To answer this well, think about Services from first principles: what problem does it exist to solve, and what are its limits?  Hard questions around Services probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Directives solve this?",
-    "answer": "Start by asking: what changed? For Directives, tracing recent deployments or config changes often reveals the root cause quickly. For hard problems involving Directives, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Lazy Loading play a role in managing the form state?",
-    "answer": "When facing a Lazy Loading scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same Lazy Loading issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class LazyLoadingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Standalone Components solve this?",
-    "answer": "The key to resolving this Standalone Components issue is breaking it into smaller, verifiable steps and validating each hypothesis. Review related code paths and check for similar patterns that might harbor the same Standalone Components issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Standalone Components.",
+    "question": "During a critical code review for a global scale application, you notice Pipes being used improperly in the authentication flow, causing inconsistent state bugs. Walk me through how you would optimize this using Route Guards to achieve 100% uptime.",
+    "answer": "When handling inconsistent state bugs, Pipes acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Route Guards for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Services to prevent Change Detection errors?",
-    "answer": "When facing a Services scenario like this, prioritize understanding the failure mode before jumping to a fix. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Machine Coding: Implement a robust checkout flow system for a real-time gaming platform. Ensure you incorporate Services to prevent unhandled exceptions and optimize for strict data consistency.",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the checkout flow usage. Then, slowly roll out Services behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Lazy Loading to prevent Change Detection errors?",
-    "answer": "When facing a Lazy Loading scenario like this, prioritize understanding the failure mode before jumping to a fix. For hard problems involving Lazy Loading, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Change Detection in Angular?",
-    "answer": "To answer this well, think about Change Detection from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of Change Detection involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Showing you understand the trade-offs of Change Detection — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Dependency Injection solve this?",
-    "answer": "Approaching this Dependency Injection challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. For hard problems involving Dependency Injection, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Dependency Injection.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Signals.",
-    "answer": "A clear grasp of Signals lets you make better architectural trade-offs.  Expert-level use of Signals involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Pair your explanation of Signals with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Signals (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Approaching this Signals challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class SignalsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Change Detection solve this?",
-    "answer": "Diagnosing this Change Detection issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ChangeDetectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Standalone Components play a role in managing the form state?",
-    "answer": "A solid strategy for this Standalone Components challenge is to map out the data flow first, then identify where things deviate from expectations. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Components solve this?",
-    "answer": "To tackle this Components problem, start by reproducing the issue in a controlled environment and gathering metrics. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Components issues often hide in micro-optimizations or subtle state inconsistencies. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Components.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Pipes.",
-    "answer": "To answer this well, think about Pipes from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of Pipes involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  The strongest candidates connect Pipes to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Directives to optimize this?",
-    "answer": "To tackle this Directives problem, start by reproducing the issue in a controlled environment and gathering metrics. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding API rate limiting and achieving strict data consistency.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the checkout flow usage. Then, slowly roll out Route Guards behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Observables solve this?",
-    "answer": "Start by asking: what changed? For Observables, tracing recent deployments or config changes often reveals the root cause quickly. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "During a critical code review for a high-traffic application, you notice Observables being used improperly in the media upload flow, causing inconsistent state bugs. Walk me through how you would optimize this using HttpInterceptor to achieve sub-second load times.",
+    "answer": "The root cause here is typical for high-traffic applications: deadlocks degrades the media upload. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale video streaming application that suffers from frequent server crashes. Specifically, the search autocomplete module is failing due to blocking the main thread. How would you leverage Components alongside RxJS Operators to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "The root cause here is typical for global scale applications: blocking the main thread degrades the search autocomplete. Replacing the flawed logic with Components provides a robust boundary. I'd pair this with RxJS Operators to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a global scale environment, the payment processing is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Signals at the application layer mitigate inconsistent state bugs?",
+    "answer": "To address the inconsistent state bugs in this e-commerce context, I would first isolate the payment processing. By implementing Signals, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "How do you implement Services in Angular?",
-    "answer": "Services comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Understanding Services at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Showing you understand the trade-offs of Services — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Services (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Approaching this Services challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Services issues often hide in micro-optimizations or subtle state inconsistencies. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Pipes to optimize this?",
-    "answer": "A solid strategy for this Pipes challenge is to map out the data flow first, then identify where things deviate from expectations. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Pipes issues often hide in micro-optimizations or subtle state inconsistencies. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "Scenario: You are tasked with refactoring a global scale healthcare application that suffers from API rate limiting. Specifically, the user onboarding module is failing due to unhandled exceptions. How would you leverage Dependency Injection alongside Directives to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the user onboarding usage. Then, slowly roll out Dependency Injection behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Dependency Injection solve this?",
-    "answer": "Approaching this Dependency Injection challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to Routing. Explain the technical trade-offs, particularly regarding massive bundle size and achieving 100% uptime.",
+    "answer": "The root cause here is typical for global scale applications: unoptimized loops degrades the real-time feed. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with Pipes to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a mission-critical environment, the payment processing is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying Directives at the application layer mitigate high latency spikes?",
+    "answer": "The root cause here is typical for mission-critical applications: redundant network calls degrades the payment processing. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with Routing to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the checkout flow system encounters excessive re-renders, how do you gracefully recover using Routing?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the checkout flow usage. Then, slowly roll out Routing behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a fintech app: frequent UI freezing is crashing the media upload. How can Services be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "When handling frequent UI freezing, Services acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Standalone Components for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a legacy healthcare application that suffers from API rate limiting. Specifically, the real-time feed module is failing due to redundant network calls. How would you leverage Pipes alongside Standalone Components to resolve this, ensuring secure data handling is maintained?",
+    "answer": "To address the API rate limiting in this healthcare context, I would first isolate the real-time feed. By implementing Pipes, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a data-intensive IoT dashboard application that suffers from severe memory leaks. Specifically, the search autocomplete module is failing due to unoptimized loops. How would you leverage Route Guards alongside RxJS Operators to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the search autocomplete usage. Then, slowly roll out Route Guards behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a SaaS platform app: high latency spikes is crashing the authentication. How can Dependency Injection be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the authentication usage. Then, slowly roll out Dependency Injection behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained video streaming application that suffers from unpredictable race conditions. Specifically, the user onboarding module is failing due to deadlocks. How would you leverage RxJS Operators alongside HttpInterceptor to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "The root cause here is typical for resource-constrained applications: deadlocks degrades the user onboarding. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our sub-second load times target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does NgRx solve this?",
-    "answer": "For a NgRx problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Signals play a role in managing the form state?",
-    "answer": "Start by asking: what changed? For Signals, tracing recent deployments or config changes often reveals the root cause quickly. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Directives to optimize this?",
-    "answer": "For a Directives problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. For hard problems involving Directives, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Change Detection.",
-    "answer": "Understanding Change Detection deeply is what separates mid-level from senior engineers.  Hard questions around Change Detection probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Change Detection to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ChangeDetectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Directives in Angular?",
-    "answer": "A clear grasp of Directives lets you make better architectural trade-offs.  Understanding Directives at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Pair your explanation of Directives with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: inconsistent state bugs is crashing the real-time feed. How can Route Guards be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "To address the inconsistent state bugs in this IoT dashboard context, I would first isolate the real-time feed. By implementing Route Guards, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Pipes play a role in managing the form state?",
-    "answer": "Start by asking: what changed? For Pipes, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same Pipes issue elsewhere in the codebase. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Routing in Angular?",
-    "answer": "Understanding Routing deeply is what separates mid-level from senior engineers.  Understanding Routing at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Showing you understand the trade-offs of Routing — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class RoutingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Change Detection play a role in managing the form state?",
-    "answer": "The key to resolving this Change Detection issue is breaking it into smaller, verifiable steps and validating each hypothesis. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Pipes (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "For a Pipes problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. For hard problems involving Pipes, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Wrap up by adding observability (alerts, dashboards) specifically around Pipes so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "To answer this well, think about NgRx from first principles: what problem does it exist to solve, and what are its limits?  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to NgRx.  Showing you understand the trade-offs of NgRx — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Dependency Injection to optimize this?",
-    "answer": "Diagnosing this Dependency Injection issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Standalone Components to prevent Change Detection errors?",
-    "answer": "When facing a Standalone Components scenario like this, prioritize understanding the failure mode before jumping to a fix. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Standalone Components.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement NgRx in Angular?",
-    "answer": "To answer this well, think about NgRx from first principles: what problem does it exist to solve, and what are its limits?  Hard questions around NgRx probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Demonstrating real-world usage of NgRx, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to Lazy Loading. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the authentication. Replacing the flawed logic with Lazy Loading provides a robust boundary. I'd pair this with Signals to ensure we hit our smooth 60fps scrolling target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Standalone Components (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "The key to resolving this Standalone Components issue is breaking it into smaller, verifiable steps and validating each hypothesis. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Standalone Components.",
+    "question": "You are debugging a severe production issue in a healthcare app: high latency spikes is crashing the payment processing. How can Standalone Components be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "When handling high latency spikes, Standalone Components acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize NgRx for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy fintech application that suffers from frequent server crashes. Specifically, the user onboarding module is failing due to deadlocks. How would you leverage NgRx alongside Observables to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "To address the frequent server crashes in this fintech context, I would first isolate the user onboarding. By implementing NgRx, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Signals. Explain the technical trade-offs, particularly regarding high latency spikes and achieving WCAG compliance.",
+    "answer": "To address the high latency spikes in this e-commerce context, I would first isolate the media upload. By implementing Signals, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust checkout flow system for a fintech platform. Ensure you incorporate HttpInterceptor to prevent deadlocks and optimize for secure data handling.",
+    "answer": "The root cause here is typical for legacy applications: deadlocks degrades the checkout flow. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with Standalone Components to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the search autocomplete system encounters deadlocks, how do you gracefully recover using Dependency Injection?",
+    "answer": "When handling unpredictable race conditions, Dependency Injection acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize RxJS Operators for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a video streaming platform. Ensure you incorporate Signals to prevent unoptimized loops and optimize for 100% uptime.",
+    "answer": "To address the high latency spikes in this video streaming context, I would first isolate the search autocomplete. By implementing Signals, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling e-commerce application that suffers from high latency spikes. Specifically, the authentication module is failing due to poor garbage collection. How would you leverage Change Detection alongside Lazy Loading to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "To address the high latency spikes in this e-commerce context, I would first isolate the authentication. By implementing Change Detection, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a fintech platform. Ensure you incorporate HttpInterceptor to prevent unoptimized loops and optimize for strict data consistency.",
+    "answer": "When handling API rate limiting, HttpInterceptor acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Services for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the checkout flow system encounters unhandled exceptions, how do you gracefully recover using Services?",
+    "answer": "The root cause here is typical for data-intensive applications: unhandled exceptions degrades the checkout flow. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a global scale environment, the data visualization is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying Observables at the application layer mitigate inconsistent state bugs?",
+    "answer": "When handling inconsistent state bugs, Observables acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Directives for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Services. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving sub-second load times.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the media upload usage. Then, slowly roll out Services behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees sub-second load times.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Standalone Components play a role in managing the form state?",
-    "answer": "Diagnosing this Standalone Components issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Wrap up by adding observability (alerts, dashboards) specifically around Standalone Components so future occurrences are caught automatically before users notice.",
+    "question": "In a global scale environment, the data visualization is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Directives at the application layer mitigate frequent UI freezing?",
+    "answer": "The root cause here is typical for global scale applications: deadlocks degrades the data visualization. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with Observables to ensure we hit our minimal battery drain target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "How do you implement Directives in Angular?",
-    "answer": "Directives solves a specific class of problems in frontend/backend development.  Expert-level use of Directives involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  The strongest candidates connect Directives to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
+    "question": "Machine Coding: Implement a robust user onboarding system for a real-time gaming platform. Ensure you incorporate Signals to prevent unhandled exceptions and optimize for strict data consistency.",
+    "answer": "When handling massive bundle size, Signals acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Routing for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "How do you implement Services in Angular?",
-    "answer": "Services comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Understanding Services at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Demonstrating real-world usage of Services, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Pipes.",
-    "answer": "Understanding Pipes deeply is what separates mid-level from senior engineers.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Pipes.  Showing you understand the trade-offs of Pipes — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "During a critical code review for a global scale application, you notice Directives being used improperly in the checkout flow flow, causing inconsistent state bugs. Walk me through how you would optimize this using Change Detection to achieve sub-second load times.",
+    "answer": "The root cause here is typical for global scale applications: deadlocks degrades the checkout flow. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with Change Detection to ensure we hit our sub-second load times target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Lazy Loading to optimize this?",
-    "answer": "Diagnosing this Lazy Loading issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Lazy Loading.",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the user onboarding system encounters blocking the main thread, how do you gracefully recover using Dependency Injection?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the user onboarding usage. Then, slowly roll out Dependency Injection behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a fintech platform. Ensure you incorporate Standalone Components to prevent excessive re-renders and optimize for WCAG compliance.",
+    "answer": "To address the inconsistent state bugs in this fintech context, I would first isolate the search autocomplete. By implementing Standalone Components, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling healthcare application that suffers from frequent server crashes. Specifically, the data visualization module is failing due to deadlocks. How would you leverage Pipes alongside HttpInterceptor to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the data visualization usage. Then, slowly roll out Pipes behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to NgRx. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving strict data consistency.",
+    "answer": "The root cause here is typical for global scale applications: unhandled exceptions degrades the data visualization. Replacing the flawed logic with NgRx provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a real-time gaming platform. Ensure you incorporate NgRx to prevent unhandled exceptions and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for global scale applications: unhandled exceptions degrades the payment processing. Replacing the flawed logic with NgRx provides a robust boundary. I'd pair this with Pipes to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a fintech platform. Ensure you incorporate Observables to prevent blocking the main thread and optimize for WCAG compliance.",
+    "answer": "The root cause here is typical for rapidly scaling applications: blocking the main thread degrades the search autocomplete. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Routing to ensure we hit our WCAG compliance target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Services to prevent Change Detection errors?",
-    "answer": "The key to resolving this Services issue is breaking it into smaller, verifiable steps and validating each hypothesis. Wrap up by adding observability (alerts, dashboards) specifically around Services so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the media upload system encounters unoptimized loops, how do you gracefully recover using Observables?",
+    "answer": "The root cause here is typical for global scale applications: unoptimized loops degrades the media upload. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our minimal battery drain target safely.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Dependency Injection (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "To tackle this Dependency Injection problem, start by reproducing the issue in a controlled environment and gathering metrics. For hard problems involving Dependency Injection, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "During a critical code review for a data-intensive application, you notice Pipes being used improperly in the media upload flow, causing API rate limiting. Walk me through how you would optimize this using Routing to achieve smooth 60fps scrolling.",
+    "answer": "When handling API rate limiting, Pipes acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Routing for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Services (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "To tackle this Services problem, start by reproducing the issue in a controlled environment and gathering metrics. Wrap up by adding observability (alerts, dashboards) specifically around Services so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Signals.",
-    "answer": "Signals comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Understanding Signals at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  The strongest candidates connect Signals to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the real-time feed system encounters blocking the main thread, how do you gracefully recover using NgRx?",
+    "answer": "To address the frequent server crashes in this e-commerce context, I would first isolate the real-time feed. By implementing NgRx, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Services to prevent Change Detection errors?",
-    "answer": "The key to resolving this Services issue is breaking it into smaller, verifiable steps and validating each hypothesis. Review related code paths and check for similar patterns that might harbor the same Services issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Lazy Loading play a role in managing the form state?",
-    "answer": "To tackle this Lazy Loading problem, start by reproducing the issue in a controlled environment and gathering metrics. Wrap up by adding observability (alerts, dashboards) specifically around Lazy Loading so future occurrences are caught automatically before users notice.",
+    "question": "In a resource-constrained environment, the media upload is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying Lazy Loading at the application layer mitigate inconsistent state bugs?",
+    "answer": "To address the inconsistent state bugs in this social media context, I would first isolate the media upload. By implementing Lazy Loading, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Services play a role in managing the form state?",
-    "answer": "To tackle this Services problem, start by reproducing the issue in a controlled environment and gathering metrics. For hard problems involving Services, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Wrap up by adding observability (alerts, dashboards) specifically around Services so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Change Detection.",
-    "answer": "To answer this well, think about Change Detection from first principles: what problem does it exist to solve, and what are its limits?  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Change Detection.  Showing you understand the trade-offs of Change Detection — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to RxJS Operators. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving sub-second load times.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the real-time feed usage. Then, slowly roll out RxJS Operators behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees sub-second load times.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Services play a role in managing the form state?",
-    "answer": "A solid strategy for this Services challenge is to map out the data flow first, then identify where things deviate from expectations. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Services.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
+    "question": "You are debugging a severe production issue in a healthcare app: frequent UI freezing is crashing the payment processing. How can NgRx be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the payment processing usage. Then, slowly roll out NgRx behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Standalone Components play a role in managing the form state?",
-    "answer": "The key to resolving this Standalone Components issue is breaking it into smaller, verifiable steps and validating each hypothesis. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the authentication system encounters deadlocks, how do you gracefully recover using Directives?",
+    "answer": "To address the inconsistent state bugs in this SaaS platform context, I would first isolate the authentication. By implementing Directives, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Lazy Loading.",
-    "answer": "Lazy Loading solves a specific class of problems in frontend/backend development.  Expert-level use of Lazy Loading involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Lazy Loading in Angular?",
-    "answer": "Lazy Loading comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Hard questions around Lazy Loading probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Lazy Loading to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class LazyLoadingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Services.",
-    "answer": "Services comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Mid-level engineers should be comfortable explaining the performance trade-offs of Services and when NOT to use it.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Routing solve this?",
-    "answer": "Diagnosing this Routing issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Routing.",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the checkout flow system encounters unhandled exceptions, how do you gracefully recover using Pipes?",
+    "answer": "When handling massive bundle size, Pipes acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize HttpInterceptor for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "How do you implement Lazy Loading in Angular?",
-    "answer": "A clear grasp of Lazy Loading lets you make better architectural trade-offs.  For beginners, the key insight is understanding the \"why\" behind Lazy Loading, not just the syntax.  Showing you understand the trade-offs of Lazy Loading — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Routing (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Start by asking: what changed? For Routing, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same Routing issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "NgRx is a foundational concept that directly influences how scalable and maintainable your code is.  At an intermediate level, focus on how NgRx interacts with related browser APIs, frameworks, or runtime environments.  Showing you understand the trade-offs of NgRx — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Lazy Loading play a role in managing the form state?",
-    "answer": "A solid strategy for this Lazy Loading challenge is to map out the data flow first, then identify where things deviate from expectations. Review related code paths and check for similar patterns that might harbor the same Lazy Loading issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Lazy Loading.",
+    "question": "Machine Coding: Implement a robust real-time feed system for a SaaS platform platform. Ensure you incorporate Pipes to prevent blocking the main thread and optimize for 100% uptime.",
+    "answer": "When handling inconsistent state bugs, Pipes acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Lazy Loading for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "How do you implement Standalone Components in Angular?",
-    "answer": "Understanding Standalone Components deeply is what separates mid-level from senior engineers.  Expert-level use of Standalone Components involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class StandaloneComponentsService {\n  constructor() {}\n}"
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Lazy Loading. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving 100% uptime.",
+    "answer": "To address the frequent server crashes in this e-commerce context, I would first isolate the user onboarding. By implementing Lazy Loading, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Dependency Injection to prevent Change Detection errors?",
-    "answer": "The key to resolving this Dependency Injection issue is breaking it into smaller, verifiable steps and validating each hypothesis. For hard problems involving Dependency Injection, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Machine Coding: Implement a robust data visualization system for a e-commerce platform. Ensure you incorporate Observables to prevent blocking the main thread and optimize for sub-second load times.",
+    "answer": "To address the massive bundle size in this e-commerce context, I would first isolate the data visualization. By implementing Observables, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving sub-second load times.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the media upload usage. Then, slowly roll out Pipes behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: unpredictable race conditions is crashing the data visualization. How can Pipes be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "To address the unpredictable race conditions in this IoT dashboard context, I would first isolate the data visualization. By implementing Pipes, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "How do you implement Dependency Injection in Angular?",
-    "answer": "To answer this well, think about Dependency Injection from first principles: what problem does it exist to solve, and what are its limits?  For beginners, the key insight is understanding the \"why\" behind Dependency Injection, not just the syntax.  Showing you understand the trade-offs of Dependency Injection — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving 100% uptime.",
+    "answer": "To address the inconsistent state bugs in this social media context, I would first isolate the checkout flow. By implementing Route Guards, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: API rate limiting is crashing the user onboarding. How can Components be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the user onboarding usage. Then, slowly roll out Components behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust authentication system for a e-commerce platform. Ensure you incorporate NgRx to prevent blocking the main thread and optimize for secure data handling.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out NgRx behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a high-traffic application, you notice Observables being used improperly in the checkout flow flow, causing unpredictable race conditions. Walk me through how you would optimize this using HttpInterceptor to achieve smooth 60fps scrolling.",
+    "answer": "When handling unpredictable race conditions, Observables acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize HttpInterceptor for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a high-traffic real-time gaming application that suffers from frequent server crashes. Specifically, the checkout flow module is failing due to unoptimized loops. How would you leverage Standalone Components alongside Routing to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the checkout flow usage. Then, slowly roll out Standalone Components behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the checkout flow system encounters blocking the main thread, how do you gracefully recover using Observables?",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the checkout flow. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with NgRx to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a data-intensive application, you notice Components being used improperly in the payment processing flow, causing API rate limiting. Walk me through how you would optimize this using Directives to achieve sub-second load times.",
+    "answer": "When handling API rate limiting, Components acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Directives for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a healthcare app: massive bundle size is crashing the authentication. How can Change Detection be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "The root cause here is typical for data-intensive applications: redundant network calls degrades the authentication. Replacing the flawed logic with Change Detection provides a robust boundary. I'd pair this with NgRx to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a high-traffic social media application that suffers from inconsistent state bugs. Specifically, the media upload module is failing due to deadlocks. How would you leverage Signals alongside Routing to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "When handling inconsistent state bugs, Signals acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Routing for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling fintech application that suffers from API rate limiting. Specifically, the real-time feed module is failing due to unoptimized loops. How would you leverage Observables alongside NgRx to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the real-time feed usage. Then, slowly roll out Observables behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a SaaS platform platform. Ensure you incorporate Lazy Loading to prevent deadlocks and optimize for smooth 60fps scrolling.",
+    "answer": "To address the unpredictable race conditions in this SaaS platform context, I would first isolate the user onboarding. By implementing Lazy Loading, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a legacy application, you notice Dependency Injection being used improperly in the search autocomplete flow, causing severe memory leaks. Walk me through how you would optimize this using NgRx to achieve smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for legacy applications: blocking the main thread degrades the search autocomplete. Replacing the flawed logic with Dependency Injection provides a robust boundary. I'd pair this with NgRx to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the real-time feed system encounters unoptimized loops, how do you gracefully recover using NgRx?",
+    "answer": "The root cause here is typical for high-traffic applications: unoptimized loops degrades the real-time feed. Replacing the flawed logic with NgRx provides a robust boundary. I'd pair this with Components to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a SaaS platform platform. Ensure you incorporate Route Guards to prevent deadlocks and optimize for strict data consistency.",
+    "answer": "When handling inconsistent state bugs, Route Guards acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize NgRx for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a data-intensive application, you notice Route Guards being used improperly in the media upload flow, causing frequent server crashes. Walk me through how you would optimize this using Pipes to achieve WCAG compliance.",
+    "answer": "To address the frequent server crashes in this real-time gaming context, I would first isolate the media upload. By implementing Route Guards, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a data-intensive environment, the payment processing is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Standalone Components at the application layer mitigate inconsistent state bugs?",
+    "answer": "When handling inconsistent state bugs, Standalone Components acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize NgRx for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to NgRx. Explain the technical trade-offs, particularly regarding high latency spikes and achieving WCAG compliance.",
+    "answer": "To address the high latency spikes in this e-commerce context, I would first isolate the real-time feed. By implementing NgRx, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a e-commerce app: API rate limiting is crashing the data visualization. How can Directives be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the data visualization usage. Then, slowly roll out Directives behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the authentication is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Route Guards at the application layer mitigate severe memory leaks?",
+    "answer": "To address the severe memory leaks in this real-time gaming context, I would first isolate the authentication. By implementing Route Guards, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "How do you implement Components in Angular?",
-    "answer": "To answer this well, think about Components from first principles: what problem does it exist to solve, and what are its limits?  A practical way to internalize Components is to build a small demo that isolates it from other concerns.  Showing you understand the trade-offs of Components — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Services.",
-    "answer": "Understanding Services deeply is what separates mid-level from senior engineers.  Mid-level engineers should be comfortable explaining the performance trade-offs of Services and when NOT to use it.  Pair your explanation of Services with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Change Detection.",
-    "answer": "A clear grasp of Change Detection lets you make better architectural trade-offs.  Understanding Change Detection at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  The strongest candidates connect Change Detection to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Directives to optimize this?",
-    "answer": "To tackle this Directives problem, start by reproducing the issue in a controlled environment and gathering metrics. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Services.",
-    "answer": "Services is a foundational concept that directly influences how scalable and maintainable your code is.  Expert-level use of Services involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Change Detection to prevent Change Detection errors?",
-    "answer": "For a Change Detection problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Routing (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "A solid strategy for this Routing challenge is to map out the data flow first, then identify where things deviate from expectations. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Routing issues often hide in micro-optimizations or subtle state inconsistencies. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Routing.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class RoutingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Pipes solve this?",
-    "answer": "For a Pipes problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Pipes issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around Pipes so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Services in Angular?",
-    "answer": "Services comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an intermediate level, focus on how Services interacts with related browser APIs, frameworks, or runtime environments.  Pair your explanation of Services with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "How do you implement Services in Angular?",
-    "answer": "Services is a foundational concept that directly influences how scalable and maintainable your code is.  A practical way to internalize Services is to build a small demo that isolates it from other concerns.  The strongest candidates connect Services to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Standalone Components in Angular?",
-    "answer": "A clear grasp of Standalone Components lets you make better architectural trade-offs.  Hard questions around Standalone Components probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Showing you understand the trade-offs of Standalone Components — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Routing (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Start by asking: what changed? For Routing, tracing recent deployments or config changes often reveals the root cause quickly. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement NgRx in Angular?",
-    "answer": "NgRx is a foundational concept that directly influences how scalable and maintainable your code is.  At an intermediate level, focus on how NgRx interacts with related browser APIs, frameworks, or runtime environments.  Pair your explanation of NgRx with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Components in Angular?",
-    "answer": "To answer this well, think about Components from first principles: what problem does it exist to solve, and what are its limits?  Mid-level engineers should be comfortable explaining the performance trade-offs of Components and when NOT to use it.  Pair your explanation of Components with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Signals in Angular?",
-    "answer": "Signals comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Mid-level engineers should be comfortable explaining the performance trade-offs of Signals and when NOT to use it.  The strongest candidates connect Signals to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Observables solve this?",
-    "answer": "A solid strategy for this Observables challenge is to map out the data flow first, then identify where things deviate from expectations. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Wrap up by adding observability (alerts, dashboards) specifically around Observables so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Pipes to prevent Change Detection errors?",
-    "answer": "When facing a Pipes scenario like this, prioritize understanding the failure mode before jumping to a fix. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Lazy Loading to optimize this?",
-    "answer": "When facing a Lazy Loading scenario like this, prioritize understanding the failure mode before jumping to a fix. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Dependency Injection to optimize this?",
-    "answer": "Approaching this Dependency Injection challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. For hard problems involving Dependency Injection, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Wrap up by adding observability (alerts, dashboards) specifically around Dependency Injection so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Lazy Loading in Angular?",
-    "answer": "Lazy Loading comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Lazy Loading.  The strongest candidates connect Lazy Loading to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Change Detection play a role in managing the form state?",
-    "answer": "The key to resolving this Change Detection issue is breaking it into smaller, verifiable steps and validating each hypothesis. For hard problems involving Change Detection, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Change Detection.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ChangeDetectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Pipes.",
-    "answer": "Pipes solves a specific class of problems in frontend/backend development.  Understanding Pipes at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  The strongest candidates connect Pipes to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Components play a role in managing the form state?",
-    "answer": "To tackle this Components problem, start by reproducing the issue in a controlled environment and gathering metrics. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Components issues often hide in micro-optimizations or subtle state inconsistencies. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Lazy Loading play a role in managing the form state?",
-    "answer": "The key to resolving this Lazy Loading issue is breaking it into smaller, verifiable steps and validating each hypothesis. For hard problems involving Lazy Loading, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Components.",
-    "answer": "Components is a foundational concept that directly influences how scalable and maintainable your code is.  Understanding Components at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to HttpInterceptor. Explain the technical trade-offs, particularly regarding massive bundle size and achieving 100% uptime.",
+    "answer": "The root cause here is typical for rapidly scaling applications: unhandled exceptions degrades the media upload. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with Services to ensure we hit our 100% uptime target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "How do you implement Standalone Components in Angular?",
-    "answer": "To answer this well, think about Standalone Components from first principles: what problem does it exist to solve, and what are its limits?  A practical way to internalize Standalone Components is to build a small demo that isolates it from other concerns.  Pair your explanation of Standalone Components with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "question": "During a critical code review for a high-traffic application, you notice Lazy Loading being used improperly in the payment processing flow, causing API rate limiting. Walk me through how you would optimize this using Observables to achieve strict data consistency.",
+    "answer": "To address the API rate limiting in this IoT dashboard context, I would first isolate the payment processing. By implementing Lazy Loading, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Components play a role in managing the form state?",
-    "answer": "The key to resolving this Components issue is breaking it into smaller, verifiable steps and validating each hypothesis. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Dependency Injection to prevent Change Detection errors?",
-    "answer": "The key to resolving this Dependency Injection issue is breaking it into smaller, verifiable steps and validating each hypothesis. For hard problems involving Dependency Injection, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Directives.",
-    "answer": "Directives is a foundational concept that directly influences how scalable and maintainable your code is.  Expert-level use of Directives involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Showing you understand the trade-offs of Directives — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the media upload system encounters deadlocks, how do you gracefully recover using Change Detection?",
+    "answer": "When handling severe memory leaks, Change Detection acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Standalone Components for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "How do you implement Standalone Components in Angular?",
-    "answer": "Standalone Components solves a specific class of problems in frontend/backend development.  Understanding Standalone Components at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "Machine Coding: Implement a robust real-time feed system for a social media platform. Ensure you incorporate Routing to prevent blocking the main thread and optimize for WCAG compliance.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the real-time feed usage. Then, slowly roll out Routing behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees WCAG compliance.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "How do you implement Standalone Components in Angular?",
-    "answer": "Standalone Components is a foundational concept that directly influences how scalable and maintainable your code is.  Expert-level use of Standalone Components involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Demonstrating real-world usage of Standalone Components, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class StandaloneComponentsService {\n  constructor() {}\n}"
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the user onboarding system encounters unoptimized loops, how do you gracefully recover using Pipes?",
+    "answer": "When handling high latency spikes, Pipes acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Route Guards for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust data visualization system for a SaaS platform platform. Ensure you incorporate Directives to prevent blocking the main thread and optimize for minimal battery drain.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the data visualization usage. Then, slowly roll out Directives behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a mission-critical e-commerce application that suffers from inconsistent state bugs. Specifically, the real-time feed module is failing due to excessive re-renders. How would you leverage Signals alongside Components to resolve this, ensuring secure data handling is maintained?",
+    "answer": "The root cause here is typical for mission-critical applications: excessive re-renders degrades the real-time feed. Replacing the flawed logic with Signals provides a robust boundary. I'd pair this with Components to ensure we hit our secure data handling target safely.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "A clear grasp of NgRx lets you make better architectural trade-offs.  Mid-level engineers should be comfortable explaining the performance trade-offs of NgRx and when NOT to use it.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the authentication system encounters unoptimized loops, how do you gracefully recover using Standalone Components?",
+    "answer": "The root cause here is typical for data-intensive applications: unoptimized loops degrades the authentication. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with Services to ensure we hit our minimal battery drain target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Services.",
-    "answer": "To answer this well, think about Services from first principles: what problem does it exist to solve, and what are its limits?  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Services.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Dependency Injection to optimize this?",
-    "answer": "For a Dependency Injection problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Signals in Angular?",
-    "answer": "Signals comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Signals.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the search autocomplete system encounters unhandled exceptions, how do you gracefully recover using Services?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the search autocomplete usage. Then, slowly roll out Services behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees minimal battery drain.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "NgRx is a foundational concept that directly influences how scalable and maintainable your code is.  For beginners, the key insight is understanding the \"why\" behind NgRx, not just the syntax.  Demonstrating real-world usage of NgRx, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Signals in Angular?",
-    "answer": "To answer this well, think about Signals from first principles: what problem does it exist to solve, and what are its limits?  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Signals.  Showing you understand the trade-offs of Signals — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Change Detection. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving strict data consistency.",
+    "answer": "The root cause here is typical for enterprise applications: excessive re-renders degrades the media upload. Replacing the flawed logic with Change Detection provides a robust boundary. I'd pair this with Components to ensure we hit our strict data consistency target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Services to prevent Change Detection errors?",
-    "answer": "Diagnosing this Services issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Wrap up by adding observability (alerts, dashboards) specifically around Services so future occurrences are caught automatically before users notice.",
+    "question": "During a critical code review for a enterprise application, you notice Signals being used improperly in the checkout flow flow, causing unpredictable race conditions. Walk me through how you would optimize this using RxJS Operators to achieve smooth 60fps scrolling.",
+    "answer": "When handling unpredictable race conditions, Signals acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize RxJS Operators for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Directives play a role in managing the form state?",
-    "answer": "When facing a Directives scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same Directives issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Services to optimize this?",
-    "answer": "To tackle this Services problem, start by reproducing the issue in a controlled environment and gathering metrics. Review related code paths and check for similar patterns that might harbor the same Services issue elsewhere in the codebase. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Components (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "When facing a Components scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same Components issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "How do you implement Dependency Injection in Angular?",
-    "answer": "Dependency Injection solves a specific class of problems in frontend/backend development.  A practical way to internalize Dependency Injection is to build a small demo that isolates it from other concerns.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Dependency Injection.",
-    "answer": "Understanding Dependency Injection deeply is what separates mid-level from senior engineers.  Mid-level engineers should be comfortable explaining the performance trade-offs of Dependency Injection and when NOT to use it.  The strongest candidates connect Dependency Injection to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Signals to prevent Change Detection errors?",
-    "answer": "Approaching this Signals challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around Signals so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class SignalsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Lazy Loading.",
-    "answer": "Lazy Loading is a foundational concept that directly influences how scalable and maintainable your code is.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Lazy Loading.  The strongest candidates connect Lazy Loading to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Dependency Injection play a role in managing the form state?",
-    "answer": "When facing a Dependency Injection scenario like this, prioritize understanding the failure mode before jumping to a fix. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "Design architecture for a social media feature handling millions of requests. If the payment processing system encounters unoptimized loops, how do you gracefully recover using Directives?",
+    "answer": "The root cause here is typical for rapidly scaling applications: unoptimized loops degrades the payment processing. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with Change Detection to ensure we hit our minimal battery drain target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Lazy Loading (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "When facing a Lazy Loading scenario like this, prioritize understanding the failure mode before jumping to a fix. For hard problems involving Lazy Loading, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Wrap up by adding observability (alerts, dashboards) specifically around Lazy Loading so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class LazyLoadingService {\n  constructor() {}\n}"
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding massive bundle size and achieving secure data handling.",
+    "answer": "The root cause here is typical for data-intensive applications: redundant network calls degrades the payment processing. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our secure data handling target safely.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Dependency Injection to prevent Change Detection errors?",
-    "answer": "To tackle this Dependency Injection problem, start by reproducing the issue in a controlled environment and gathering metrics. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "In a rapidly scaling environment, the checkout flow is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Lazy Loading at the application layer mitigate severe memory leaks?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the checkout flow usage. Then, slowly roll out Lazy Loading behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees smooth 60fps scrolling.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Observables solve this?",
-    "answer": "To tackle this Observables problem, start by reproducing the issue in a controlled environment and gathering metrics. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Observables issues often hide in micro-optimizations or subtle state inconsistencies. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does NgRx play a role in managing the form state?",
-    "answer": "A solid strategy for this NgRx challenge is to map out the data flow first, then identify where things deviate from expectations. Review related code paths and check for similar patterns that might harbor the same NgRx issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around NgRx.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "NgRx solves a specific class of problems in frontend/backend development.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to NgRx.  Demonstrating real-world usage of NgRx, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Change Detection.",
-    "answer": "Understanding Change Detection deeply is what separates mid-level from senior engineers.  Understanding Change Detection at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Pair your explanation of Change Detection with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Pipes (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Start by asking: what changed? For Pipes, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same Pipes issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Routing in Angular?",
-    "answer": "To answer this well, think about Routing from first principles: what problem does it exist to solve, and what are its limits?  At an intermediate level, focus on how Routing interacts with related browser APIs, frameworks, or runtime environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does NgRx solve this?",
-    "answer": "Approaching this NgRx challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around NgRx.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does NgRx solve this?",
-    "answer": "To tackle this NgRx problem, start by reproducing the issue in a controlled environment and gathering metrics. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around NgRx.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Components (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Approaching this Components challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Review related code paths and check for similar patterns that might harbor the same Components issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Dependency Injection.",
-    "answer": "A clear grasp of Dependency Injection lets you make better architectural trade-offs.  At an intermediate level, focus on how Dependency Injection interacts with related browser APIs, frameworks, or runtime environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "Machine Coding: Implement a robust real-time feed system for a fintech platform. Ensure you incorporate Pipes to prevent redundant network calls and optimize for WCAG compliance.",
+    "answer": "When handling high latency spikes, Pipes acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Dependency Injection for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Routing solve this?",
-    "answer": "Start by asking: what changed? For Routing, tracing recent deployments or config changes often reveals the root cause quickly. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Routing solve this?",
-    "answer": "A solid strategy for this Routing challenge is to map out the data flow first, then identify where things deviate from expectations. For hard problems involving Routing, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class RoutingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "How do you implement Signals in Angular?",
-    "answer": "Signals solves a specific class of problems in frontend/backend development.  A practical way to internalize Signals is to build a small demo that isolates it from other concerns.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the checkout flow system encounters blocking the main thread, how do you gracefully recover using RxJS Operators?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the checkout flow usage. Then, slowly roll out RxJS Operators behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees WCAG compliance.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Change Detection (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "When facing a Change Detection scenario like this, prioritize understanding the failure mode before jumping to a fix. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ChangeDetectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Directives (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "The key to resolving this Directives issue is breaking it into smaller, verifiable steps and validating each hypothesis. For hard problems involving Directives, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Directives.",
+    "question": "Machine Coding: Implement a robust payment processing system for a e-commerce platform. Ensure you incorporate Components to prevent redundant network calls and optimize for smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for global scale applications: redundant network calls degrades the payment processing. Replacing the flawed logic with Components provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our smooth 60fps scrolling target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Dependency Injection (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Approaching this Dependency Injection challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. For hard problems involving Dependency Injection, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "In a mission-critical environment, the data visualization is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying HttpInterceptor at the application layer mitigate inconsistent state bugs?",
+    "answer": "To address the inconsistent state bugs in this IoT dashboard context, I would first isolate the data visualization. By implementing HttpInterceptor, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Observables solve this?",
-    "answer": "For a Observables problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "In a mission-critical environment, the user onboarding is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying HttpInterceptor at the application layer mitigate severe memory leaks?",
+    "answer": "When handling severe memory leaks, HttpInterceptor acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Components for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Pipes to prevent Change Detection errors?",
-    "answer": "Diagnosing this Pipes issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust real-time feed system for a SaaS platform platform. Ensure you incorporate Dependency Injection to prevent deadlocks and optimize for strict data consistency.",
+    "answer": "When handling frequent UI freezing, Dependency Injection acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize RxJS Operators for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does NgRx play a role in managing the form state?",
-    "answer": "Start by asking: what changed? For NgRx, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same NgRx issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Pipes solve this?",
-    "answer": "Start by asking: what changed? For Pipes, tracing recent deployments or config changes often reveals the root cause quickly. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Pipes issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around Pipes so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Directives.",
-    "answer": "Directives comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Understanding Directives at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the search autocomplete system encounters blocking the main thread, how do you gracefully recover using Routing?",
+    "answer": "To address the inconsistent state bugs in this e-commerce context, I would first isolate the search autocomplete. By implementing Routing, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "How do you implement Observables in Angular?",
-    "answer": "Observables comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Hard questions around Observables probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Observables to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ObservablesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Signals to optimize this?",
-    "answer": "Approaching this Signals challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Review related code paths and check for similar patterns that might harbor the same Signals issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the authentication system encounters deadlocks, how do you gracefully recover using Dependency Injection?",
+    "answer": "When handling frequent server crashes, Dependency Injection acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize NgRx for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Dependency Injection.",
-    "answer": "Dependency Injection solves a specific class of problems in frontend/backend development.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Dependency Injection.  Showing you understand the trade-offs of Dependency Injection — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Explain the lifecycle hooks associated with Observables.",
-    "answer": "Observables solves a specific class of problems in frontend/backend development.  A practical way to internalize Observables is to build a small demo that isolates it from other concerns.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ObservablesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Lazy Loading solve this?",
-    "answer": "Approaching this Lazy Loading challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "You are debugging a severe production issue in a e-commerce app: unpredictable race conditions is crashing the search autocomplete. How can Route Guards be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "To address the unpredictable race conditions in this e-commerce context, I would first isolate the search autocomplete. By implementing Route Guards, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Services.",
-    "answer": "To answer this well, think about Services from first principles: what problem does it exist to solve, and what are its limits?  Understanding Services at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Showing you understand the trade-offs of Services — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "Design architecture for a social media feature handling millions of requests. If the media upload system encounters blocking the main thread, how do you gracefully recover using RxJS Operators?",
+    "answer": "When handling API rate limiting, RxJS Operators acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Lazy Loading for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the real-time feed system encounters unoptimized loops, how do you gracefully recover using Standalone Components?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the real-time feed usage. Then, slowly roll out Standalone Components behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the user onboarding system encounters excessive re-renders, how do you gracefully recover using Services?",
+    "answer": "The root cause here is typical for legacy applications: excessive re-renders degrades the user onboarding. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Change Detection to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a rapidly scaling application, you notice Change Detection being used improperly in the payment processing flow, causing API rate limiting. Walk me through how you would optimize this using Observables to achieve secure data handling.",
+    "answer": "To address the API rate limiting in this social media context, I would first isolate the payment processing. By implementing Change Detection, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling e-commerce application that suffers from high latency spikes. Specifically, the data visualization module is failing due to deadlocks. How would you leverage Change Detection alongside HttpInterceptor to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the data visualization usage. Then, slowly roll out Change Detection behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Standalone Components to optimize this?",
-    "answer": "Diagnosing this Standalone Components issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Standalone Components.",
+    "question": "Scenario: You are tasked with refactoring a data-intensive fintech application that suffers from API rate limiting. Specifically, the real-time feed module is failing due to unhandled exceptions. How would you leverage Routing alongside RxJS Operators to resolve this, ensuring secure data handling is maintained?",
+    "answer": "To address the API rate limiting in this fintech context, I would first isolate the real-time feed. By implementing Routing, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Components to prevent Change Detection errors?",
-    "answer": "Start by asking: what changed? For Components, tracing recent deployments or config changes often reveals the root cause quickly. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the media upload system encounters blocking the main thread, how do you gracefully recover using HttpInterceptor?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the media upload usage. Then, slowly roll out HttpInterceptor behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: severe memory leaks is crashing the search autocomplete. How can Route Guards be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the search autocomplete usage. Then, slowly roll out Route Guards behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to HttpInterceptor. Explain the technical trade-offs, particularly regarding API rate limiting and achieving minimal battery drain.",
+    "answer": "To address the API rate limiting in this SaaS platform context, I would first isolate the real-time feed. By implementing HttpInterceptor, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice Routing being used improperly in the data visualization flow, causing unpredictable race conditions. Walk me through how you would optimize this using Route Guards to achieve secure data handling.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the data visualization usage. Then, slowly roll out Routing behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust media upload system for a fintech platform. Ensure you incorporate Pipes to prevent blocking the main thread and optimize for secure data handling.",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the media upload. Replacing the flawed logic with Pipes provides a robust boundary. I'd pair this with Standalone Components to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a high-traffic environment, the real-time feed is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying Services at the application layer mitigate massive bundle size?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the real-time feed usage. Then, slowly roll out Services behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a IoT dashboard platform. Ensure you incorporate RxJS Operators to prevent excessive re-renders and optimize for WCAG compliance.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the user onboarding usage. Then, slowly roll out RxJS Operators behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the data visualization is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Route Guards at the application layer mitigate inconsistent state bugs?",
+    "answer": "The root cause here is typical for rapidly scaling applications: poor garbage collection degrades the data visualization. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our 100% uptime target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Observables (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "A solid strategy for this Observables challenge is to map out the data flow first, then identify where things deviate from expectations. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "In a high-traffic environment, the real-time feed is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying Observables at the application layer mitigate frequent UI freezing?",
+    "answer": "The root cause here is typical for high-traffic applications: redundant network calls degrades the real-time feed. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Signals to ensure we hit our secure data handling target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Lazy Loading.",
-    "answer": "Lazy Loading solves a specific class of problems in frontend/backend development.  Expert-level use of Lazy Loading involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Demonstrating real-world usage of Lazy Loading, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class LazyLoadingService {\n  constructor() {}\n}"
+    "question": "In a mission-critical environment, the search autocomplete is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Signals at the application layer mitigate inconsistent state bugs?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the search autocomplete usage. Then, slowly roll out Signals behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees secure data handling.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Directives solve this?",
-    "answer": "Approaching this Directives challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Review related code paths and check for similar patterns that might harbor the same Directives issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
+    "question": "Scenario: You are tasked with refactoring a resource-constrained IoT dashboard application that suffers from frequent server crashes. Specifically, the user onboarding module is failing due to deadlocks. How would you leverage Lazy Loading alongside Pipes to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "The root cause here is typical for resource-constrained applications: deadlocks degrades the user onboarding. Replacing the flawed logic with Lazy Loading provides a robust boundary. I'd pair this with Pipes to ensure we hit our 100% uptime target safely.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Directives solve this?",
-    "answer": "Start by asking: what changed? For Directives, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same Directives issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Directives.",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a real-time gaming platform. Ensure you incorporate Signals to prevent deadlocks and optimize for 100% uptime.",
+    "answer": "The root cause here is typical for legacy applications: deadlocks degrades the search autocomplete. Replacing the flawed logic with Signals provides a robust boundary. I'd pair this with Routing to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust real-time feed system for a IoT dashboard platform. Ensure you incorporate Route Guards to prevent redundant network calls and optimize for minimal battery drain.",
+    "answer": "To address the high latency spikes in this IoT dashboard context, I would first isolate the real-time feed. By implementing Route Guards, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to Standalone Components. Explain the technical trade-offs, particularly regarding massive bundle size and achieving strict data consistency.",
+    "answer": "When handling massive bundle size, Standalone Components acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Directives for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained IoT dashboard application that suffers from frequent UI freezing. Specifically, the checkout flow module is failing due to poor garbage collection. How would you leverage RxJS Operators alongside Route Guards to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "To address the frequent UI freezing in this IoT dashboard context, I would first isolate the checkout flow. By implementing RxJS Operators, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Explain the lifecycle hooks associated with Routing.",
-    "answer": "A clear grasp of Routing lets you make better architectural trade-offs.  A practical way to internalize Routing is to build a small demo that isolates it from other concerns.  Pair your explanation of Routing with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement NgRx in Angular?",
-    "answer": "Understanding NgRx deeply is what separates mid-level from senior engineers.  Understanding NgRx at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "During a critical code review for a resource-constrained application, you notice Components being used improperly in the search autocomplete flow, causing unpredictable race conditions. Walk me through how you would optimize this using Standalone Components to achieve strict data consistency.",
+    "answer": "To address the unpredictable race conditions in this fintech context, I would first isolate the search autocomplete. By implementing Components, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Components play a role in managing the form state?",
-    "answer": "For a Components problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. For hard problems involving Components, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Wrap up by adding observability (alerts, dashboards) specifically around Components so future occurrences are caught automatically before users notice.",
+    "question": "Scenario: You are tasked with refactoring a data-intensive e-commerce application that suffers from high latency spikes. Specifically, the search autocomplete module is failing due to poor garbage collection. How would you leverage Services alongside Routing to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "To address the high latency spikes in this e-commerce context, I would first isolate the search autocomplete. By implementing Services, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a data-intensive SaaS platform application that suffers from frequent server crashes. Specifically, the data visualization module is failing due to blocking the main thread. How would you leverage Standalone Components alongside Services to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "When handling frequent server crashes, Standalone Components acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Services for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a enterprise application, you notice Standalone Components being used improperly in the data visualization flow, causing frequent server crashes. Walk me through how you would optimize this using Components to achieve secure data handling.",
+    "answer": "When handling frequent server crashes, Standalone Components acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Components for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice Signals being used improperly in the user onboarding flow, causing massive bundle size. Walk me through how you would optimize this using RxJS Operators to achieve strict data consistency.",
+    "answer": "To address the massive bundle size in this e-commerce context, I would first isolate the user onboarding. By implementing Signals, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Directives solve this?",
-    "answer": "To tackle this Directives problem, start by reproducing the issue in a controlled environment and gathering metrics. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Components in Angular?",
-    "answer": "To answer this well, think about Components from first principles: what problem does it exist to solve, and what are its limits?  Mid-level engineers should be comfortable explaining the performance trade-offs of Components and when NOT to use it.  Pair your explanation of Components with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ComponentsService {\n  constructor() {}\n}"
+    "question": "In a rapidly scaling environment, the authentication is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying HttpInterceptor at the application layer mitigate severe memory leaks?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the authentication usage. Then, slowly roll out HttpInterceptor behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "How do you implement Services in Angular?",
-    "answer": "Services is a foundational concept that directly influences how scalable and maintainable your code is.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Services.  Showing you understand the trade-offs of Services — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "During a critical code review for a rapidly scaling application, you notice Directives being used improperly in the user onboarding flow, causing frequent server crashes. Walk me through how you would optimize this using Dependency Injection to achieve 100% uptime.",
+    "answer": "To address the frequent server crashes in this healthcare context, I would first isolate the user onboarding. By implementing Directives, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "medium",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Lazy Loading to prevent Change Detection errors?",
-    "answer": "Approaching this Lazy Loading challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Review related code paths and check for similar patterns that might harbor the same Lazy Loading issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to Routing. Explain the technical trade-offs, particularly regarding massive bundle size and achieving minimal battery drain.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the payment processing usage. Then, slowly roll out Routing behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees minimal battery drain.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Dependency Injection to optimize this?",
-    "answer": "A solid strategy for this Dependency Injection challenge is to map out the data flow first, then identify where things deviate from expectations. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Services (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Approaching this Services challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Pipes to prevent Change Detection errors?",
-    "answer": "The key to resolving this Pipes issue is breaking it into smaller, verifiable steps and validating each hypothesis. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Wrap up by adding observability (alerts, dashboards) specifically around Pipes so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Services.",
-    "answer": "Services is a foundational concept that directly influences how scalable and maintainable your code is.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Services.  Demonstrating real-world usage of Services, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Signals (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "A solid strategy for this Signals challenge is to map out the data flow first, then identify where things deviate from expectations. For hard problems involving Signals, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Components to optimize this?",
-    "answer": "A solid strategy for this Components challenge is to map out the data flow first, then identify where things deviate from expectations. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Directives to prevent Change Detection errors?",
-    "answer": "When facing a Directives scenario like this, prioritize understanding the failure mode before jumping to a fix. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DirectivesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Standalone Components (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "Diagnosing this Standalone Components issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Review related code paths and check for similar patterns that might harbor the same Standalone Components issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use NgRx to prevent Change Detection errors?",
-    "answer": "When facing a NgRx scenario like this, prioritize understanding the failure mode before jumping to a fix. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard NgRx issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Standalone Components in Angular?",
-    "answer": "Standalone Components is a foundational concept that directly influences how scalable and maintainable your code is.  Mid-level engineers should be comfortable explaining the performance trade-offs of Standalone Components and when NOT to use it.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class StandaloneComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "NgRx is a foundational concept that directly influences how scalable and maintainable your code is.  At an intermediate level, focus on how NgRx interacts with related browser APIs, frameworks, or runtime environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Dependency Injection in Angular?",
-    "answer": "A clear grasp of Dependency Injection lets you make better architectural trade-offs.  Hard questions around Dependency Injection probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Dependency Injection to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class DependencyInjectionService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Directives in Angular?",
-    "answer": "Understanding Directives deeply is what separates mid-level from senior engineers.  Expert-level use of Directives involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Pair your explanation of Directives with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Lazy Loading play a role in managing the form state?",
-    "answer": "To tackle this Lazy Loading problem, start by reproducing the issue in a controlled environment and gathering metrics. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Routing solve this?",
-    "answer": "Diagnosing this Routing issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Wrap up by adding observability (alerts, dashboards) specifically around Routing so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class RoutingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Observables to optimize this?",
-    "answer": "Approaching this Observables challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ObservablesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Signals play a role in managing the form state?",
-    "answer": "To tackle this Signals problem, start by reproducing the issue in a controlled environment and gathering metrics. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Directives play a role in managing the form state?",
-    "answer": "Start by asking: what changed? For Directives, tracing recent deployments or config changes often reveals the root cause quickly. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Wrap up by adding observability (alerts, dashboards) specifically around Directives so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Pipes in Angular?",
-    "answer": "Pipes comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Pipes.  Pair your explanation of Pipes with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Explain the lifecycle hooks associated with Lazy Loading.",
-    "answer": "A clear grasp of Lazy Loading lets you make better architectural trade-offs.  Understanding Lazy Loading at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Demonstrating real-world usage of Lazy Loading, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with NgRx.",
-    "answer": "NgRx solves a specific class of problems in frontend/backend development.  Expert-level use of NgRx involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  The strongest candidates connect NgRx to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Pipes to prevent Change Detection errors?",
-    "answer": "Diagnosing this Pipes issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Wrap up by adding observability (alerts, dashboards) specifically around Pipes so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Change Detection play a role in managing the form state?",
-    "answer": "The key to resolving this Change Detection issue is breaking it into smaller, verifiable steps and validating each hypothesis. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Wrap up by adding observability (alerts, dashboards) specifically around Change Detection so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Signals play a role in managing the form state?",
-    "answer": "For a Signals problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Wrap up by adding observability (alerts, dashboards) specifically around Signals so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Services play a role in managing the form state?",
-    "answer": "A solid strategy for this Services challenge is to map out the data flow first, then identify where things deviate from expectations. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Services issues often hide in micro-optimizations or subtle state inconsistencies. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Services.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Directives play a role in managing the form state?",
-    "answer": "A solid strategy for this Directives challenge is to map out the data flow first, then identify where things deviate from expectations. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Directives issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around Directives so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Services to optimize this?",
-    "answer": "Diagnosing this Services issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ServicesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use NgRx to prevent Change Detection errors?",
-    "answer": "Approaching this NgRx challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Dependency Injection to optimize this?",
-    "answer": "To tackle this Dependency Injection problem, start by reproducing the issue in a controlled environment and gathering metrics. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Signals in Angular?",
-    "answer": "Understanding Signals deeply is what separates mid-level from senior engineers.  Mid-level engineers should be comfortable explaining the performance trade-offs of Signals and when NOT to use it.  Pair your explanation of Signals with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Dependency Injection play a role in managing the form state?",
-    "answer": "When facing a Dependency Injection scenario like this, prioritize understanding the failure mode before jumping to a fix. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Dependency Injection issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Standalone Components.",
-    "answer": "Standalone Components solves a specific class of problems in frontend/backend development.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Standalone Components.  Showing you understand the trade-offs of Standalone Components — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class StandaloneComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: A specific component is causing the entire application to re-render constantly. How do you optimize Signals (e.g., ChangeDetectionStrategy.OnPush) to fix this?",
-    "answer": "A solid strategy for this Signals challenge is to map out the data flow first, then identify where things deviate from expectations. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "How do you implement Pipes in Angular?",
-    "answer": "Understanding Pipes deeply is what separates mid-level from senior engineers.  Understanding Pipes at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Pair your explanation of Pipes with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class PipesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Routing to prevent Change Detection errors?",
-    "answer": "To tackle this Routing problem, start by reproducing the issue in a controlled environment and gathering metrics. For hard problems involving Routing, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Wrap up by adding observability (alerts, dashboards) specifically around Routing so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class RoutingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Services play a role in managing the form state?",
-    "answer": "Diagnosing this Services issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does Observables play a role in managing the form state?",
-    "answer": "The key to resolving this Observables issue is breaking it into smaller, verifiable steps and validating each hypothesis. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class ObservablesService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Standalone Components.",
-    "answer": "A clear grasp of Standalone Components lets you make better architectural trade-offs.  Hard questions around Standalone Components probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Demonstrating real-world usage of Standalone Components, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class StandaloneComponentsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: You have deeply nested components that need to share state without passing inputs/outputs down the entire tree. How does Observables solve this?",
-    "answer": "Start by asking: what changed? For Observables, tracing recent deployments or config changes often reveals the root cause quickly. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Observables.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Machine Coding: Create an Angular reactive form with custom async validators. How does NgRx play a role in managing the form state?",
-    "answer": "Start by asking: what changed? For NgRx, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same NgRx issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around NgRx.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Components in Angular?",
-    "answer": "Understanding Components deeply is what separates mid-level from senior engineers.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Components.  Demonstrating real-world usage of Components, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Standalone Components to optimize this?",
-    "answer": "Start by asking: what changed? For Standalone Components, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same Standalone Components issue elsewhere in the codebase. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "Explain the lifecycle hooks associated with Routing.",
-    "answer": "Routing is a foundational concept that directly influences how scalable and maintainable your code is.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Routing.  The strongest candidates connect Routing to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "angular",
-    "difficulty": "medium",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Routing to optimize this?",
-    "answer": "For a Routing problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "During a critical code review for a data-intensive application, you notice Pipes being used improperly in the checkout flow flow, causing API rate limiting. Walk me through how you would optimize this using Dependency Injection to achieve smooth 60fps scrolling.",
+    "answer": "To address the API rate limiting in this healthcare context, I would first isolate the checkout flow. By implementing Pipes, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Signals to optimize this?",
-    "answer": "Diagnosing this Signals issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Signals.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class SignalsService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "easy",
-    "question": "Scenario: Your Angular application's initial bundle size is 5MB, causing very slow load times. How do you use Standalone Components to optimize this?",
-    "answer": "The key to resolving this Standalone Components issue is breaking it into smaller, verifiable steps and validating each hypothesis. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "You are debugging a severe production issue in a video streaming app: API rate limiting is crashing the checkout flow. How can Services be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "The root cause here is typical for high-traffic applications: redundant network calls degrades the checkout flow. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our strict data consistency target safely.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "easy",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use Lazy Loading to prevent Change Detection errors?",
-    "answer": "For a Lazy Loading problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Wrap up by adding observability (alerts, dashboards) specifically around Lazy Loading so future occurrences are caught automatically before users notice.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class LazyLoadingService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement NgRx in Angular?",
-    "answer": "A clear grasp of NgRx lets you make better architectural trade-offs.  Expert-level use of NgRx involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Demonstrating real-world usage of NgRx, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
-  },
-  {
-    "topic": "angular",
-    "difficulty": "hard",
-    "question": "How do you implement Signals in Angular?",
-    "answer": "Understanding Signals deeply is what separates mid-level from senior engineers.  Expert-level use of Signals involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a real-time gaming platform. Ensure you incorporate Signals to prevent unhandled exceptions and optimize for 100% uptime.",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the search autocomplete usage. Then, slowly roll out Signals behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees 100% uptime.",
     "code": null
   },
   {
     "topic": "angular",
     "difficulty": "hard",
-    "question": "Scenario: You need to integrate a third-party non-Angular library that heavily mutates the DOM. How do you use NgRx to prevent Change Detection errors?",
-    "answer": "The key to resolving this NgRx issue is breaking it into smaller, verifiable steps and validating each hypothesis. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard NgRx issues often hide in micro-optimizations or subtle state inconsistencies. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "@Injectable({ providedIn: 'root' })\nexport class NgRxService {\n  constructor() {}\n}"
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Signals. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving minimal battery drain.",
+    "answer": "To address the inconsistent state bugs in this fintech context, I would first isolate the media upload. By implementing Signals, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a video streaming app: high latency spikes is crashing the real-time feed. How can Services be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "The root cause here is typical for resource-constrained applications: poor garbage collection degrades the real-time feed. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Directives to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a global scale environment, the authentication is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Pipes at the application layer mitigate high latency spikes?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out Pipes behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "During a critical code review for a global scale application, you notice Services being used improperly in the data visualization flow, causing high latency spikes. Walk me through how you would optimize this using NgRx to achieve 100% uptime.",
+    "answer": "To address the high latency spikes in this e-commerce context, I would first isolate the data visualization. By implementing Services, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust user onboarding system for a SaaS platform platform. Ensure you incorporate RxJS Operators to prevent excessive re-renders and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for data-intensive applications: excessive re-renders degrades the user onboarding. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with Change Detection to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the media upload system encounters poor garbage collection, how do you gracefully recover using Routing?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the media upload usage. Then, slowly roll out Routing behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a global scale environment, the real-time feed is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Directives at the application layer mitigate frequent server crashes?",
+    "answer": "To address the frequent server crashes in this video streaming context, I would first isolate the real-time feed. By implementing Directives, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving smooth 60fps scrolling.",
+    "answer": "When handling unpredictable race conditions, Route Guards acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Signals for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a rapidly scaling application, you notice RxJS Operators being used improperly in the authentication flow, causing high latency spikes. Walk me through how you would optimize this using Route Guards to achieve WCAG compliance.",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the authentication. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with Route Guards to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust real-time feed system for a SaaS platform platform. Ensure you incorporate Lazy Loading to prevent excessive re-renders and optimize for smooth 60fps scrolling.",
+    "answer": "When handling unpredictable race conditions, Lazy Loading acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Directives for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to HttpInterceptor. Explain the technical trade-offs, particularly regarding high latency spikes and achieving sub-second load times.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the data visualization usage. Then, slowly roll out HttpInterceptor behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the user onboarding system encounters blocking the main thread, how do you gracefully recover using Services?",
+    "answer": "When handling inconsistent state bugs, Services acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize RxJS Operators for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the media upload system encounters deadlocks, how do you gracefully recover using HttpInterceptor?",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the media upload. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a social media app: unpredictable race conditions is crashing the real-time feed. How can Pipes be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the real-time feed usage. Then, slowly roll out Pipes behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a healthcare platform. Ensure you incorporate HttpInterceptor to prevent excessive re-renders and optimize for WCAG compliance.",
+    "answer": "To address the frequent server crashes in this healthcare context, I would first isolate the payment processing. By implementing HttpInterceptor, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to Lazy Loading. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving 100% uptime.",
+    "answer": "To address the frequent UI freezing in this SaaS platform context, I would first isolate the authentication. By implementing Lazy Loading, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a video streaming platform. Ensure you incorporate Signals to prevent deadlocks and optimize for smooth 60fps scrolling.",
+    "answer": "When handling severe memory leaks, Signals acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Dependency Injection for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a legacy fintech application that suffers from unpredictable race conditions. Specifically, the user onboarding module is failing due to unoptimized loops. How would you leverage HttpInterceptor alongside Change Detection to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "To address the unpredictable race conditions in this fintech context, I would first isolate the user onboarding. By implementing HttpInterceptor, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: frequent server crashes is crashing the data visualization. How can Standalone Components be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "To address the frequent server crashes in this IoT dashboard context, I would first isolate the data visualization. By implementing Standalone Components, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the search autocomplete system encounters blocking the main thread, how do you gracefully recover using Route Guards?",
+    "answer": "When handling frequent UI freezing, Route Guards acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Standalone Components for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a video streaming platform. Ensure you incorporate HttpInterceptor to prevent excessive re-renders and optimize for secure data handling.",
+    "answer": "When handling massive bundle size, HttpInterceptor acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize RxJS Operators for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a high-traffic application, you notice Dependency Injection being used improperly in the data visualization flow, causing API rate limiting. Walk me through how you would optimize this using HttpInterceptor to achieve smooth 60fps scrolling.",
+    "answer": "When handling API rate limiting, Dependency Injection acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize HttpInterceptor for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the data visualization system encounters redundant network calls, how do you gracefully recover using Observables?",
+    "answer": "The root cause here is typical for legacy applications: redundant network calls degrades the data visualization. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a high-traffic real-time gaming application that suffers from massive bundle size. Specifically, the real-time feed module is failing due to unhandled exceptions. How would you leverage Standalone Components alongside Observables to resolve this, ensuring secure data handling is maintained?",
+    "answer": "To address the massive bundle size in this real-time gaming context, I would first isolate the real-time feed. By implementing Standalone Components, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving 100% uptime.",
+    "answer": "The root cause here is typical for data-intensive applications: poor garbage collection degrades the real-time feed. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Services to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a healthcare app: inconsistent state bugs is crashing the checkout flow. How can NgRx be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "The root cause here is typical for legacy applications: poor garbage collection degrades the checkout flow. Replacing the flawed logic with NgRx provides a robust boundary. I'd pair this with Pipes to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the real-time feed system encounters unoptimized loops, how do you gracefully recover using Lazy Loading?",
+    "answer": "The root cause here is typical for data-intensive applications: unoptimized loops degrades the real-time feed. Replacing the flawed logic with Lazy Loading provides a robust boundary. I'd pair this with Routing to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a rapidly scaling environment, the user onboarding is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Route Guards at the application layer mitigate severe memory leaks?",
+    "answer": "The root cause here is typical for rapidly scaling applications: unhandled exceptions degrades the user onboarding. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Change Detection to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a data-intensive application, you notice Routing being used improperly in the media upload flow, causing frequent server crashes. Walk me through how you would optimize this using Standalone Components to achieve smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the media upload usage. Then, slowly roll out Routing behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to NgRx. Explain the technical trade-offs, particularly regarding high latency spikes and achieving WCAG compliance.",
+    "answer": "When handling high latency spikes, NgRx acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Components for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust authentication system for a real-time gaming platform. Ensure you incorporate Pipes to prevent redundant network calls and optimize for WCAG compliance.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the authentication usage. Then, slowly roll out Pipes behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Lazy Loading. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving strict data consistency.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the checkout flow usage. Then, slowly roll out Lazy Loading behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a enterprise application, you notice HttpInterceptor being used improperly in the search autocomplete flow, causing API rate limiting. Walk me through how you would optimize this using Pipes to achieve WCAG compliance.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the search autocomplete usage. Then, slowly roll out HttpInterceptor behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a high-traffic e-commerce application that suffers from frequent UI freezing. Specifically, the checkout flow module is failing due to deadlocks. How would you leverage Signals alongside Dependency Injection to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the checkout flow usage. Then, slowly roll out Signals behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy SaaS platform application that suffers from frequent server crashes. Specifically, the authentication module is failing due to deadlocks. How would you leverage RxJS Operators alongside Directives to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "The root cause here is typical for legacy applications: deadlocks degrades the authentication. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with Directives to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a data-intensive SaaS platform application that suffers from severe memory leaks. Specifically, the media upload module is failing due to excessive re-renders. How would you leverage RxJS Operators alongside Pipes to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "The root cause here is typical for data-intensive applications: excessive re-renders degrades the media upload. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with Pipes to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the search autocomplete system encounters poor garbage collection, how do you gracefully recover using Change Detection?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the search autocomplete usage. Then, slowly roll out Change Detection behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale e-commerce application that suffers from inconsistent state bugs. Specifically, the checkout flow module is failing due to deadlocks. How would you leverage Route Guards alongside Routing to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "When handling inconsistent state bugs, Route Guards acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize Routing for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Dependency Injection. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving 100% uptime.",
+    "answer": "To address the frequent UI freezing in this e-commerce context, I would first isolate the data visualization. By implementing Dependency Injection, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust user onboarding system for a video streaming platform. Ensure you incorporate Lazy Loading to prevent poor garbage collection and optimize for WCAG compliance.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the user onboarding usage. Then, slowly roll out Lazy Loading behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a video streaming platform. Ensure you incorporate Services to prevent unoptimized loops and optimize for smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for rapidly scaling applications: unoptimized loops degrades the payment processing. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Standalone Components to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the user onboarding system encounters blocking the main thread, how do you gracefully recover using Signals?",
+    "answer": "To address the unpredictable race conditions in this fintech context, I would first isolate the user onboarding. By implementing Signals, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a enterprise environment, the authentication is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Dependency Injection at the application layer mitigate frequent server crashes?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the authentication usage. Then, slowly roll out Dependency Injection behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust real-time feed system for a SaaS platform platform. Ensure you incorporate Dependency Injection to prevent excessive re-renders and optimize for WCAG compliance.",
+    "answer": "The root cause here is typical for mission-critical applications: excessive re-renders degrades the real-time feed. Replacing the flawed logic with Dependency Injection provides a robust boundary. I'd pair this with Route Guards to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Signals. Explain the technical trade-offs, particularly regarding massive bundle size and achieving WCAG compliance.",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the user onboarding. Replacing the flawed logic with Signals provides a robust boundary. I'd pair this with Change Detection to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling social media application that suffers from API rate limiting. Specifically, the authentication module is failing due to redundant network calls. How would you leverage Routing alongside NgRx to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "The root cause here is typical for rapidly scaling applications: redundant network calls degrades the authentication. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with NgRx to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a resource-constrained environment, the payment processing is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Standalone Components at the application layer mitigate severe memory leaks?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the payment processing usage. Then, slowly roll out Standalone Components behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a mission-critical environment, the checkout flow is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Routing at the application layer mitigate severe memory leaks?",
+    "answer": "The root cause here is typical for mission-critical applications: deadlocks degrades the checkout flow. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with Change Detection to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the checkout flow system encounters unoptimized loops, how do you gracefully recover using Change Detection?",
+    "answer": "The root cause here is typical for legacy applications: unoptimized loops degrades the checkout flow. Replacing the flawed logic with Change Detection provides a robust boundary. I'd pair this with Components to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Routing. Explain the technical trade-offs, particularly regarding API rate limiting and achieving secure data handling.",
+    "answer": "The root cause here is typical for resource-constrained applications: unhandled exceptions degrades the checkout flow. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with RxJS Operators to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a legacy environment, the data visualization is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Change Detection at the application layer mitigate API rate limiting?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the data visualization usage. Then, slowly roll out Change Detection behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a enterprise environment, the real-time feed is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Routing at the application layer mitigate frequent UI freezing?",
+    "answer": "When handling frequent UI freezing, Routing acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Dependency Injection for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a data-intensive environment, the payment processing is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying HttpInterceptor at the application layer mitigate severe memory leaks?",
+    "answer": "The root cause here is typical for data-intensive applications: deadlocks degrades the payment processing. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with Observables to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a real-time gaming app: API rate limiting is crashing the search autocomplete. How can Pipes be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the search autocomplete usage. Then, slowly roll out Pipes behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a data-intensive video streaming application that suffers from inconsistent state bugs. Specifically, the real-time feed module is failing due to poor garbage collection. How would you leverage Dependency Injection alongside NgRx to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "To address the inconsistent state bugs in this video streaming context, I would first isolate the real-time feed. By implementing Dependency Injection, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to RxJS Operators. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving secure data handling.",
+    "answer": "To address the frequent server crashes in this SaaS platform context, I would first isolate the authentication. By implementing RxJS Operators, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Dependency Injection. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving sub-second load times.",
+    "answer": "The root cause here is typical for mission-critical applications: deadlocks degrades the checkout flow. Replacing the flawed logic with Dependency Injection provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the checkout flow system encounters poor garbage collection, how do you gracefully recover using Standalone Components?",
+    "answer": "The root cause here is typical for data-intensive applications: poor garbage collection degrades the checkout flow. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the checkout flow system encounters unoptimized loops, how do you gracefully recover using Signals?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the checkout flow usage. Then, slowly roll out Signals behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the real-time feed system encounters unhandled exceptions, how do you gracefully recover using Lazy Loading?",
+    "answer": "When handling massive bundle size, Lazy Loading acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize HttpInterceptor for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a high-traffic environment, the data visualization is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Signals at the application layer mitigate massive bundle size?",
+    "answer": "To address the massive bundle size in this video streaming context, I would first isolate the data visualization. By implementing Signals, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the user onboarding system encounters unoptimized loops, how do you gracefully recover using Services?",
+    "answer": "The root cause here is typical for mission-critical applications: unoptimized loops degrades the user onboarding. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Routing to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling e-commerce application that suffers from frequent UI freezing. Specifically, the payment processing module is failing due to excessive re-renders. How would you leverage Pipes alongside Signals to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "When handling frequent UI freezing, Pipes acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Signals for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving 100% uptime.",
+    "answer": "When handling severe memory leaks, Pipes acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Directives for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: inconsistent state bugs is crashing the payment processing. How can Route Guards be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "The root cause here is typical for legacy applications: redundant network calls degrades the payment processing. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Observables to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Signals. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving strict data consistency.",
+    "answer": "When handling frequent server crashes, Signals acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize HttpInterceptor for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: high latency spikes is crashing the search autocomplete. How can RxJS Operators be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "The root cause here is typical for rapidly scaling applications: redundant network calls degrades the search autocomplete. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with Directives to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a high-traffic real-time gaming application that suffers from massive bundle size. Specifically, the media upload module is failing due to poor garbage collection. How would you leverage HttpInterceptor alongside Dependency Injection to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "The root cause here is typical for high-traffic applications: poor garbage collection degrades the media upload. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a IoT dashboard platform. Ensure you incorporate Directives to prevent unoptimized loops and optimize for WCAG compliance.",
+    "answer": "When handling frequent UI freezing, Directives acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Observables for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: API rate limiting is crashing the real-time feed. How can RxJS Operators be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the real-time feed. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a rapidly scaling environment, the real-time feed is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Lazy Loading at the application layer mitigate inconsistent state bugs?",
+    "answer": "To address the inconsistent state bugs in this e-commerce context, I would first isolate the real-time feed. By implementing Lazy Loading, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to Directives. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving sub-second load times.",
+    "answer": "When handling frequent server crashes, Directives acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Observables for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a global scale environment, the data visualization is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Services at the application layer mitigate unpredictable race conditions?",
+    "answer": "The root cause here is typical for global scale applications: poor garbage collection degrades the data visualization. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Observables to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to RxJS Operators. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving sub-second load times.",
+    "answer": "The root cause here is typical for high-traffic applications: blocking the main thread degrades the media upload. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust user onboarding system for a video streaming platform. Ensure you incorporate Pipes to prevent excessive re-renders and optimize for sub-second load times.",
+    "answer": "The root cause here is typical for enterprise applications: excessive re-renders degrades the user onboarding. Replacing the flawed logic with Pipes provides a robust boundary. I'd pair this with Change Detection to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the user onboarding system encounters unhandled exceptions, how do you gracefully recover using Routing?",
+    "answer": "The root cause here is typical for data-intensive applications: unhandled exceptions degrades the user onboarding. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with RxJS Operators to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a e-commerce platform. Ensure you incorporate Services to prevent poor garbage collection and optimize for minimal battery drain.",
+    "answer": "When handling high latency spikes, Services acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize HttpInterceptor for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the search autocomplete system encounters unoptimized loops, how do you gracefully recover using HttpInterceptor?",
+    "answer": "To address the severe memory leaks in this IoT dashboard context, I would first isolate the search autocomplete. By implementing HttpInterceptor, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the payment processing system encounters excessive re-renders, how do you gracefully recover using Components?",
+    "answer": "To address the API rate limiting in this video streaming context, I would first isolate the payment processing. By implementing Components, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the user onboarding system encounters redundant network calls, how do you gracefully recover using Change Detection?",
+    "answer": "To address the frequent UI freezing in this fintech context, I would first isolate the user onboarding. By implementing Change Detection, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the user onboarding system encounters excessive re-renders, how do you gracefully recover using Lazy Loading?",
+    "answer": "To address the massive bundle size in this healthcare context, I would first isolate the user onboarding. By implementing Lazy Loading, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the checkout flow system encounters deadlocks, how do you gracefully recover using Observables?",
+    "answer": "The root cause here is typical for enterprise applications: deadlocks degrades the checkout flow. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the search autocomplete system encounters deadlocks, how do you gracefully recover using Standalone Components?",
+    "answer": "To address the massive bundle size in this real-time gaming context, I would first isolate the search autocomplete. By implementing Standalone Components, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: API rate limiting is crashing the media upload. How can RxJS Operators be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "When handling API rate limiting, RxJS Operators acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Signals for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Dependency Injection. Explain the technical trade-offs, particularly regarding massive bundle size and achieving smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for rapidly scaling applications: unoptimized loops degrades the checkout flow. Replacing the flawed logic with Dependency Injection provides a robust boundary. I'd pair this with Standalone Components to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a resource-constrained environment, the media upload is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Components at the application layer mitigate unpredictable race conditions?",
+    "answer": "To address the unpredictable race conditions in this fintech context, I would first isolate the media upload. By implementing Components, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust media upload system for a e-commerce platform. Ensure you incorporate Change Detection to prevent excessive re-renders and optimize for minimal battery drain.",
+    "answer": "When handling API rate limiting, Change Detection acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Dependency Injection for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the real-time feed system encounters poor garbage collection, how do you gracefully recover using Observables?",
+    "answer": "The root cause here is typical for data-intensive applications: poor garbage collection degrades the real-time feed. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Route Guards to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: API rate limiting is crashing the media upload. How can Change Detection be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "The root cause here is typical for mission-critical applications: blocking the main thread degrades the media upload. Replacing the flawed logic with Change Detection provides a robust boundary. I'd pair this with Directives to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a healthcare app: inconsistent state bugs is crashing the authentication. How can NgRx be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "To address the inconsistent state bugs in this healthcare context, I would first isolate the authentication. By implementing NgRx, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a healthcare app: unpredictable race conditions is crashing the user onboarding. How can NgRx be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "To address the unpredictable race conditions in this healthcare context, I would first isolate the user onboarding. By implementing NgRx, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the real-time feed system encounters deadlocks, how do you gracefully recover using Pipes?",
+    "answer": "When handling unpredictable race conditions, Pipes acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Dependency Injection for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a fintech app: inconsistent state bugs is crashing the checkout flow. How can NgRx be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "To address the inconsistent state bugs in this fintech context, I would first isolate the checkout flow. By implementing NgRx, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a social media app: massive bundle size is crashing the media upload. How can Observables be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "To address the massive bundle size in this social media context, I would first isolate the media upload. By implementing Observables, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a real-time gaming app: API rate limiting is crashing the data visualization. How can Standalone Components be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the data visualization usage. Then, slowly roll out Standalone Components behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to Routing. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving 100% uptime.",
+    "answer": "When handling frequent UI freezing, Routing acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize RxJS Operators for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the authentication system encounters redundant network calls, how do you gracefully recover using RxJS Operators?",
+    "answer": "The root cause here is typical for high-traffic applications: redundant network calls degrades the authentication. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with Routing to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a global scale application, you notice Observables being used improperly in the authentication flow, causing unpredictable race conditions. Walk me through how you would optimize this using Routing to achieve minimal battery drain.",
+    "answer": "The root cause here is typical for global scale applications: redundant network calls degrades the authentication. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Routing to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a video streaming app: frequent UI freezing is crashing the payment processing. How can Standalone Components be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "The root cause here is typical for global scale applications: blocking the main thread degrades the payment processing. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with Directives to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a high-traffic environment, the data visualization is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Route Guards at the application layer mitigate unpredictable race conditions?",
+    "answer": "When handling unpredictable race conditions, Route Guards acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize RxJS Operators for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a enterprise environment, the media upload is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Standalone Components at the application layer mitigate API rate limiting?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the media upload usage. Then, slowly roll out Standalone Components behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a SaaS platform app: massive bundle size is crashing the payment processing. How can Standalone Components be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "The root cause here is typical for global scale applications: blocking the main thread degrades the payment processing. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with NgRx to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a enterprise application, you notice NgRx being used improperly in the real-time feed flow, causing severe memory leaks. Walk me through how you would optimize this using Directives to achieve secure data handling.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the real-time feed usage. Then, slowly roll out NgRx behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the data visualization system encounters poor garbage collection, how do you gracefully recover using Components?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the data visualization usage. Then, slowly roll out Components behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: high latency spikes is crashing the payment processing. How can Standalone Components be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the payment processing usage. Then, slowly roll out Standalone Components behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a legacy environment, the checkout flow is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Change Detection at the application layer mitigate frequent UI freezing?",
+    "answer": "When handling frequent UI freezing, Change Detection acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize Signals for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust real-time feed system for a healthcare platform. Ensure you incorporate Directives to prevent excessive re-renders and optimize for secure data handling.",
+    "answer": "When handling frequent server crashes, Directives acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Components for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a high-traffic environment, the data visualization is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Signals at the application layer mitigate API rate limiting?",
+    "answer": "The root cause here is typical for high-traffic applications: deadlocks degrades the data visualization. Replacing the flawed logic with Signals provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a rapidly scaling application, you notice Services being used improperly in the checkout flow flow, causing API rate limiting. Walk me through how you would optimize this using Components to achieve WCAG compliance.",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the checkout flow usage. Then, slowly roll out Services behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to HttpInterceptor. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving 100% uptime.",
+    "answer": "To address the frequent UI freezing in this fintech context, I would first isolate the search autocomplete. By implementing HttpInterceptor, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling e-commerce application that suffers from frequent server crashes. Specifically, the checkout flow module is failing due to excessive re-renders. How would you leverage Routing alongside Lazy Loading to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the checkout flow usage. Then, slowly roll out Routing behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Dependency Injection. Explain the technical trade-offs, particularly regarding API rate limiting and achieving strict data consistency.",
+    "answer": "To address the API rate limiting in this healthcare context, I would first isolate the search autocomplete. By implementing Dependency Injection, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Standalone Components. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving sub-second load times.",
+    "answer": "The root cause here is typical for global scale applications: unoptimized loops degrades the data visualization. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with Directives to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a social media feature handling millions of requests. If the data visualization system encounters poor garbage collection, how do you gracefully recover using Routing?",
+    "answer": "When handling high latency spikes, Routing acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Standalone Components for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a IoT dashboard platform. Ensure you incorporate Standalone Components to prevent deadlocks and optimize for strict data consistency.",
+    "answer": "To address the API rate limiting in this IoT dashboard context, I would first isolate the search autocomplete. By implementing Standalone Components, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding massive bundle size and achieving WCAG compliance.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the search autocomplete usage. Then, slowly roll out Pipes behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a high-traffic environment, the checkout flow is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying NgRx at the application layer mitigate inconsistent state bugs?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the checkout flow usage. Then, slowly roll out NgRx behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the authentication system encounters blocking the main thread, how do you gracefully recover using Directives?",
+    "answer": "To address the frequent UI freezing in this SaaS platform context, I would first isolate the authentication. By implementing Directives, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a mission-critical environment, the data visualization is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Services at the application layer mitigate massive bundle size?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the data visualization usage. Then, slowly roll out Services behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the authentication system encounters redundant network calls, how do you gracefully recover using Standalone Components?",
+    "answer": "To address the frequent UI freezing in this SaaS platform context, I would first isolate the authentication. By implementing Standalone Components, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a data-intensive application, you notice RxJS Operators being used improperly in the authentication flow, causing frequent server crashes. Walk me through how you would optimize this using Components to achieve smooth 60fps scrolling.",
+    "answer": "To address the frequent server crashes in this IoT dashboard context, I would first isolate the authentication. By implementing RxJS Operators, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a global scale application, you notice Directives being used improperly in the data visualization flow, causing massive bundle size. Walk me through how you would optimize this using Change Detection to achieve smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for global scale applications: unoptimized loops degrades the data visualization. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with Change Detection to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a mission-critical environment, the media upload is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Observables at the application layer mitigate inconsistent state bugs?",
+    "answer": "When handling inconsistent state bugs, Observables acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Components for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a rapidly scaling environment, the payment processing is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Pipes at the application layer mitigate high latency spikes?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the payment processing usage. Then, slowly roll out Pipes behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the data visualization system encounters unhandled exceptions, how do you gracefully recover using Dependency Injection?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the data visualization usage. Then, slowly roll out Dependency Injection behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a data-intensive application, you notice Signals being used improperly in the user onboarding flow, causing API rate limiting. Walk me through how you would optimize this using HttpInterceptor to achieve sub-second load times.",
+    "answer": "The root cause here is typical for data-intensive applications: redundant network calls degrades the user onboarding. Replacing the flawed logic with Signals provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a legacy application, you notice Components being used improperly in the user onboarding flow, causing inconsistent state bugs. Walk me through how you would optimize this using NgRx to achieve 100% uptime.",
+    "answer": "When handling inconsistent state bugs, Components acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize NgRx for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a high-traffic environment, the media upload is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Standalone Components at the application layer mitigate frequent server crashes?",
+    "answer": "The root cause here is typical for high-traffic applications: excessive re-renders degrades the media upload. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with Observables to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a social media app: API rate limiting is crashing the real-time feed. How can Observables be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "The root cause here is typical for data-intensive applications: unoptimized loops degrades the real-time feed. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Routing to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a real-time gaming app: high latency spikes is crashing the user onboarding. How can Components be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "The root cause here is typical for enterprise applications: deadlocks degrades the user onboarding. Replacing the flawed logic with Components provides a robust boundary. I'd pair this with Pipes to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a mission-critical environment, the authentication is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying Services at the application layer mitigate inconsistent state bugs?",
+    "answer": "To address the inconsistent state bugs in this SaaS platform context, I would first isolate the authentication. By implementing Services, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust checkout flow system for a fintech platform. Ensure you incorporate Standalone Components to prevent unoptimized loops and optimize for WCAG compliance.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the checkout flow usage. Then, slowly roll out Standalone Components behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a e-commerce platform. Ensure you incorporate Route Guards to prevent unoptimized loops and optimize for secure data handling.",
+    "answer": "The root cause here is typical for resource-constrained applications: unoptimized loops degrades the media upload. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with RxJS Operators to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Lazy Loading. Explain the technical trade-offs, particularly regarding API rate limiting and achieving sub-second load times.",
+    "answer": "To address the API rate limiting in this IoT dashboard context, I would first isolate the data visualization. By implementing Lazy Loading, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a enterprise application, you notice HttpInterceptor being used improperly in the real-time feed flow, causing frequent server crashes. Walk me through how you would optimize this using Dependency Injection to achieve WCAG compliance.",
+    "answer": "When handling frequent server crashes, HttpInterceptor acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Dependency Injection for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a healthcare platform. Ensure you incorporate NgRx to prevent blocking the main thread and optimize for WCAG compliance.",
+    "answer": "The root cause here is typical for enterprise applications: blocking the main thread degrades the user onboarding. Replacing the flawed logic with NgRx provides a robust boundary. I'd pair this with Change Detection to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the user onboarding system encounters excessive re-renders, how do you gracefully recover using Dependency Injection?",
+    "answer": "To address the severe memory leaks in this real-time gaming context, I would first isolate the user onboarding. By implementing Dependency Injection, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Dependency Injection. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving minimal battery drain.",
+    "answer": "The root cause here is typical for high-traffic applications: excessive re-renders degrades the data visualization. Replacing the flawed logic with Dependency Injection provides a robust boundary. I'd pair this with Observables to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a mission-critical application, you notice Components being used improperly in the checkout flow flow, causing frequent server crashes. Walk me through how you would optimize this using Routing to achieve minimal battery drain.",
+    "answer": "When handling frequent server crashes, Components acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize Routing for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a high-traffic healthcare application that suffers from severe memory leaks. Specifically, the media upload module is failing due to unhandled exceptions. How would you leverage Observables alongside Services to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "To address the severe memory leaks in this healthcare context, I would first isolate the media upload. By implementing Observables, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a high-traffic e-commerce application that suffers from high latency spikes. Specifically, the user onboarding module is failing due to poor garbage collection. How would you leverage Signals alongside Dependency Injection to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "The root cause here is typical for high-traffic applications: poor garbage collection degrades the user onboarding. Replacing the flawed logic with Signals provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a e-commerce platform. Ensure you incorporate Components to prevent redundant network calls and optimize for strict data consistency.",
+    "answer": "The root cause here is typical for resource-constrained applications: redundant network calls degrades the media upload. Replacing the flawed logic with Components provides a robust boundary. I'd pair this with Observables to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "During a critical code review for a global scale application, you notice Signals being used improperly in the payment processing flow, causing severe memory leaks. Walk me through how you would optimize this using Route Guards to achieve smooth 60fps scrolling.",
+    "answer": "To address the severe memory leaks in this video streaming context, I would first isolate the payment processing. By implementing Signals, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to NgRx. Explain the technical trade-offs, particularly regarding high latency spikes and achieving smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the payment processing usage. Then, slowly roll out NgRx behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the payment processing system encounters excessive re-renders, how do you gracefully recover using Route Guards?",
+    "answer": "To address the severe memory leaks in this e-commerce context, I would first isolate the payment processing. By implementing Route Guards, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust checkout flow system for a real-time gaming platform. Ensure you incorporate NgRx to prevent unoptimized loops and optimize for WCAG compliance.",
+    "answer": "When handling API rate limiting, NgRx acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize Pipes for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a high-traffic application, you notice Lazy Loading being used improperly in the real-time feed flow, causing high latency spikes. Walk me through how you would optimize this using Change Detection to achieve smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the real-time feed usage. Then, slowly roll out Lazy Loading behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy IoT dashboard application that suffers from massive bundle size. Specifically, the payment processing module is failing due to unhandled exceptions. How would you leverage Directives alongside Standalone Components to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "The root cause here is typical for legacy applications: unhandled exceptions degrades the payment processing. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with Standalone Components to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the authentication system encounters redundant network calls, how do you gracefully recover using Route Guards?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the authentication usage. Then, slowly roll out Route Guards behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a global scale application, you notice RxJS Operators being used improperly in the search autocomplete flow, causing massive bundle size. Walk me through how you would optimize this using Routing to achieve minimal battery drain.",
+    "answer": "When handling massive bundle size, RxJS Operators acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Routing for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a e-commerce platform. Ensure you incorporate Observables to prevent deadlocks and optimize for smooth 60fps scrolling.",
+    "answer": "When handling inconsistent state bugs, Observables acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Standalone Components for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a data-intensive application, you notice Signals being used improperly in the user onboarding flow, causing API rate limiting. Walk me through how you would optimize this using Change Detection to achieve WCAG compliance.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the user onboarding usage. Then, slowly roll out Signals behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a global scale environment, the authentication is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Observables at the application layer mitigate massive bundle size?",
+    "answer": "To address the massive bundle size in this real-time gaming context, I would first isolate the authentication. By implementing Observables, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to RxJS Operators. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving 100% uptime.",
+    "answer": "To address the severe memory leaks in this social media context, I would first isolate the authentication. By implementing RxJS Operators, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a fintech platform. Ensure you incorporate Observables to prevent unhandled exceptions and optimize for sub-second load times.",
+    "answer": "To address the frequent UI freezing in this fintech context, I would first isolate the media upload. By implementing Observables, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a legacy e-commerce application that suffers from high latency spikes. Specifically, the user onboarding module is failing due to deadlocks. How would you leverage Signals alongside Routing to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "When handling high latency spikes, Signals acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Routing for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the user onboarding system encounters poor garbage collection, how do you gracefully recover using HttpInterceptor?",
+    "answer": "The root cause here is typical for data-intensive applications: poor garbage collection degrades the user onboarding. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with Pipes to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the user onboarding system encounters blocking the main thread, how do you gracefully recover using Standalone Components?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the user onboarding usage. Then, slowly roll out Standalone Components behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: massive bundle size is crashing the checkout flow. How can HttpInterceptor be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "The root cause here is typical for enterprise applications: redundant network calls degrades the checkout flow. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with NgRx to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a mission-critical video streaming application that suffers from unpredictable race conditions. Specifically, the checkout flow module is failing due to unhandled exceptions. How would you leverage Services alongside RxJS Operators to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "The root cause here is typical for mission-critical applications: unhandled exceptions degrades the checkout flow. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with RxJS Operators to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the data visualization system encounters unhandled exceptions, how do you gracefully recover using Services?",
+    "answer": "To address the severe memory leaks in this real-time gaming context, I would first isolate the data visualization. By implementing Services, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a enterprise e-commerce application that suffers from inconsistent state bugs. Specifically, the real-time feed module is failing due to deadlocks. How would you leverage Route Guards alongside Change Detection to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the real-time feed usage. Then, slowly roll out Route Guards behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a fintech app: API rate limiting is crashing the real-time feed. How can NgRx be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "When handling API rate limiting, NgRx acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Change Detection for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust authentication system for a SaaS platform platform. Ensure you incorporate Observables to prevent deadlocks and optimize for 100% uptime.",
+    "answer": "To address the high latency spikes in this SaaS platform context, I would first isolate the authentication. By implementing Observables, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a enterprise application, you notice Observables being used improperly in the search autocomplete flow, causing severe memory leaks. Walk me through how you would optimize this using Change Detection to achieve smooth 60fps scrolling.",
+    "answer": "When handling severe memory leaks, Observables acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Change Detection for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a video streaming app: frequent server crashes is crashing the data visualization. How can Lazy Loading be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "To address the frequent server crashes in this video streaming context, I would first isolate the data visualization. By implementing Lazy Loading, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the payment processing system encounters blocking the main thread, how do you gracefully recover using Services?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the payment processing usage. Then, slowly roll out Services behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust authentication system for a e-commerce platform. Ensure you incorporate Directives to prevent deadlocks and optimize for WCAG compliance.",
+    "answer": "To address the high latency spikes in this e-commerce context, I would first isolate the authentication. By implementing Directives, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to Lazy Loading. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving sub-second load times.",
+    "answer": "To address the unpredictable race conditions in this SaaS platform context, I would first isolate the real-time feed. By implementing Lazy Loading, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a resource-constrained environment, the real-time feed is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying Services at the application layer mitigate API rate limiting?",
+    "answer": "The root cause here is typical for resource-constrained applications: redundant network calls degrades the real-time feed. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a e-commerce app: API rate limiting is crashing the user onboarding. How can Services be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "To address the API rate limiting in this e-commerce context, I would first isolate the user onboarding. By implementing Services, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a enterprise environment, the payment processing is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Dependency Injection at the application layer mitigate frequent server crashes?",
+    "answer": "When handling frequent server crashes, Dependency Injection acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Change Detection for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a enterprise IoT dashboard application that suffers from unpredictable race conditions. Specifically, the media upload module is failing due to blocking the main thread. How would you leverage Services alongside Change Detection to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "To address the unpredictable race conditions in this IoT dashboard context, I would first isolate the media upload. By implementing Services, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust real-time feed system for a social media platform. Ensure you incorporate Routing to prevent redundant network calls and optimize for 100% uptime.",
+    "answer": "When handling high latency spikes, Routing acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Services for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a high-traffic healthcare application that suffers from high latency spikes. Specifically, the authentication module is failing due to poor garbage collection. How would you leverage RxJS Operators alongside Lazy Loading to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the authentication usage. Then, slowly roll out RxJS Operators behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a video streaming app: API rate limiting is crashing the checkout flow. How can Route Guards be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "The root cause here is typical for rapidly scaling applications: excessive re-renders degrades the checkout flow. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the payment processing system encounters redundant network calls, how do you gracefully recover using Components?",
+    "answer": "When handling severe memory leaks, Components acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Dependency Injection for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a high-traffic application, you notice NgRx being used improperly in the payment processing flow, causing frequent UI freezing. Walk me through how you would optimize this using Observables to achieve minimal battery drain.",
+    "answer": "The root cause here is typical for high-traffic applications: excessive re-renders degrades the payment processing. Replacing the flawed logic with NgRx provides a robust boundary. I'd pair this with Observables to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a e-commerce app: high latency spikes is crashing the checkout flow. How can Signals be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the checkout flow. Replacing the flawed logic with Signals provides a robust boundary. I'd pair this with Observables to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a mission-critical SaaS platform application that suffers from API rate limiting. Specifically, the media upload module is failing due to excessive re-renders. How would you leverage Pipes alongside RxJS Operators to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "The root cause here is typical for mission-critical applications: excessive re-renders degrades the media upload. Replacing the flawed logic with Pipes provides a robust boundary. I'd pair this with RxJS Operators to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: frequent server crashes is crashing the authentication. How can HttpInterceptor be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "To address the frequent server crashes in this IoT dashboard context, I would first isolate the authentication. By implementing HttpInterceptor, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to Directives. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving 100% uptime.",
+    "answer": "When handling severe memory leaks, Directives acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize NgRx for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding massive bundle size and achieving smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for enterprise applications: unhandled exceptions degrades the search autocomplete. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Signals to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a global scale application, you notice Pipes being used improperly in the checkout flow flow, causing severe memory leaks. Walk me through how you would optimize this using Route Guards to achieve smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the checkout flow usage. Then, slowly roll out Pipes behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving WCAG compliance.",
+    "answer": "To address the unpredictable race conditions in this video streaming context, I would first isolate the user onboarding. By implementing Pipes, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust data visualization system for a healthcare platform. Ensure you incorporate RxJS Operators to prevent excessive re-renders and optimize for sub-second load times.",
+    "answer": "When handling frequent server crashes, RxJS Operators acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Standalone Components for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a high-traffic application, you notice HttpInterceptor being used improperly in the real-time feed flow, causing API rate limiting. Walk me through how you would optimize this using RxJS Operators to achieve secure data handling.",
+    "answer": "To address the API rate limiting in this real-time gaming context, I would first isolate the real-time feed. By implementing HttpInterceptor, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: inconsistent state bugs is crashing the real-time feed. How can HttpInterceptor be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "When handling inconsistent state bugs, HttpInterceptor acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Components for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the media upload system encounters unoptimized loops, how do you gracefully recover using Route Guards?",
+    "answer": "To address the massive bundle size in this social media context, I would first isolate the media upload. By implementing Route Guards, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a data-intensive application, you notice RxJS Operators being used improperly in the checkout flow flow, causing unpredictable race conditions. Walk me through how you would optimize this using Directives to achieve sub-second load times.",
+    "answer": "When handling unpredictable race conditions, RxJS Operators acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize Directives for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving 100% uptime.",
+    "answer": "To address the unpredictable race conditions in this healthcare context, I would first isolate the authentication. By implementing Route Guards, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale healthcare application that suffers from massive bundle size. Specifically, the media upload module is failing due to unhandled exceptions. How would you leverage Pipes alongside NgRx to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the media upload usage. Then, slowly roll out Pipes behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a enterprise environment, the user onboarding is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying Route Guards at the application layer mitigate massive bundle size?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the user onboarding usage. Then, slowly roll out Route Guards behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the authentication system encounters unoptimized loops, how do you gracefully recover using Routing?",
+    "answer": "The root cause here is typical for enterprise applications: unoptimized loops degrades the authentication. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with Change Detection to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: frequent server crashes is crashing the authentication. How can Route Guards be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "The root cause here is typical for legacy applications: poor garbage collection degrades the authentication. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Services to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a enterprise environment, the checkout flow is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying RxJS Operators at the application layer mitigate unpredictable race conditions?",
+    "answer": "To address the unpredictable race conditions in this healthcare context, I would first isolate the checkout flow. By implementing RxJS Operators, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust user onboarding system for a SaaS platform platform. Ensure you incorporate Components to prevent poor garbage collection and optimize for smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for resource-constrained applications: poor garbage collection degrades the user onboarding. Replacing the flawed logic with Components provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a SaaS platform app: frequent server crashes is crashing the media upload. How can Lazy Loading be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "When handling frequent server crashes, Lazy Loading acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Signals for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a enterprise environment, the search autocomplete is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying Observables at the application layer mitigate API rate limiting?",
+    "answer": "To address the API rate limiting in this e-commerce context, I would first isolate the search autocomplete. By implementing Observables, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the payment processing system encounters unoptimized loops, how do you gracefully recover using RxJS Operators?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the payment processing usage. Then, slowly roll out RxJS Operators behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Signals. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving WCAG compliance.",
+    "answer": "When handling inconsistent state bugs, Signals acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize NgRx for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the payment processing system encounters unhandled exceptions, how do you gracefully recover using Routing?",
+    "answer": "When handling API rate limiting, Routing acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize RxJS Operators for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained healthcare application that suffers from massive bundle size. Specifically, the user onboarding module is failing due to deadlocks. How would you leverage Route Guards alongside Standalone Components to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the user onboarding usage. Then, slowly roll out Route Guards behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust real-time feed system for a fintech platform. Ensure you incorporate Standalone Components to prevent excessive re-renders and optimize for minimal battery drain.",
+    "answer": "To address the severe memory leaks in this fintech context, I would first isolate the real-time feed. By implementing Standalone Components, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a social media platform. Ensure you incorporate Standalone Components to prevent unhandled exceptions and optimize for sub-second load times.",
+    "answer": "The root cause here is typical for enterprise applications: unhandled exceptions degrades the media upload. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with Change Detection to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a mission-critical e-commerce application that suffers from high latency spikes. Specifically, the search autocomplete module is failing due to poor garbage collection. How would you leverage Observables alongside Lazy Loading to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "The root cause here is typical for mission-critical applications: poor garbage collection degrades the search autocomplete. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a IoT dashboard platform. Ensure you incorporate NgRx to prevent poor garbage collection and optimize for 100% uptime.",
+    "answer": "To address the severe memory leaks in this IoT dashboard context, I would first isolate the payment processing. By implementing NgRx, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a resource-constrained environment, the user onboarding is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying RxJS Operators at the application layer mitigate inconsistent state bugs?",
+    "answer": "When handling inconsistent state bugs, RxJS Operators acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Services for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a SaaS platform app: unpredictable race conditions is crashing the checkout flow. How can Directives be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "The root cause here is typical for legacy applications: excessive re-renders degrades the checkout flow. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a high-traffic environment, the checkout flow is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Routing at the application layer mitigate frequent UI freezing?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the checkout flow usage. Then, slowly roll out Routing behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a healthcare app: massive bundle size is crashing the user onboarding. How can Routing be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "To address the massive bundle size in this healthcare context, I would first isolate the user onboarding. By implementing Routing, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a rapidly scaling environment, the payment processing is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Signals at the application layer mitigate frequent server crashes?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the payment processing usage. Then, slowly roll out Signals behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a mission-critical environment, the media upload is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Standalone Components at the application layer mitigate API rate limiting?",
+    "answer": "The root cause here is typical for mission-critical applications: deadlocks degrades the media upload. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with Pipes to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a resource-constrained environment, the authentication is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying HttpInterceptor at the application layer mitigate massive bundle size?",
+    "answer": "When handling massive bundle size, HttpInterceptor acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Lazy Loading for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to RxJS Operators. Explain the technical trade-offs, particularly regarding massive bundle size and achieving smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for resource-constrained applications: unoptimized loops degrades the search autocomplete. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with NgRx to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust user onboarding system for a healthcare platform. Ensure you incorporate Observables to prevent blocking the main thread and optimize for 100% uptime.",
+    "answer": "The root cause here is typical for rapidly scaling applications: blocking the main thread degrades the user onboarding. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Components to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to NgRx. Explain the technical trade-offs, particularly regarding massive bundle size and achieving WCAG compliance.",
+    "answer": "When handling massive bundle size, NgRx acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Directives for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving WCAG compliance.",
+    "answer": "To address the severe memory leaks in this healthcare context, I would first isolate the checkout flow. By implementing Pipes, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a real-time gaming app: API rate limiting is crashing the authentication. How can Dependency Injection be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the authentication usage. Then, slowly roll out Dependency Injection behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy real-time gaming application that suffers from API rate limiting. Specifically, the data visualization module is failing due to deadlocks. How would you leverage Signals alongside Services to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "The root cause here is typical for legacy applications: deadlocks degrades the data visualization. Replacing the flawed logic with Signals provides a robust boundary. I'd pair this with Services to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained e-commerce application that suffers from frequent UI freezing. Specifically, the data visualization module is failing due to unoptimized loops. How would you leverage Components alongside Standalone Components to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the data visualization usage. Then, slowly roll out Components behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a resource-constrained environment, the real-time feed is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying NgRx at the application layer mitigate unpredictable race conditions?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the real-time feed usage. Then, slowly roll out NgRx behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding high latency spikes and achieving strict data consistency.",
+    "answer": "When handling high latency spikes, Route Guards acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Pipes for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a social media app: frequent server crashes is crashing the payment processing. How can RxJS Operators be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "To address the frequent server crashes in this social media context, I would first isolate the payment processing. By implementing RxJS Operators, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a fintech app: API rate limiting is crashing the search autocomplete. How can Services be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the search autocomplete usage. Then, slowly roll out Services behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a data-intensive social media application that suffers from frequent UI freezing. Specifically, the user onboarding module is failing due to unoptimized loops. How would you leverage NgRx alongside Directives to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the user onboarding usage. Then, slowly roll out NgRx behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a mission-critical healthcare application that suffers from inconsistent state bugs. Specifically, the data visualization module is failing due to deadlocks. How would you leverage Routing alongside Components to resolve this, ensuring secure data handling is maintained?",
+    "answer": "The root cause here is typical for mission-critical applications: deadlocks degrades the data visualization. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with Components to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Directives. Explain the technical trade-offs, particularly regarding high latency spikes and achieving minimal battery drain.",
+    "answer": "The root cause here is typical for data-intensive applications: unoptimized loops degrades the user onboarding. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with Route Guards to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding API rate limiting and achieving smooth 60fps scrolling.",
+    "answer": "To address the API rate limiting in this SaaS platform context, I would first isolate the search autocomplete. By implementing Pipes, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "During a critical code review for a high-traffic application, you notice Lazy Loading being used improperly in the search autocomplete flow, causing API rate limiting. Walk me through how you would optimize this using Pipes to achieve WCAG compliance.",
+    "answer": "To address the API rate limiting in this IoT dashboard context, I would first isolate the search autocomplete. By implementing Lazy Loading, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust data visualization system for a social media platform. Ensure you incorporate Lazy Loading to prevent redundant network calls and optimize for minimal battery drain.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the data visualization usage. Then, slowly roll out Lazy Loading behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the user onboarding system encounters unhandled exceptions, how do you gracefully recover using Pipes?",
+    "answer": "To address the API rate limiting in this video streaming context, I would first isolate the user onboarding. By implementing Pipes, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained video streaming application that suffers from massive bundle size. Specifically, the authentication module is failing due to unhandled exceptions. How would you leverage Signals alongside Pipes to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the authentication usage. Then, slowly roll out Signals behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a resource-constrained environment, the media upload is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Services at the application layer mitigate unpredictable race conditions?",
+    "answer": "When handling unpredictable race conditions, Services acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize RxJS Operators for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a enterprise application, you notice Lazy Loading being used improperly in the media upload flow, causing API rate limiting. Walk me through how you would optimize this using Services to achieve 100% uptime.",
+    "answer": "When handling API rate limiting, Lazy Loading acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Services for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a legacy e-commerce application that suffers from severe memory leaks. Specifically, the user onboarding module is failing due to poor garbage collection. How would you leverage Change Detection alongside Services to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "The root cause here is typical for legacy applications: poor garbage collection degrades the user onboarding. Replacing the flawed logic with Change Detection provides a robust boundary. I'd pair this with Services to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to RxJS Operators. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving sub-second load times.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the checkout flow usage. Then, slowly roll out RxJS Operators behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the user onboarding system encounters blocking the main thread, how do you gracefully recover using Routing?",
+    "answer": "To address the unpredictable race conditions in this social media context, I would first isolate the user onboarding. By implementing Routing, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a mission-critical environment, the search autocomplete is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Routing at the application layer mitigate massive bundle size?",
+    "answer": "To address the massive bundle size in this fintech context, I would first isolate the search autocomplete. By implementing Routing, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding massive bundle size and achieving 100% uptime.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the checkout flow usage. Then, slowly roll out Pipes behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a mission-critical environment, the data visualization is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Dependency Injection at the application layer mitigate frequent server crashes?",
+    "answer": "When handling frequent server crashes, Dependency Injection acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Standalone Components for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a global scale real-time gaming application that suffers from inconsistent state bugs. Specifically, the checkout flow module is failing due to redundant network calls. How would you leverage Lazy Loading alongside RxJS Operators to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the checkout flow usage. Then, slowly roll out Lazy Loading behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a high-traffic environment, the checkout flow is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Components at the application layer mitigate high latency spikes?",
+    "answer": "The root cause here is typical for high-traffic applications: unhandled exceptions degrades the checkout flow. Replacing the flawed logic with Components provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to Dependency Injection. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving secure data handling.",
+    "answer": "When handling unpredictable race conditions, Dependency Injection acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Lazy Loading for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a mission-critical video streaming application that suffers from frequent UI freezing. Specifically, the data visualization module is failing due to blocking the main thread. How would you leverage Components alongside RxJS Operators to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "When handling frequent UI freezing, Components acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize RxJS Operators for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the payment processing system encounters redundant network calls, how do you gracefully recover using NgRx?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the payment processing usage. Then, slowly roll out NgRx behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a fintech app: frequent server crashes is crashing the checkout flow. How can HttpInterceptor be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "The root cause here is typical for enterprise applications: deadlocks degrades the checkout flow. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with Observables to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a global scale environment, the payment processing is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Route Guards at the application layer mitigate high latency spikes?",
+    "answer": "When handling high latency spikes, Route Guards acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Directives for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a global scale video streaming application that suffers from unpredictable race conditions. Specifically, the real-time feed module is failing due to unhandled exceptions. How would you leverage Standalone Components alongside Signals to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the real-time feed usage. Then, slowly roll out Standalone Components behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the search autocomplete system encounters poor garbage collection, how do you gracefully recover using RxJS Operators?",
+    "answer": "The root cause here is typical for rapidly scaling applications: poor garbage collection degrades the search autocomplete. Replacing the flawed logic with RxJS Operators provides a robust boundary. I'd pair this with Signals to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a SaaS platform platform. Ensure you incorporate Signals to prevent deadlocks and optimize for smooth 60fps scrolling.",
+    "answer": "When handling severe memory leaks, Signals acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Dependency Injection for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a legacy environment, the data visualization is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Services at the application layer mitigate unpredictable race conditions?",
+    "answer": "When handling unpredictable race conditions, Services acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Change Detection for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a legacy application, you notice Pipes being used improperly in the authentication flow, causing frequent server crashes. Walk me through how you would optimize this using Components to achieve WCAG compliance.",
+    "answer": "The root cause here is typical for legacy applications: unoptimized loops degrades the authentication. Replacing the flawed logic with Pipes provides a robust boundary. I'd pair this with Components to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a mission-critical application, you notice Observables being used improperly in the authentication flow, causing frequent UI freezing. Walk me through how you would optimize this using HttpInterceptor to achieve smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for mission-critical applications: unoptimized loops degrades the authentication. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust payment processing system for a e-commerce platform. Ensure you incorporate Directives to prevent excessive re-renders and optimize for 100% uptime.",
+    "answer": "The root cause here is typical for enterprise applications: excessive re-renders degrades the payment processing. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with Signals to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the media upload system encounters poor garbage collection, how do you gracefully recover using Change Detection?",
+    "answer": "When handling severe memory leaks, Change Detection acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Services for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Change Detection. Explain the technical trade-offs, particularly regarding massive bundle size and achieving secure data handling.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the search autocomplete usage. Then, slowly roll out Change Detection behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "During a critical code review for a resource-constrained application, you notice HttpInterceptor being used improperly in the search autocomplete flow, causing frequent server crashes. Walk me through how you would optimize this using Signals to achieve secure data handling.",
+    "answer": "To address the frequent server crashes in this healthcare context, I would first isolate the search autocomplete. By implementing HttpInterceptor, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving strict data consistency.",
+    "answer": "To address the severe memory leaks in this healthcare context, I would first isolate the search autocomplete. By implementing Route Guards, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained video streaming application that suffers from high latency spikes. Specifically, the payment processing module is failing due to deadlocks. How would you leverage Routing alongside Signals to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the payment processing usage. Then, slowly roll out Routing behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: API rate limiting is crashing the media upload. How can Route Guards be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "To address the API rate limiting in this IoT dashboard context, I would first isolate the media upload. By implementing Route Guards, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Standalone Components. Explain the technical trade-offs, particularly regarding high latency spikes and achieving 100% uptime.",
+    "answer": "When handling high latency spikes, Standalone Components acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Lazy Loading for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Route Guards. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving sub-second load times.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the media upload usage. Then, slowly roll out Route Guards behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a enterprise e-commerce application that suffers from unpredictable race conditions. Specifically, the checkout flow module is failing due to deadlocks. How would you leverage NgRx alongside Route Guards to resolve this, ensuring secure data handling is maintained?",
+    "answer": "When handling unpredictable race conditions, NgRx acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize Route Guards for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a data-intensive environment, the data visualization is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying Routing at the application layer mitigate API rate limiting?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the data visualization usage. Then, slowly roll out Routing behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a video streaming platform. Ensure you incorporate Change Detection to prevent deadlocks and optimize for strict data consistency.",
+    "answer": "When handling API rate limiting, Change Detection acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Services for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the search autocomplete system encounters blocking the main thread, how do you gracefully recover using Standalone Components?",
+    "answer": "When handling unpredictable race conditions, Standalone Components acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize RxJS Operators for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Dependency Injection. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving secure data handling.",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the search autocomplete usage. Then, slowly roll out Dependency Injection behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a e-commerce app: frequent UI freezing is crashing the user onboarding. How can Pipes be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the user onboarding usage. Then, slowly roll out Pipes behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a data-intensive environment, the data visualization is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying Routing at the application layer mitigate massive bundle size?",
+    "answer": "To address the massive bundle size in this SaaS platform context, I would first isolate the data visualization. By implementing Routing, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale fintech application that suffers from unpredictable race conditions. Specifically, the user onboarding module is failing due to blocking the main thread. How would you leverage Route Guards alongside Lazy Loading to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "The root cause here is typical for global scale applications: blocking the main thread degrades the user onboarding. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the payment processing system encounters deadlocks, how do you gracefully recover using Routing?",
+    "answer": "To address the frequent UI freezing in this IoT dashboard context, I would first isolate the payment processing. By implementing Routing, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a legacy application, you notice HttpInterceptor being used improperly in the data visualization flow, causing frequent server crashes. Walk me through how you would optimize this using RxJS Operators to achieve strict data consistency.",
+    "answer": "When handling frequent server crashes, HttpInterceptor acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize RxJS Operators for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: frequent server crashes is crashing the payment processing. How can Change Detection be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the payment processing usage. Then, slowly roll out Change Detection behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust authentication system for a IoT dashboard platform. Ensure you incorporate RxJS Operators to prevent blocking the main thread and optimize for minimal battery drain.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out RxJS Operators behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a rapidly scaling environment, the authentication is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Routing at the application layer mitigate frequent UI freezing?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out Routing behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a mission-critical SaaS platform application that suffers from inconsistent state bugs. Specifically, the data visualization module is failing due to unhandled exceptions. How would you leverage Change Detection alongside Dependency Injection to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "The root cause here is typical for mission-critical applications: unhandled exceptions degrades the data visualization. Replacing the flawed logic with Change Detection provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice HttpInterceptor being used improperly in the search autocomplete flow, causing frequent server crashes. Walk me through how you would optimize this using RxJS Operators to achieve secure data handling.",
+    "answer": "To address the frequent server crashes in this social media context, I would first isolate the search autocomplete. By implementing HttpInterceptor, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to Lazy Loading. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving strict data consistency.",
+    "answer": "To address the frequent server crashes in this video streaming context, I would first isolate the authentication. By implementing Lazy Loading, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the payment processing system encounters unhandled exceptions, how do you gracefully recover using NgRx?",
+    "answer": "The root cause here is typical for rapidly scaling applications: unhandled exceptions degrades the payment processing. Replacing the flawed logic with NgRx provides a robust boundary. I'd pair this with Pipes to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a global scale environment, the authentication is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Observables at the application layer mitigate severe memory leaks?",
+    "answer": "To address the severe memory leaks in this IoT dashboard context, I would first isolate the authentication. By implementing Observables, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a high-traffic application, you notice HttpInterceptor being used improperly in the checkout flow flow, causing API rate limiting. Walk me through how you would optimize this using Signals to achieve smooth 60fps scrolling.",
+    "answer": "To address the API rate limiting in this real-time gaming context, I would first isolate the checkout flow. By implementing HttpInterceptor, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the media upload is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Dependency Injection at the application layer mitigate unpredictable race conditions?",
+    "answer": "To address the unpredictable race conditions in this IoT dashboard context, I would first isolate the media upload. By implementing Dependency Injection, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the user onboarding system encounters unhandled exceptions, how do you gracefully recover using Route Guards?",
+    "answer": "The root cause here is typical for rapidly scaling applications: unhandled exceptions degrades the user onboarding. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a mission-critical application, you notice Routing being used improperly in the checkout flow flow, causing unpredictable race conditions. Walk me through how you would optimize this using Services to achieve WCAG compliance.",
+    "answer": "The root cause here is typical for mission-critical applications: blocking the main thread degrades the checkout flow. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with Services to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a data-intensive environment, the payment processing is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying Pipes at the application layer mitigate unpredictable race conditions?",
+    "answer": "The root cause here is typical for data-intensive applications: unoptimized loops degrades the payment processing. Replacing the flawed logic with Pipes provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the user onboarding system encounters deadlocks, how do you gracefully recover using RxJS Operators?",
+    "answer": "To address the frequent server crashes in this SaaS platform context, I would first isolate the user onboarding. By implementing RxJS Operators, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a fintech app: frequent UI freezing is crashing the search autocomplete. How can Lazy Loading be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "To address the frequent UI freezing in this fintech context, I would first isolate the search autocomplete. By implementing Lazy Loading, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a enterprise application, you notice Pipes being used improperly in the data visualization flow, causing unpredictable race conditions. Walk me through how you would optimize this using Components to achieve sub-second load times.",
+    "answer": "To address the unpredictable race conditions in this healthcare context, I would first isolate the data visualization. By implementing Pipes, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the search autocomplete system encounters redundant network calls, how do you gracefully recover using RxJS Operators?",
+    "answer": "When handling massive bundle size, RxJS Operators acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Directives for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a high-traffic video streaming application that suffers from massive bundle size. Specifically, the search autocomplete module is failing due to unhandled exceptions. How would you leverage Lazy Loading alongside Route Guards to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "When handling massive bundle size, Lazy Loading acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Route Guards for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to Change Detection. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving strict data consistency.",
+    "answer": "To address the inconsistent state bugs in this healthcare context, I would first isolate the real-time feed. By implementing Change Detection, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a data-intensive application, you notice Services being used improperly in the authentication flow, causing unpredictable race conditions. Walk me through how you would optimize this using Routing to achieve minimal battery drain.",
+    "answer": "The root cause here is typical for data-intensive applications: blocking the main thread degrades the authentication. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Routing to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Observables. Explain the technical trade-offs, particularly regarding massive bundle size and achieving secure data handling.",
+    "answer": "When handling massive bundle size, Observables acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Dependency Injection for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the data visualization system encounters unoptimized loops, how do you gracefully recover using Directives?",
+    "answer": "When handling frequent UI freezing, Directives acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Route Guards for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust authentication system for a real-time gaming platform. Ensure you incorporate Pipes to prevent unoptimized loops and optimize for sub-second load times.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the authentication usage. Then, slowly roll out Pipes behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a social media platform. Ensure you incorporate Routing to prevent unoptimized loops and optimize for minimal battery drain.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the search autocomplete usage. Then, slowly roll out Routing behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the media upload system encounters blocking the main thread, how do you gracefully recover using Route Guards?",
+    "answer": "The root cause here is typical for global scale applications: blocking the main thread degrades the media upload. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Components to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the checkout flow system encounters poor garbage collection, how do you gracefully recover using Services?",
+    "answer": "The root cause here is typical for enterprise applications: poor garbage collection degrades the checkout flow. Replacing the flawed logic with Services provides a robust boundary. I'd pair this with Pipes to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a mission-critical video streaming application that suffers from unpredictable race conditions. Specifically, the data visualization module is failing due to unoptimized loops. How would you leverage Observables alongside Change Detection to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the data visualization usage. Then, slowly roll out Observables behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Routing. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving minimal battery drain.",
+    "answer": "When handling frequent server crashes, Routing acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Directives for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the checkout flow system encounters excessive re-renders, how do you gracefully recover using Lazy Loading?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the checkout flow usage. Then, slowly roll out Lazy Loading behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding API rate limiting and achieving strict data consistency.",
+    "answer": "To address the API rate limiting in this fintech context, I would first isolate the data visualization. By implementing Pipes, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to Components. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving strict data consistency.",
+    "answer": "The root cause here is typical for rapidly scaling applications: redundant network calls degrades the payment processing. Replacing the flawed logic with Components provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Change Detection. Explain the technical trade-offs, particularly regarding high latency spikes and achieving strict data consistency.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the user onboarding usage. Then, slowly roll out Change Detection behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a SaaS platform app: inconsistent state bugs is crashing the user onboarding. How can Change Detection be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "To address the inconsistent state bugs in this SaaS platform context, I would first isolate the user onboarding. By implementing Change Detection, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: unpredictable race conditions is crashing the authentication. How can Signals be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "When handling unpredictable race conditions, Signals acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Change Detection for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a SaaS platform platform. Ensure you incorporate RxJS Operators to prevent poor garbage collection and optimize for strict data consistency.",
+    "answer": "When handling inconsistent state bugs, RxJS Operators acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Routing for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the payment processing system encounters redundant network calls, how do you gracefully recover using Route Guards?",
+    "answer": "To address the massive bundle size in this healthcare context, I would first isolate the payment processing. By implementing Route Guards, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: frequent UI freezing is crashing the user onboarding. How can Observables be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the user onboarding usage. Then, slowly roll out Observables behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling SaaS platform application that suffers from severe memory leaks. Specifically, the authentication module is failing due to redundant network calls. How would you leverage Signals alongside HttpInterceptor to resolve this, ensuring secure data handling is maintained?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the authentication usage. Then, slowly roll out Signals behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the media upload system encounters poor garbage collection, how do you gracefully recover using Route Guards?",
+    "answer": "The root cause here is typical for resource-constrained applications: poor garbage collection degrades the media upload. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Change Detection to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the checkout flow system encounters poor garbage collection, how do you gracefully recover using Signals?",
+    "answer": "To address the severe memory leaks in this healthcare context, I would first isolate the checkout flow. By implementing Signals, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the payment processing system encounters unhandled exceptions, how do you gracefully recover using Observables?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the payment processing usage. Then, slowly roll out Observables behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a mission-critical environment, the data visualization is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Directives at the application layer mitigate severe memory leaks?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the data visualization usage. Then, slowly roll out Directives behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a mission-critical fintech application that suffers from inconsistent state bugs. Specifically, the payment processing module is failing due to unhandled exceptions. How would you leverage Lazy Loading alongside Dependency Injection to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "To address the inconsistent state bugs in this fintech context, I would first isolate the payment processing. By implementing Lazy Loading, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a legacy application, you notice Components being used improperly in the data visualization flow, causing unpredictable race conditions. Walk me through how you would optimize this using Route Guards to achieve WCAG compliance.",
+    "answer": "The root cause here is typical for legacy applications: unhandled exceptions degrades the data visualization. Replacing the flawed logic with Components provides a robust boundary. I'd pair this with Route Guards to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a social media platform. Ensure you incorporate Routing to prevent redundant network calls and optimize for 100% uptime.",
+    "answer": "When handling severe memory leaks, Routing acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize NgRx for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a high-traffic application, you notice Signals being used improperly in the search autocomplete flow, causing API rate limiting. Walk me through how you would optimize this using NgRx to achieve secure data handling.",
+    "answer": "To address the API rate limiting in this SaaS platform context, I would first isolate the search autocomplete. By implementing Signals, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: massive bundle size is crashing the authentication. How can Routing be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "The root cause here is typical for mission-critical applications: unoptimized loops degrades the authentication. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with HttpInterceptor to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a video streaming app: severe memory leaks is crashing the payment processing. How can Pipes be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "To address the severe memory leaks in this video streaming context, I would first isolate the payment processing. By implementing Pipes, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy video streaming application that suffers from API rate limiting. Specifically, the data visualization module is failing due to unoptimized loops. How would you leverage Directives alongside Signals to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "The root cause here is typical for legacy applications: unoptimized loops degrades the data visualization. Replacing the flawed logic with Directives provides a robust boundary. I'd pair this with Signals to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the search autocomplete system encounters poor garbage collection, how do you gracefully recover using NgRx?",
+    "answer": "To address the severe memory leaks in this social media context, I would first isolate the search autocomplete. By implementing NgRx, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a fintech app: severe memory leaks is crashing the checkout flow. How can Services be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "When handling severe memory leaks, Services acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize Change Detection for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to HttpInterceptor. Explain the technical trade-offs, particularly regarding high latency spikes and achieving smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the search autocomplete. Replacing the flawed logic with HttpInterceptor provides a robust boundary. I'd pair this with Change Detection to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a global scale environment, the user onboarding is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Signals at the application layer mitigate API rate limiting?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the user onboarding usage. Then, slowly roll out Signals behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a global scale real-time gaming application that suffers from high latency spikes. Specifically, the media upload module is failing due to deadlocks. How would you leverage Dependency Injection alongside Change Detection to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "The root cause here is typical for global scale applications: deadlocks degrades the media upload. Replacing the flawed logic with Dependency Injection provides a robust boundary. I'd pair this with Change Detection to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling e-commerce application that suffers from API rate limiting. Specifically, the payment processing module is failing due to redundant network calls. How would you leverage Routing alongside Standalone Components to resolve this, ensuring secure data handling is maintained?",
+    "answer": "The root cause here is typical for rapidly scaling applications: redundant network calls degrades the payment processing. Replacing the flawed logic with Routing provides a robust boundary. I'd pair this with Standalone Components to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "During a critical code review for a resource-constrained application, you notice Dependency Injection being used improperly in the search autocomplete flow, causing severe memory leaks. Walk me through how you would optimize this using Directives to achieve strict data consistency.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the search autocomplete usage. Then, slowly roll out Dependency Injection behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained social media application that suffers from massive bundle size. Specifically, the payment processing module is failing due to unhandled exceptions. How would you leverage Routing alongside HttpInterceptor to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "To address the massive bundle size in this social media context, I would first isolate the payment processing. By implementing Routing, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust checkout flow system for a e-commerce platform. Ensure you incorporate Components to prevent poor garbage collection and optimize for sub-second load times.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the checkout flow usage. Then, slowly roll out Components behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "easy",
+    "question": "In a mission-critical environment, the search autocomplete is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Pipes at the application layer mitigate frequent server crashes?",
+    "answer": "To address the frequent server crashes in this social media context, I would first isolate the search autocomplete. By implementing Pipes, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a legacy environment, the media upload is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying NgRx at the application layer mitigate frequent UI freezing?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the media upload usage. Then, slowly roll out NgRx behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a mission-critical environment, the data visualization is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Standalone Components at the application layer mitigate frequent server crashes?",
+    "answer": "The root cause here is typical for mission-critical applications: excessive re-renders degrades the data visualization. Replacing the flawed logic with Standalone Components provides a robust boundary. I'd pair this with RxJS Operators to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust real-time feed system for a fintech platform. Ensure you incorporate Directives to prevent blocking the main thread and optimize for 100% uptime.",
+    "answer": "To address the frequent server crashes in this fintech context, I would first isolate the real-time feed. By implementing Directives, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust checkout flow system for a fintech platform. Ensure you incorporate Route Guards to prevent blocking the main thread and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for legacy applications: blocking the main thread degrades the checkout flow. Replacing the flawed logic with Route Guards provides a robust boundary. I'd pair this with Lazy Loading to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a video streaming platform. Ensure you incorporate Routing to prevent deadlocks and optimize for minimal battery drain.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the media upload usage. Then, slowly roll out Routing behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "In a mission-critical environment, the user onboarding is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Observables at the application layer mitigate frequent UI freezing?",
+    "answer": "The root cause here is typical for mission-critical applications: blocking the main thread degrades the user onboarding. Replacing the flawed logic with Observables provides a robust boundary. I'd pair this with Dependency Injection to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to Pipes. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving 100% uptime.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the media upload usage. Then, slowly roll out Pipes behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "medium",
+    "question": "During a critical code review for a legacy application, you notice HttpInterceptor being used improperly in the search autocomplete flow, causing unpredictable race conditions. Walk me through how you would optimize this using RxJS Operators to achieve 100% uptime.",
+    "answer": "To address the unpredictable race conditions in this fintech context, I would first isolate the search autocomplete. By implementing HttpInterceptor, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "angular",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the data visualization is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Route Guards at the application layer mitigate massive bundle size?",
+    "answer": "When handling massive bundle size, Route Guards acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Lazy Loading for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
   }
 ];

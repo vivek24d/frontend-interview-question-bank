@@ -1,2102 +1,3502 @@
 window.AWS_QUESTIONS = [
   {
     "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use EC2 to monitor and set alarms for billing anomalies?",
-    "answer": "Diagnosing this EC2 issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Review related code paths and check for similar patterns that might harbor the same EC2 issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for EC2\nconst client = new EC2Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
     "difficulty": "hard",
-    "question": "Describe the primary use case for AWS IAM.",
-    "answer": "To answer this well, think about IAM from first principles: what problem does it exist to solve, and what are its limits?  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to IAM.  Showing you understand the trade-offs of IAM — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to VPC. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving secure data handling.",
+    "answer": "When handling unpredictable race conditions, VPC acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Step Functions for fallback logic. Validating secure data handling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using SQS.",
-    "answer": "Approaching this SQS challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "You are debugging a severe production issue in a real-time gaming app: inconsistent state bugs is crashing the user onboarding. How can DynamoDB be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "When handling inconsistent state bugs, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize S3 for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Describe the primary use case for AWS CloudFront.",
-    "answer": "CloudFront comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  For beginners, the key insight is understanding the \"why\" behind CloudFront, not just the syntax.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for CloudFront\nconst client = new CloudFrontClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using Lambda.",
-    "answer": "To tackle this Lambda problem, start by reproducing the issue in a controlled environment and gathering metrics. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Lambda issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "In a global scale environment, the search autocomplete is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying EventBridge at the application layer mitigate unpredictable race conditions?",
+    "answer": "When handling unpredictable race conditions, EventBridge acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize RDS for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how EC2 fits into an auto-scaling architecture.",
-    "answer": "The key to resolving this EC2 issue is breaking it into smaller, verifiable steps and validating each hypothesis. For hard problems involving EC2, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure VPC to achieve this?",
-    "answer": "Approaching this VPC challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around VPC.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS DynamoDB.",
-    "answer": "To answer this well, think about DynamoDB from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of DynamoDB involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "How do you secure CloudFront?",
-    "answer": "CloudFront solves a specific class of problems in frontend/backend development.  A practical way to internalize CloudFront is to build a small demo that isolates it from other concerns.  Pair your explanation of CloudFront with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using VPC.",
-    "answer": "Start by asking: what changed? For VPC, tracing recent deployments or config changes often reveals the root cause quickly. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard VPC issues often hide in micro-optimizations or subtle state inconsistencies. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around VPC.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how API Gateway fits into an auto-scaling architecture.",
-    "answer": "Start by asking: what changed? For API Gateway, tracing recent deployments or config changes often reveals the root cause quickly. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how CloudFront fits into an auto-scaling architecture.",
-    "answer": "Approaching this CloudFront challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. For hard problems involving CloudFront, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around CloudFront.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how EC2 fits into an auto-scaling architecture.",
-    "answer": "The key to resolving this EC2 issue is breaking it into smaller, verifiable steps and validating each hypothesis. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard EC2 issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around EC2 so future occurrences are caught automatically before users notice.",
+    "question": "During a critical code review for a legacy application, you notice Step Functions being used improperly in the search autocomplete flow, causing high latency spikes. Walk me through how you would optimize this using DynamoDB to achieve 100% uptime.",
+    "answer": "To address the high latency spikes in this IoT dashboard context, I would first isolate the search autocomplete. By implementing Step Functions, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use RDS to monitor and set alarms for billing anomalies?",
-    "answer": "For a RDS problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for RDS\nconst client = new RDSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how EC2 fits into an auto-scaling architecture.",
-    "answer": "To tackle this EC2 problem, start by reproducing the issue in a controlled environment and gathering metrics. For hard problems involving EC2, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using Lambda.",
-    "answer": "To tackle this Lambda problem, start by reproducing the issue in a controlled environment and gathering metrics. Review related code paths and check for similar patterns that might harbor the same Lambda issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for Lambda\nconst client = new LambdaClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS Lambda.",
-    "answer": "Understanding Lambda deeply is what separates mid-level from senior engineers.  Mid-level engineers should be comfortable explaining the performance trade-offs of Lambda and when NOT to use it.  Pair your explanation of Lambda with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for Lambda\nconst client = new LambdaClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use EC2 to monitor and set alarms for billing anomalies?",
-    "answer": "A solid strategy for this EC2 challenge is to map out the data flow first, then identify where things deviate from expectations. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard EC2 issues often hide in micro-optimizations or subtle state inconsistencies. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how DynamoDB fits into an auto-scaling architecture.",
-    "answer": "When facing a DynamoDB scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same DynamoDB issue elsewhere in the codebase. Wrap up by adding observability (alerts, dashboards) specifically around DynamoDB so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure API Gateway?",
-    "answer": "API Gateway is a foundational concept that directly influences how scalable and maintainable your code is.  Hard questions around API Gateway probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Showing you understand the trade-offs of API Gateway — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using API Gateway.",
-    "answer": "The key to resolving this API Gateway issue is breaking it into smaller, verifiable steps and validating each hypothesis. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Describe the primary use case for AWS VPC.",
-    "answer": "VPC solves a specific class of problems in frontend/backend development.  For beginners, the key insight is understanding the \"why\" behind VPC, not just the syntax.  Showing you understand the trade-offs of VPC — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "In a legacy environment, the user onboarding is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying CloudWatch at the application layer mitigate API rate limiting?",
+    "answer": "The root cause here is typical for legacy applications: poor garbage collection degrades the user onboarding. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with VPC to ensure we hit our 100% uptime target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how CloudFront fits into an auto-scaling architecture.",
-    "answer": "For a CloudFront problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to SQS. Explain the technical trade-offs, particularly regarding API rate limiting and achieving strict data consistency.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the data visualization usage. Then, slowly roll out SQS behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the search autocomplete system encounters redundant network calls, how do you gracefully recover using CloudWatch?",
+    "answer": "The root cause here is typical for enterprise applications: redundant network calls degrades the search autocomplete. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with Route53 to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a data-intensive fintech application that suffers from massive bundle size. Specifically, the real-time feed module is failing due to excessive re-renders. How would you leverage DynamoDB alongside VPC to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "To address the massive bundle size in this fintech context, I would first isolate the real-time feed. By implementing DynamoDB, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a resource-constrained environment, the data visualization is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying VPC at the application layer mitigate API rate limiting?",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the data visualization. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with Route53 to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a e-commerce app: severe memory leaks is crashing the search autocomplete. How can Route53 be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "The root cause here is typical for legacy applications: blocking the main thread degrades the search autocomplete. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with SQS to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the real-time feed system encounters deadlocks, how do you gracefully recover using Lambda?",
+    "answer": "When handling unpredictable race conditions, Lambda acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize API Gateway for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a data-intensive application, you notice S3 being used improperly in the search autocomplete flow, causing API rate limiting. Walk me through how you would optimize this using DynamoDB to achieve 100% uptime.",
+    "answer": "To address the API rate limiting in this real-time gaming context, I would first isolate the search autocomplete. By implementing S3, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "How do you secure RDS?",
-    "answer": "To answer this well, think about RDS from first principles: what problem does it exist to solve, and what are its limits?  For beginners, the key insight is understanding the \"why\" behind RDS, not just the syntax.  The strongest candidates connect RDS to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "In a global scale environment, the real-time feed is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying S3 at the application layer mitigate high latency spikes?",
+    "answer": "The root cause here is typical for global scale applications: unoptimized loops degrades the real-time feed. Replacing the flawed logic with S3 provides a robust boundary. I'd pair this with IAM to ensure we hit our secure data handling target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure VPC?",
-    "answer": "VPC comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Hard questions around VPC probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Demonstrating real-world usage of VPC, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
+    "question": "In a enterprise environment, the checkout flow is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying RDS at the application layer mitigate massive bundle size?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the checkout flow usage. Then, slowly roll out RDS behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees strict data consistency.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudWatch.",
-    "answer": "To tackle this CloudWatch problem, start by reproducing the issue in a controlled environment and gathering metrics. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
+    "question": "In a mission-critical environment, the real-time feed is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Step Functions at the application layer mitigate inconsistent state bugs?",
+    "answer": "The root cause here is typical for mission-critical applications: unhandled exceptions degrades the real-time feed. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with Lambda to ensure we hit our WCAG compliance target safely.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Describe the primary use case for AWS IAM.",
-    "answer": "To answer this well, think about IAM from first principles: what problem does it exist to solve, and what are its limits?  Mid-level engineers should be comfortable explaining the performance trade-offs of IAM and when NOT to use it.  The strongest candidates connect IAM to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the user onboarding system encounters unhandled exceptions, how do you gracefully recover using CloudWatch?",
+    "answer": "When handling unpredictable race conditions, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize CloudFront for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
-    "difficulty": "easy",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how Route53 fits into an auto-scaling architecture.",
-    "answer": "The key to resolving this Route53 issue is breaking it into smaller, verifiable steps and validating each hypothesis. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
     "difficulty": "hard",
-    "question": "Describe the primary use case for AWS CloudFront.",
-    "answer": "A clear grasp of CloudFront lets you make better architectural trade-offs.  Expert-level use of CloudFront involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Pair your explanation of CloudFront with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "question": "During a critical code review for a legacy application, you notice ECS/EKS being used improperly in the data visualization flow, causing API rate limiting. Walk me through how you would optimize this using S3 to achieve minimal battery drain.",
+    "answer": "To address the API rate limiting in this e-commerce context, I would first isolate the data visualization. By implementing ECS/EKS, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "How do you secure RDS?",
-    "answer": "RDS is a foundational concept that directly influences how scalable and maintainable your code is.  A practical way to internalize RDS is to build a small demo that isolates it from other concerns.  Pair your explanation of RDS with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for RDS\nconst client = new RDSClient({ region: 'us-east-1' });"
+    "question": "Scenario: You are tasked with refactoring a data-intensive video streaming application that suffers from massive bundle size. Specifically, the checkout flow module is failing due to unhandled exceptions. How would you leverage RDS alongside VPC to resolve this, ensuring secure data handling is maintained?",
+    "answer": "To address the massive bundle size in this video streaming context, I would first isolate the checkout flow. By implementing RDS, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "How do you secure Route53?",
-    "answer": "A clear grasp of Route53 lets you make better architectural trade-offs.  At an intermediate level, focus on how Route53 interacts with related browser APIs, frameworks, or runtime environments.  The strongest candidates connect Route53 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
+    "question": "Machine Coding: Implement a robust authentication system for a healthcare platform. Ensure you incorporate CloudFront to prevent blocking the main thread and optimize for sub-second load times.",
+    "answer": "When handling API rate limiting, CloudFront acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Route53 for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
   },
   {
     "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use CloudWatch to monitor and set alarms for billing anomalies?",
-    "answer": "When facing a CloudWatch scenario like this, prioritize understanding the failure mode before jumping to a fix. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a e-commerce app: high latency spikes is crashing the payment processing. How can IAM be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "When handling high latency spikes, IAM acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize API Gateway for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Describe the primary use case for AWS CloudWatch.",
-    "answer": "Understanding CloudWatch deeply is what separates mid-level from senior engineers.  A practical way to internalize CloudWatch is to build a small demo that isolates it from other concerns.  Demonstrating real-world usage of CloudWatch, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use RDS to monitor and set alarms for billing anomalies?",
-    "answer": "To tackle this RDS problem, start by reproducing the issue in a controlled environment and gathering metrics. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Machine Coding: Implement a robust authentication system for a IoT dashboard platform. Ensure you incorporate DynamoDB to prevent poor garbage collection and optimize for minimal battery drain.",
+    "answer": "When handling severe memory leaks, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize RDS for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how SQS fits into an auto-scaling architecture.",
-    "answer": "Diagnosing this SQS issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Wrap up by adding observability (alerts, dashboards) specifically around SQS so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure S3?",
-    "answer": "To answer this well, think about S3 from first principles: what problem does it exist to solve, and what are its limits?  Hard questions around S3 probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Showing you understand the trade-offs of S3 — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure SQS to achieve this?",
-    "answer": "The key to resolving this SQS issue is breaking it into smaller, verifiable steps and validating each hypothesis. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Wrap up by adding observability (alerts, dashboards) specifically around SQS so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using Route53.",
-    "answer": "The key to resolving this Route53 issue is breaking it into smaller, verifiable steps and validating each hypothesis. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Route53 issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around Route53 so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using API Gateway.",
-    "answer": "For a API Gateway problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS DynamoDB.",
-    "answer": "DynamoDB solves a specific class of problems in frontend/backend development.  At an intermediate level, focus on how DynamoDB interacts with related browser APIs, frameworks, or runtime environments.  Showing you understand the trade-offs of DynamoDB — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure SQS to achieve this?",
-    "answer": "A solid strategy for this SQS challenge is to map out the data flow first, then identify where things deviate from expectations. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how SQS fits into an auto-scaling architecture.",
-    "answer": "When facing a SQS scenario like this, prioritize understanding the failure mode before jumping to a fix. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Wrap up by adding observability (alerts, dashboards) specifically around SQS so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using IAM.",
-    "answer": "When facing a IAM scenario like this, prioritize understanding the failure mode before jumping to a fix. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to IAM. Explain the technical trade-offs, particularly regarding massive bundle size and achieving strict data consistency.",
+    "answer": "The root cause here is typical for rapidly scaling applications: unoptimized loops degrades the media upload. Replacing the flawed logic with IAM provides a robust boundary. I'd pair this with CloudFront to ensure we hit our strict data consistency target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Describe the primary use case for AWS RDS.",
-    "answer": "RDS comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  For beginners, the key insight is understanding the \"why\" behind RDS, not just the syntax.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "You are debugging a severe production issue in a healthcare app: unpredictable race conditions is crashing the payment processing. How can SQS be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "When handling unpredictable race conditions, SQS acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize CloudWatch for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a rapidly scaling environment, the payment processing is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying CloudFront at the application layer mitigate frequent UI freezing?",
+    "answer": "To address the frequent UI freezing in this video streaming context, I would first isolate the payment processing. By implementing CloudFront, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a legacy environment, the media upload is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying SQS at the application layer mitigate frequent server crashes?",
+    "answer": "When handling frequent server crashes, SQS acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize EC2 for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a data-intensive application, you notice API Gateway being used improperly in the media upload flow, causing inconsistent state bugs. Walk me through how you would optimize this using RDS to achieve secure data handling.",
+    "answer": "The root cause here is typical for data-intensive applications: unhandled exceptions degrades the media upload. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with RDS to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a real-time gaming platform. Ensure you incorporate DynamoDB to prevent unhandled exceptions and optimize for strict data consistency.",
+    "answer": "When handling frequent server crashes, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Route53 for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: inconsistent state bugs is crashing the real-time feed. How can EventBridge be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the real-time feed usage. Then, slowly roll out EventBridge behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees 100% uptime.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "How do you secure DynamoDB?",
-    "answer": "DynamoDB is a foundational concept that directly influences how scalable and maintainable your code is.  A practical way to internalize DynamoDB is to build a small demo that isolates it from other concerns.  Pair your explanation of DynamoDB with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the user onboarding system encounters excessive re-renders, how do you gracefully recover using CloudFront?",
+    "answer": "To address the high latency spikes in this SaaS platform context, I would first isolate the user onboarding. By implementing CloudFront, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using S3.",
-    "answer": "A solid strategy for this S3 challenge is to map out the data flow first, then identify where things deviate from expectations. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use SQS to monitor and set alarms for billing anomalies?",
-    "answer": "For a SQS problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. For hard problems involving SQS, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using API Gateway.",
-    "answer": "For a API Gateway problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around API Gateway.",
+    "question": "You are debugging a severe production issue in a healthcare app: frequent UI freezing is crashing the authentication. How can IAM be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "The root cause here is typical for global scale applications: poor garbage collection degrades the authentication. Replacing the flawed logic with IAM provides a robust boundary. I'd pair this with EventBridge to ensure we hit our minimal battery drain target safely.",
     "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS Route53.",
-    "answer": "Understanding Route53 deeply is what separates mid-level from senior engineers.  Hard questions around Route53 probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Pair your explanation of Route53 with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure CloudWatch?",
-    "answer": "CloudWatch is a foundational concept that directly influences how scalable and maintainable your code is.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to CloudWatch.  The strongest candidates connect CloudWatch to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure API Gateway to achieve this?",
-    "answer": "To tackle this API Gateway problem, start by reproducing the issue in a controlled environment and gathering metrics. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard API Gateway issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around API Gateway so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use IAM to monitor and set alarms for billing anomalies?",
-    "answer": "The key to resolving this IAM issue is breaking it into smaller, verifiable steps and validating each hypothesis. Review related code paths and check for similar patterns that might harbor the same IAM issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "You are debugging a severe production issue in a social media app: frequent server crashes is crashing the search autocomplete. How can CloudFront be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the search autocomplete usage. Then, slowly roll out CloudFront behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale IoT dashboard application that suffers from frequent server crashes. Specifically, the user onboarding module is failing due to excessive re-renders. How would you leverage EC2 alongside RDS to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the user onboarding usage. Then, slowly roll out EC2 behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a real-time gaming app: API rate limiting is crashing the search autocomplete. How can Lambda be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the search autocomplete usage. Then, slowly roll out Lambda behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to ECS/EKS. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving secure data handling.",
+    "answer": "When handling frequent UI freezing, ECS/EKS acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize DynamoDB for fallback logic. Validating secure data handling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Describe the primary use case for AWS Route53.",
-    "answer": "Route53 comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  A practical way to internalize Route53 is to build a small demo that isolates it from other concerns.  Showing you understand the trade-offs of Route53 — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Describe the primary use case for AWS CloudWatch.",
-    "answer": "CloudWatch solves a specific class of problems in frontend/backend development.  For beginners, the key insight is understanding the \"why\" behind CloudWatch, not just the syntax.  Demonstrating real-world usage of CloudWatch, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
+    "question": "You are debugging a severe production issue in a SaaS platform app: frequent server crashes is crashing the real-time feed. How can VPC be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "The root cause here is typical for high-traffic applications: unoptimized loops degrades the real-time feed. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our WCAG compliance target safely.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Describe the primary use case for AWS API Gateway.",
-    "answer": "Understanding API Gateway deeply is what separates mid-level from senior engineers.  Mid-level engineers should be comfortable explaining the performance trade-offs of API Gateway and when NOT to use it.  The strongest candidates connect API Gateway to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
+    "question": "Machine Coding: Implement a robust media upload system for a SaaS platform platform. Ensure you incorporate DynamoDB to prevent redundant network calls and optimize for sub-second load times.",
+    "answer": "When handling high latency spikes, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize API Gateway for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how DynamoDB fits into an auto-scaling architecture.",
-    "answer": "For a DynamoDB problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "Machine Coding: Implement a robust authentication system for a fintech platform. Ensure you incorporate CloudFront to prevent deadlocks and optimize for 100% uptime.",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the authentication. Replacing the flawed logic with CloudFront provides a robust boundary. I'd pair this with Lambda to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to IAM. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving sub-second load times.",
+    "answer": "To address the frequent server crashes in this social media context, I would first isolate the real-time feed. By implementing IAM, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a resource-constrained environment, the authentication is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying CloudWatch at the application layer mitigate API rate limiting?",
+    "answer": "The root cause here is typical for resource-constrained applications: poor garbage collection degrades the authentication. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with API Gateway to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the checkout flow system encounters redundant network calls, how do you gracefully recover using IAM?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the checkout flow usage. Then, slowly roll out IAM behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a social media feature handling millions of requests. If the authentication system encounters blocking the main thread, how do you gracefully recover using DynamoDB?",
+    "answer": "To address the frequent server crashes in this social media context, I would first isolate the authentication. By implementing DynamoDB, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a social media feature handling millions of requests. If the user onboarding system encounters unoptimized loops, how do you gracefully recover using CloudWatch?",
+    "answer": "When handling frequent server crashes, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize EventBridge for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Describe the primary use case for AWS CloudWatch.",
-    "answer": "CloudWatch solves a specific class of problems in frontend/backend development.  For beginners, the key insight is understanding the \"why\" behind CloudWatch, not just the syntax.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how IAM fits into an auto-scaling architecture.",
-    "answer": "When facing a IAM scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same IAM issue elsewhere in the codebase. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "In a global scale environment, the real-time feed is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying RDS at the application layer mitigate high latency spikes?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the real-time feed usage. Then, slowly roll out RDS behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees 100% uptime.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using EC2.",
-    "answer": "Start by asking: what changed? For EC2, tracing recent deployments or config changes often reveals the root cause quickly. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around EC2.",
-    "code": "// Example using AWS SDK for EC2\nconst client = new EC2Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure CloudWatch?",
-    "answer": "Understanding CloudWatch deeply is what separates mid-level from senior engineers.  Understanding CloudWatch at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the data visualization system encounters redundant network calls, how do you gracefully recover using CloudWatch?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the data visualization usage. Then, slowly roll out CloudWatch behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees 100% uptime.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Describe the primary use case for AWS Route53.",
-    "answer": "Route53 is a foundational concept that directly influences how scalable and maintainable your code is.  Hard questions around Route53 probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Pair your explanation of Route53 with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS IAM.",
-    "answer": "A clear grasp of IAM lets you make better architectural trade-offs.  Expert-level use of IAM involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use CloudFront to monitor and set alarms for billing anomalies?",
-    "answer": "When facing a CloudFront scenario like this, prioritize understanding the failure mode before jumping to a fix. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around CloudFront so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use API Gateway to monitor and set alarms for billing anomalies?",
-    "answer": "Approaching this API Gateway challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use Route53 to monitor and set alarms for billing anomalies?",
-    "answer": "Diagnosing this Route53 issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure API Gateway?",
-    "answer": "To answer this well, think about API Gateway from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of API Gateway involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Pair your explanation of API Gateway with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "question": "You are debugging a severe production issue in a real-time gaming app: massive bundle size is crashing the authentication. How can VPC be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the authentication usage. Then, slowly roll out VPC behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees smooth 60fps scrolling.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Describe the primary use case for AWS Lambda.",
-    "answer": "A clear grasp of Lambda lets you make better architectural trade-offs.  For beginners, the key insight is understanding the \"why\" behind Lambda, not just the syntax.  Demonstrating real-world usage of Lambda, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
+    "question": "In a enterprise environment, the user onboarding is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying IAM at the application layer mitigate frequent UI freezing?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the user onboarding usage. Then, slowly roll out IAM behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees secure data handling.",
     "code": null
   },
   {
     "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure S3?",
-    "answer": "A clear grasp of S3 lets you make better architectural trade-offs.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to S3.  The strongest candidates connect S3 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS RDS.",
-    "answer": "A clear grasp of RDS lets you make better architectural trade-offs.  Hard questions around RDS probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Pair your explanation of RDS with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust payment processing system for a real-time gaming platform. Ensure you incorporate EventBridge to prevent deadlocks and optimize for 100% uptime.",
+    "answer": "When handling frequent server crashes, EventBridge acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize ECS/EKS for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use EC2 to monitor and set alarms for billing anomalies?",
-    "answer": "A solid strategy for this EC2 challenge is to map out the data flow first, then identify where things deviate from expectations. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "In a rapidly scaling environment, the user onboarding is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying CloudWatch at the application layer mitigate frequent UI freezing?",
+    "answer": "When handling frequent UI freezing, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Lambda for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to EventBridge. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving strict data consistency.",
+    "answer": "When handling unpredictable race conditions, EventBridge acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize VPC for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "How do you secure VPC?",
-    "answer": "VPC comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  For beginners, the key insight is understanding the \"why\" behind VPC, not just the syntax.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure S3 to achieve this?",
-    "answer": "For a S3 problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Wrap up by adding observability (alerts, dashboards) specifically around S3 so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure S3 to achieve this?",
-    "answer": "For a S3 problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around S3.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure VPC?",
-    "answer": "A clear grasp of VPC lets you make better architectural trade-offs.  Hard questions around VPC probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Pair your explanation of VPC with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS SQS.",
-    "answer": "Understanding SQS deeply is what separates mid-level from senior engineers.  Expert-level use of SQS involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Demonstrating real-world usage of SQS, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure API Gateway?",
-    "answer": "To answer this well, think about API Gateway from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of API Gateway involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how Lambda fits into an auto-scaling architecture.",
-    "answer": "Start by asking: what changed? For Lambda, tracing recent deployments or config changes often reveals the root cause quickly. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use API Gateway to monitor and set alarms for billing anomalies?",
-    "answer": "The key to resolving this API Gateway issue is breaking it into smaller, verifiable steps and validating each hypothesis. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure RDS?",
-    "answer": "RDS solves a specific class of problems in frontend/backend development.  Expert-level use of RDS involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Pair your explanation of RDS with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure IAM?",
-    "answer": "IAM comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Understanding IAM at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  The strongest candidates connect IAM to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for IAM\nconst client = new IAMClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS IAM.",
-    "answer": "IAM is a foundational concept that directly influences how scalable and maintainable your code is.  Hard questions around IAM probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Demonstrating real-world usage of IAM, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
+    "question": "During a critical code review for a resource-constrained application, you notice S3 being used improperly in the data visualization flow, causing massive bundle size. Walk me through how you would optimize this using Lambda to achieve sub-second load times.",
+    "answer": "When handling massive bundle size, S3 acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Lambda for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Describe the primary use case for AWS EC2.",
-    "answer": "EC2 solves a specific class of problems in frontend/backend development.  For beginners, the key insight is understanding the \"why\" behind EC2, not just the syntax.  The strongest candidates connect EC2 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for EC2\nconst client = new EC2Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS DynamoDB.",
-    "answer": "DynamoDB comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an intermediate level, focus on how DynamoDB interacts with related browser APIs, frameworks, or runtime environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure SQS to achieve this?",
-    "answer": "A solid strategy for this SQS challenge is to map out the data flow first, then identify where things deviate from expectations. Review related code paths and check for similar patterns that might harbor the same SQS issue elsewhere in the codebase. Wrap up by adding observability (alerts, dashboards) specifically around SQS so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS Route53.",
-    "answer": "Route53 solves a specific class of problems in frontend/backend development.  At an intermediate level, focus on how Route53 interacts with related browser APIs, frameworks, or runtime environments.  Demonstrating real-world usage of Route53, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
+    "question": "You are debugging a severe production issue in a healthcare app: massive bundle size is crashing the authentication. How can Route53 be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "The root cause here is typical for enterprise applications: excessive re-renders degrades the authentication. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with S3 to ensure we hit our 100% uptime target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure CloudFront to achieve this?",
-    "answer": "When facing a CloudFront scenario like this, prioritize understanding the failure mode before jumping to a fix. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around CloudFront.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how Route53 fits into an auto-scaling architecture.",
-    "answer": "The key to resolving this Route53 issue is breaking it into smaller, verifiable steps and validating each hypothesis. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure EC2 to achieve this?",
-    "answer": "Diagnosing this EC2 issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure Route53 to achieve this?",
-    "answer": "Start by asking: what changed? For Route53, tracing recent deployments or config changes often reveals the root cause quickly. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Route53.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use VPC to monitor and set alarms for billing anomalies?",
-    "answer": "The key to resolving this VPC issue is breaking it into smaller, verifiable steps and validating each hypothesis. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure Route53 to achieve this?",
-    "answer": "To tackle this Route53 problem, start by reproducing the issue in a controlled environment and gathering metrics. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure DynamoDB?",
-    "answer": "To answer this well, think about DynamoDB from first principles: what problem does it exist to solve, and what are its limits?  Mid-level engineers should be comfortable explaining the performance trade-offs of DynamoDB and when NOT to use it.  Pair your explanation of DynamoDB with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudFront.",
-    "answer": "The key to resolving this CloudFront issue is breaking it into smaller, verifiable steps and validating each hypothesis. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard CloudFront issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around CloudFront so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure RDS?",
-    "answer": "To answer this well, think about RDS from first principles: what problem does it exist to solve, and what are its limits?  Understanding RDS at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure Lambda to achieve this?",
-    "answer": "Diagnosing this Lambda issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around Lambda so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure SQS to achieve this?",
-    "answer": "A solid strategy for this SQS challenge is to map out the data flow first, then identify where things deviate from expectations. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure CloudWatch?",
-    "answer": "CloudWatch comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Hard questions around CloudWatch probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS Lambda.",
-    "answer": "Understanding Lambda deeply is what separates mid-level from senior engineers.  Expert-level use of Lambda involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for Lambda\nconst client = new LambdaClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use VPC to monitor and set alarms for billing anomalies?",
-    "answer": "For a VPC problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use RDS to monitor and set alarms for billing anomalies?",
-    "answer": "Diagnosing this RDS issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS CloudFront.",
-    "answer": "CloudFront solves a specific class of problems in frontend/backend development.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to CloudFront.  The strongest candidates connect CloudFront to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS RDS.",
-    "answer": "RDS is a foundational concept that directly influences how scalable and maintainable your code is.  Hard questions around RDS probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Showing you understand the trade-offs of RDS — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for RDS\nconst client = new RDSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using EC2.",
-    "answer": "When facing a EC2 scenario like this, prioritize understanding the failure mode before jumping to a fix. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use API Gateway to monitor and set alarms for billing anomalies?",
-    "answer": "A solid strategy for this API Gateway challenge is to map out the data flow first, then identify where things deviate from expectations. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use CloudFront to monitor and set alarms for billing anomalies?",
-    "answer": "Start by asking: what changed? For CloudFront, tracing recent deployments or config changes often reveals the root cause quickly. For hard problems involving CloudFront, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use RDS to monitor and set alarms for billing anomalies?",
-    "answer": "Approaching this RDS challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how RDS fits into an auto-scaling architecture.",
-    "answer": "When facing a RDS scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same RDS issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around RDS.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudFront.",
-    "answer": "To tackle this CloudFront problem, start by reproducing the issue in a controlled environment and gathering metrics. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around CloudFront.",
-    "code": "// Example using AWS SDK for CloudFront\nconst client = new CloudFrontClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how API Gateway fits into an auto-scaling architecture.",
-    "answer": "Start by asking: what changed? For API Gateway, tracing recent deployments or config changes often reveals the root cause quickly. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard API Gateway issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around API Gateway so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure Route53 to achieve this?",
-    "answer": "When facing a Route53 scenario like this, prioritize understanding the failure mode before jumping to a fix. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Route53.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS CloudFront.",
-    "answer": "CloudFront comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Hard questions around CloudFront probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect CloudFront to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for CloudFront\nconst client = new CloudFrontClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure RDS?",
-    "answer": "RDS solves a specific class of problems in frontend/backend development.  Understanding RDS at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS EC2.",
-    "answer": "To answer this well, think about EC2 from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of EC2 involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Pair your explanation of EC2 with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure Route53 to achieve this?",
-    "answer": "To tackle this Route53 problem, start by reproducing the issue in a controlled environment and gathering metrics. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudWatch.",
-    "answer": "Start by asking: what changed? For CloudWatch, tracing recent deployments or config changes often reveals the root cause quickly. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS EC2.",
-    "answer": "EC2 solves a specific class of problems in frontend/backend development.  Expert-level use of EC2 involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Showing you understand the trade-offs of EC2 — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudFront.",
-    "answer": "Diagnosing this CloudFront issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure Route53?",
-    "answer": "Understanding Route53 deeply is what separates mid-level from senior engineers.  Expert-level use of Route53 involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Showing you understand the trade-offs of Route53 — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS API Gateway.",
-    "answer": "A clear grasp of API Gateway lets you make better architectural trade-offs.  At an intermediate level, focus on how API Gateway interacts with related browser APIs, frameworks, or runtime environments.  Demonstrating real-world usage of API Gateway, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS EC2.",
-    "answer": "EC2 comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Mid-level engineers should be comfortable explaining the performance trade-offs of EC2 and when NOT to use it.  Pair your explanation of EC2 with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure S3?",
-    "answer": "S3 is a foundational concept that directly influences how scalable and maintainable your code is.  Understanding S3 at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  The strongest candidates connect S3 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use RDS to monitor and set alarms for billing anomalies?",
-    "answer": "To tackle this RDS problem, start by reproducing the issue in a controlled environment and gathering metrics. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard RDS issues often hide in micro-optimizations or subtle state inconsistencies. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure S3?",
-    "answer": "To answer this well, think about S3 from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of S3 involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  The strongest candidates connect S3 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS S3.",
-    "answer": "To answer this well, think about S3 from first principles: what problem does it exist to solve, and what are its limits?  Hard questions around S3 probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect S3 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure Route53?",
-    "answer": "A clear grasp of Route53 lets you make better architectural trade-offs.  Hard questions around Route53 probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect Route53 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudFront.",
-    "answer": "For a CloudFront problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use API Gateway to monitor and set alarms for billing anomalies?",
-    "answer": "A solid strategy for this API Gateway challenge is to map out the data flow first, then identify where things deviate from expectations. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around API Gateway.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use API Gateway to monitor and set alarms for billing anomalies?",
-    "answer": "When facing a API Gateway scenario like this, prioritize understanding the failure mode before jumping to a fix. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard API Gateway issues often hide in micro-optimizations or subtle state inconsistencies. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around API Gateway.",
+    "question": "During a critical code review for a mission-critical application, you notice ECS/EKS being used improperly in the authentication flow, causing inconsistent state bugs. Walk me through how you would optimize this using EventBridge to achieve strict data consistency.",
+    "answer": "The root cause here is typical for mission-critical applications: unhandled exceptions degrades the authentication. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with EventBridge to ensure we hit our strict data consistency target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use DynamoDB to monitor and set alarms for billing anomalies?",
-    "answer": "Diagnosing this DynamoDB issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Wrap up by adding observability (alerts, dashboards) specifically around DynamoDB so future occurrences are caught automatically before users notice.",
+    "question": "During a critical code review for a rapidly scaling application, you notice Step Functions being used improperly in the real-time feed flow, causing inconsistent state bugs. Walk me through how you would optimize this using DynamoDB to achieve minimal battery drain.",
+    "answer": "To address the inconsistent state bugs in this video streaming context, I would first isolate the real-time feed. By implementing Step Functions, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure Lambda?",
-    "answer": "A clear grasp of Lambda lets you make better architectural trade-offs.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Lambda.  Demonstrating real-world usage of Lambda, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for Lambda\nconst client = new LambdaClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure S3 to achieve this?",
-    "answer": "Approaching this S3 challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around S3.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use EC2 to monitor and set alarms for billing anomalies?",
-    "answer": "Approaching this EC2 challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for EC2\nconst client = new EC2Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use CloudWatch to monitor and set alarms for billing anomalies?",
-    "answer": "Diagnosing this CloudWatch issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure S3?",
-    "answer": "S3 comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Expert-level use of S3 involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Pair your explanation of S3 with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure EC2?",
-    "answer": "EC2 is a foundational concept that directly influences how scalable and maintainable your code is.  Mid-level engineers should be comfortable explaining the performance trade-offs of EC2 and when NOT to use it.  Showing you understand the trade-offs of EC2 — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use Route53 to monitor and set alarms for billing anomalies?",
-    "answer": "For a Route53 problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Route53 issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure S3?",
-    "answer": "Understanding S3 deeply is what separates mid-level from senior engineers.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to S3.  The strongest candidates connect S3 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure Route53?",
-    "answer": "To answer this well, think about Route53 from first principles: what problem does it exist to solve, and what are its limits?  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to Route53.  Showing you understand the trade-offs of Route53 — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudFront.",
-    "answer": "Approaching this CloudFront challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for CloudFront\nconst client = new CloudFrontClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure CloudWatch to achieve this?",
-    "answer": "To tackle this CloudWatch problem, start by reproducing the issue in a controlled environment and gathering metrics. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around CloudWatch so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudWatch.",
-    "answer": "When facing a CloudWatch scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same CloudWatch issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around CloudWatch.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure IAM?",
-    "answer": "To answer this well, think about IAM from first principles: what problem does it exist to solve, and what are its limits?  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to IAM.  Demonstrating real-world usage of IAM, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for IAM\nconst client = new IAMClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how API Gateway fits into an auto-scaling architecture.",
-    "answer": "When facing a API Gateway scenario like this, prioritize understanding the failure mode before jumping to a fix. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Wrap up by adding observability (alerts, dashboards) specifically around API Gateway so future occurrences are caught automatically before users notice.",
+    "question": "Machine Coding: Implement a robust authentication system for a healthcare platform. Ensure you incorporate ECS/EKS to prevent blocking the main thread and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for high-traffic applications: blocking the main thread degrades the authentication. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with SQS to ensure we hit our minimal battery drain target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use CloudFront to monitor and set alarms for billing anomalies?",
-    "answer": "For a CloudFront problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around CloudFront.",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to IAM. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving 100% uptime.",
+    "answer": "The root cause here is typical for legacy applications: poor garbage collection degrades the media upload. Replacing the flawed logic with IAM provides a robust boundary. I'd pair this with Route53 to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: frequent UI freezing is crashing the authentication. How can VPC be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "To address the frequent UI freezing in this IoT dashboard context, I would first isolate the authentication. By implementing VPC, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a high-traffic application, you notice EC2 being used improperly in the authentication flow, causing frequent server crashes. Walk me through how you would optimize this using API Gateway to achieve sub-second load times.",
+    "answer": "To address the frequent server crashes in this social media context, I would first isolate the authentication. By implementing EC2, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a real-time gaming platform. Ensure you incorporate Route53 to prevent unoptimized loops and optimize for 100% uptime.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the search autocomplete usage. Then, slowly roll out Route53 behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a rapidly scaling environment, the payment processing is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying S3 at the application layer mitigate API rate limiting?",
+    "answer": "To address the API rate limiting in this SaaS platform context, I would first isolate the payment processing. By implementing S3, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: API rate limiting is crashing the payment processing. How can RDS be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the payment processing usage. Then, slowly roll out RDS behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to Step Functions. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving minimal battery drain.",
+    "answer": "To address the inconsistent state bugs in this fintech context, I would first isolate the payment processing. By implementing Step Functions, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use CloudWatch to monitor and set alarms for billing anomalies?",
-    "answer": "Start by asking: what changed? For CloudWatch, tracing recent deployments or config changes often reveals the root cause quickly. Wrap up by adding observability (alerts, dashboards) specifically around CloudWatch so future occurrences are caught automatically before users notice.",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Route53. Explain the technical trade-offs, particularly regarding high latency spikes and achieving minimal battery drain.",
+    "answer": "When handling high latency spikes, Route53 acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize EC2 for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Describe the primary use case for AWS RDS.",
-    "answer": "To answer this well, think about RDS from first principles: what problem does it exist to solve, and what are its limits?  For beginners, the key insight is understanding the \"why\" behind RDS, not just the syntax.  Pair your explanation of RDS with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use SQS to monitor and set alarms for billing anomalies?",
-    "answer": "Start by asking: what changed? For SQS, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same SQS issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around SQS.",
+    "question": "You are debugging a severe production issue in a healthcare app: high latency spikes is crashing the checkout flow. How can Lambda be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "The root cause here is typical for high-traffic applications: unoptimized loops degrades the checkout flow. Replacing the flawed logic with Lambda provides a robust boundary. I'd pair this with SQS to ensure we hit our minimal battery drain target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure CloudFront?",
-    "answer": "CloudFront is a foundational concept that directly influences how scalable and maintainable your code is.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to CloudFront.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "During a critical code review for a global scale application, you notice DynamoDB being used improperly in the payment processing flow, causing frequent UI freezing. Walk me through how you would optimize this using SQS to achieve WCAG compliance.",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the payment processing usage. Then, slowly roll out DynamoDB behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained social media application that suffers from high latency spikes. Specifically, the user onboarding module is failing due to redundant network calls. How would you leverage EventBridge alongside CloudWatch to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "When handling high latency spikes, EventBridge acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize CloudWatch for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure IAM to achieve this?",
-    "answer": "Approaching this IAM challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around IAM.",
-    "code": "// Example using AWS SDK for IAM\nconst client = new IAMClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS Route53.",
-    "answer": "A clear grasp of Route53 lets you make better architectural trade-offs.  Mid-level engineers should be comfortable explaining the performance trade-offs of Route53 and when NOT to use it.  Showing you understand the trade-offs of Route53 — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how SQS fits into an auto-scaling architecture.",
-    "answer": "To tackle this SQS problem, start by reproducing the issue in a controlled environment and gathering metrics. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a video streaming platform. Ensure you incorporate RDS to prevent blocking the main thread and optimize for WCAG compliance.",
+    "answer": "The root cause here is typical for enterprise applications: blocking the main thread degrades the search autocomplete. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with EventBridge to ensure we hit our WCAG compliance target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how Route53 fits into an auto-scaling architecture.",
-    "answer": "The key to resolving this Route53 issue is breaking it into smaller, verifiable steps and validating each hypothesis. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS VPC.",
-    "answer": "To answer this well, think about VPC from first principles: what problem does it exist to solve, and what are its limits?  Understanding VPC at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Showing you understand the trade-offs of VPC — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using DynamoDB.",
-    "answer": "When facing a DynamoDB scenario like this, prioritize understanding the failure mode before jumping to a fix. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "You are debugging a severe production issue in a e-commerce app: inconsistent state bugs is crashing the real-time feed. How can DynamoDB be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "To address the inconsistent state bugs in this e-commerce context, I would first isolate the real-time feed. By implementing DynamoDB, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how VPC fits into an auto-scaling architecture.",
-    "answer": "Approaching this VPC challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. For hard problems involving VPC, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Wrap up by adding observability (alerts, dashboards) specifically around VPC so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the real-time feed system encounters redundant network calls, how do you gracefully recover using RDS?",
+    "answer": "The root cause here is typical for global scale applications: redundant network calls degrades the real-time feed. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with DynamoDB to ensure we hit our WCAG compliance target safely.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how CloudWatch fits into an auto-scaling architecture.",
-    "answer": "A solid strategy for this CloudWatch challenge is to map out the data flow first, then identify where things deviate from expectations. Review related code paths and check for similar patterns that might harbor the same CloudWatch issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Scenario: You are tasked with refactoring a enterprise e-commerce application that suffers from severe memory leaks. Specifically, the real-time feed module is failing due to redundant network calls. How would you leverage CloudFront alongside Route53 to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "The root cause here is typical for enterprise applications: redundant network calls degrades the real-time feed. Replacing the flawed logic with CloudFront provides a robust boundary. I'd pair this with Route53 to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the user onboarding system encounters excessive re-renders, how do you gracefully recover using Route53?",
+    "answer": "The root cause here is typical for resource-constrained applications: excessive re-renders degrades the user onboarding. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust real-time feed system for a e-commerce platform. Ensure you incorporate SQS to prevent excessive re-renders and optimize for 100% uptime.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the real-time feed usage. Then, slowly roll out SQS behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees 100% uptime.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Describe the primary use case for AWS IAM.",
-    "answer": "IAM solves a specific class of problems in frontend/backend development.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to IAM.  The strongest candidates connect IAM to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for IAM\nconst client = new IAMClient({ region: 'us-east-1' });"
+    "question": "In a enterprise environment, the authentication is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying SQS at the application layer mitigate high latency spikes?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out SQS behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a enterprise environment, the data visualization is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying CloudWatch at the application layer mitigate frequent server crashes?",
+    "answer": "To address the frequent server crashes in this real-time gaming context, I would first isolate the data visualization. By implementing CloudWatch, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure VPC to achieve this?",
-    "answer": "Approaching this VPC challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to EventBridge. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving WCAG compliance.",
+    "answer": "To address the severe memory leaks in this SaaS platform context, I would first isolate the real-time feed. By implementing EventBridge, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a IoT dashboard platform. Ensure you incorporate IAM to prevent deadlocks and optimize for minimal battery drain.",
+    "answer": "To address the API rate limiting in this IoT dashboard context, I would first isolate the search autocomplete. By implementing IAM, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: frequent UI freezing is crashing the checkout flow. How can Step Functions be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the checkout flow usage. Then, slowly roll out Step Functions behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling real-time gaming application that suffers from frequent server crashes. Specifically, the user onboarding module is failing due to excessive re-renders. How would you leverage DynamoDB alongside CloudWatch to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "To address the frequent server crashes in this real-time gaming context, I would first isolate the user onboarding. By implementing DynamoDB, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained video streaming application that suffers from severe memory leaks. Specifically, the authentication module is failing due to unhandled exceptions. How would you leverage EventBridge alongside DynamoDB to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "To address the severe memory leaks in this video streaming context, I would first isolate the authentication. By implementing EventBridge, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a enterprise environment, the payment processing is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying EventBridge at the application layer mitigate frequent UI freezing?",
+    "answer": "To address the frequent UI freezing in this real-time gaming context, I would first isolate the payment processing. By implementing EventBridge, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy IoT dashboard application that suffers from frequent server crashes. Specifically, the search autocomplete module is failing due to excessive re-renders. How would you leverage SQS alongside CloudFront to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "The root cause here is typical for legacy applications: excessive re-renders degrades the search autocomplete. Replacing the flawed logic with SQS provides a robust boundary. I'd pair this with CloudFront to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a high-traffic environment, the checkout flow is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying CloudFront at the application layer mitigate inconsistent state bugs?",
+    "answer": "When handling inconsistent state bugs, CloudFront acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize API Gateway for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "How do you secure Lambda?",
-    "answer": "Lambda is a foundational concept that directly influences how scalable and maintainable your code is.  For beginners, the key insight is understanding the \"why\" behind Lambda, not just the syntax.  Demonstrating real-world usage of Lambda, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
+    "question": "Scenario: You are tasked with refactoring a high-traffic video streaming application that suffers from frequent server crashes. Specifically, the media upload module is failing due to unoptimized loops. How would you leverage EventBridge alongside ECS/EKS to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "The root cause here is typical for high-traffic applications: unoptimized loops degrades the media upload. Replacing the flawed logic with EventBridge provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our minimal battery drain target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using VPC.",
-    "answer": "A solid strategy for this VPC challenge is to map out the data flow first, then identify where things deviate from expectations. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard VPC issues often hide in micro-optimizations or subtle state inconsistencies. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around VPC.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure SQS?",
-    "answer": "A clear grasp of SQS lets you make better architectural trade-offs.  Hard questions around SQS probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect SQS to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS SQS.",
-    "answer": "A clear grasp of SQS lets you make better architectural trade-offs.  Mid-level engineers should be comfortable explaining the performance trade-offs of SQS and when NOT to use it.  Showing you understand the trade-offs of SQS — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure API Gateway?",
-    "answer": "API Gateway comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Understanding API Gateway at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Pair your explanation of API Gateway with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using S3.",
-    "answer": "To tackle this S3 problem, start by reproducing the issue in a controlled environment and gathering metrics. For hard problems involving S3, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Wrap up by adding observability (alerts, dashboards) specifically around S3 so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure SQS to achieve this?",
-    "answer": "When facing a SQS scenario like this, prioritize understanding the failure mode before jumping to a fix. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around SQS.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure CloudFront?",
-    "answer": "Understanding CloudFront deeply is what separates mid-level from senior engineers.  Expert-level use of CloudFront involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for CloudFront\nconst client = new CloudFrontClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure SQS to achieve this?",
-    "answer": "When facing a SQS scenario like this, prioritize understanding the failure mode before jumping to a fix. For hard problems involving SQS, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use Route53 to monitor and set alarms for billing anomalies?",
-    "answer": "For a Route53 problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure IAM to achieve this?",
-    "answer": "When facing a IAM scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same IAM issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for IAM\nconst client = new IAMClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using VPC.",
-    "answer": "To tackle this VPC problem, start by reproducing the issue in a controlled environment and gathering metrics. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around VPC.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure DynamoDB?",
-    "answer": "DynamoDB comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Hard questions around DynamoDB probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect DynamoDB to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "Machine Coding: Implement a robust payment processing system for a healthcare platform. Ensure you incorporate CloudWatch to prevent poor garbage collection and optimize for sub-second load times.",
+    "answer": "When handling frequent server crashes, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize CloudFront for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure CloudWatch to achieve this?",
-    "answer": "For a CloudWatch problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use RDS to monitor and set alarms for billing anomalies?",
-    "answer": "Diagnosing this RDS issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around RDS.",
+    "question": "Scenario: You are tasked with refactoring a mission-critical IoT dashboard application that suffers from severe memory leaks. Specifically, the real-time feed module is failing due to deadlocks. How would you leverage CloudWatch alongside EC2 to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "The root cause here is typical for mission-critical applications: deadlocks degrades the real-time feed. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with EC2 to ensure we hit our sub-second load times target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how DynamoDB fits into an auto-scaling architecture.",
-    "answer": "The key to resolving this DynamoDB issue is breaking it into smaller, verifiable steps and validating each hypothesis. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
+    "question": "In a high-traffic environment, the data visualization is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying VPC at the application layer mitigate frequent UI freezing?",
+    "answer": "When handling frequent UI freezing, VPC acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize EventBridge for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Describe the primary use case for AWS API Gateway.",
-    "answer": "API Gateway comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Understanding API Gateway at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Showing you understand the trade-offs of API Gateway — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "Design architecture for a social media feature handling millions of requests. If the payment processing system encounters excessive re-renders, how do you gracefully recover using VPC?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the payment processing usage. Then, slowly roll out VPC behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to CloudFront. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving sub-second load times.",
+    "answer": "When handling severe memory leaks, CloudFront acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize ECS/EKS for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a enterprise healthcare application that suffers from frequent server crashes. Specifically, the authentication module is failing due to poor garbage collection. How would you leverage API Gateway alongside VPC to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the authentication usage. Then, slowly roll out API Gateway behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees 100% uptime.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure EC2?",
-    "answer": "A clear grasp of EC2 lets you make better architectural trade-offs.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to EC2.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for EC2\nconst client = new EC2Client({ region: 'us-east-1' });"
+    "question": "During a critical code review for a global scale application, you notice Step Functions being used improperly in the authentication flow, causing frequent server crashes. Walk me through how you would optimize this using VPC to achieve minimal battery drain.",
+    "answer": "The root cause here is typical for global scale applications: deadlocks degrades the authentication. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with VPC to ensure we hit our minimal battery drain target safely.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using RDS.",
-    "answer": "To tackle this RDS problem, start by reproducing the issue in a controlled environment and gathering metrics. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Scenario: You are tasked with refactoring a high-traffic fintech application that suffers from API rate limiting. Specifically, the data visualization module is failing due to blocking the main thread. How would you leverage Lambda alongside API Gateway to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "When handling API rate limiting, Lambda acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize API Gateway for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a social media app: severe memory leaks is crashing the checkout flow. How can EC2 be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "To address the severe memory leaks in this social media context, I would first isolate the checkout flow. By implementing EC2, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a social media feature handling millions of requests. If the search autocomplete system encounters unoptimized loops, how do you gracefully recover using API Gateway?",
+    "answer": "When handling high latency spikes, API Gateway acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize VPC for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the data visualization is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying RDS at the application layer mitigate severe memory leaks?",
+    "answer": "The root cause here is typical for rapidly scaling applications: excessive re-renders degrades the data visualization. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with IAM to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to RDS. Explain the technical trade-offs, particularly regarding API rate limiting and achieving sub-second load times.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the authentication usage. Then, slowly roll out RDS behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees sub-second load times.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how DynamoDB fits into an auto-scaling architecture.",
-    "answer": "When facing a DynamoDB scenario like this, prioritize understanding the failure mode before jumping to a fix. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around DynamoDB.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure DynamoDB?",
-    "answer": "Understanding DynamoDB deeply is what separates mid-level from senior engineers.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to DynamoDB.  The strongest candidates connect DynamoDB to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "You are debugging a severe production issue in a video streaming app: massive bundle size is crashing the payment processing. How can Route53 be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "When handling massive bundle size, Route53 acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize CloudWatch for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure Route53 to achieve this?",
-    "answer": "Diagnosing this Route53 issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard Route53 issues often hide in micro-optimizations or subtle state inconsistencies. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using SQS.",
-    "answer": "Start by asking: what changed? For SQS, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same SQS issue elsewhere in the codebase. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS CloudWatch.",
-    "answer": "CloudWatch comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Mid-level engineers should be comfortable explaining the performance trade-offs of CloudWatch and when NOT to use it.  Showing you understand the trade-offs of CloudWatch — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use IAM to monitor and set alarms for billing anomalies?",
-    "answer": "Start by asking: what changed? For IAM, tracing recent deployments or config changes often reveals the root cause quickly. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "During a critical code review for a resource-constrained application, you notice CloudFront being used improperly in the checkout flow flow, causing unpredictable race conditions. Walk me through how you would optimize this using SQS to achieve smooth 60fps scrolling.",
+    "answer": "When handling unpredictable race conditions, CloudFront acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize SQS for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use API Gateway to monitor and set alarms for billing anomalies?",
-    "answer": "Diagnosing this API Gateway issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure API Gateway?",
-    "answer": "API Gateway comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Expert-level use of API Gateway involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  The strongest candidates connect API Gateway to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS CloudFront.",
-    "answer": "To answer this well, think about CloudFront from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of CloudFront involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Showing you understand the trade-offs of CloudFront — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "During a critical code review for a mission-critical application, you notice RDS being used improperly in the payment processing flow, causing frequent server crashes. Walk me through how you would optimize this using EC2 to achieve sub-second load times.",
+    "answer": "When handling frequent server crashes, RDS acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize EC2 for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how VPC fits into an auto-scaling architecture.",
-    "answer": "A solid strategy for this VPC challenge is to map out the data flow first, then identify where things deviate from expectations. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around VPC.",
+    "question": "You are debugging a severe production issue in a e-commerce app: high latency spikes is crashing the media upload. How can IAM be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "The root cause here is typical for rapidly scaling applications: unoptimized loops degrades the media upload. Replacing the flawed logic with IAM provides a robust boundary. I'd pair this with SQS to ensure we hit our secure data handling target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using IAM.",
-    "answer": "Diagnosing this IAM issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. For hard problems involving IAM, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "During a critical code review for a high-traffic application, you notice Step Functions being used improperly in the authentication flow, causing severe memory leaks. Walk me through how you would optimize this using CloudFront to achieve minimal battery drain.",
+    "answer": "To address the severe memory leaks in this SaaS platform context, I would first isolate the authentication. By implementing Step Functions, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Describe the primary use case for AWS SQS.",
-    "answer": "To answer this well, think about SQS from first principles: what problem does it exist to solve, and what are its limits?  At an intermediate level, focus on how SQS interacts with related browser APIs, frameworks, or runtime environments.  Demonstrating real-world usage of SQS, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
+    "question": "Scenario: You are tasked with refactoring a mission-critical real-time gaming application that suffers from frequent server crashes. Specifically, the search autocomplete module is failing due to poor garbage collection. How would you leverage RDS alongside ECS/EKS to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "The root cause here is typical for mission-critical applications: poor garbage collection degrades the search autocomplete. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our smooth 60fps scrolling target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Describe the primary use case for AWS IAM.",
-    "answer": "IAM solves a specific class of problems in frontend/backend development.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to IAM.  Showing you understand the trade-offs of IAM — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for IAM\nconst client = new IAMClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudWatch.",
-    "answer": "A solid strategy for this CloudWatch challenge is to map out the data flow first, then identify where things deviate from expectations. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS Route53.",
-    "answer": "A clear grasp of Route53 lets you make better architectural trade-offs.  Mid-level engineers should be comfortable explaining the performance trade-offs of Route53 and when NOT to use it.  Demonstrating real-world usage of Route53, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using API Gateway.",
-    "answer": "The key to resolving this API Gateway issue is breaking it into smaller, verifiable steps and validating each hypothesis. For hard problems involving API Gateway, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "In a rapidly scaling environment, the data visualization is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying IAM at the application layer mitigate unpredictable race conditions?",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the data visualization. Replacing the flawed logic with IAM provides a robust boundary. I'd pair this with Step Functions to ensure we hit our smooth 60fps scrolling target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Describe the primary use case for AWS SQS.",
-    "answer": "SQS solves a specific class of problems in frontend/backend development.  Expert-level use of SQS involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure RDS to achieve this?",
-    "answer": "To tackle this RDS problem, start by reproducing the issue in a controlled environment and gathering metrics. Review related code paths and check for similar patterns that might harbor the same RDS issue elsewhere in the codebase. Wrap up by adding observability (alerts, dashboards) specifically around RDS so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for RDS\nconst client = new RDSClient({ region: 'us-east-1' });"
+    "question": "Scenario: You are tasked with refactoring a global scale SaaS platform application that suffers from frequent UI freezing. Specifically, the user onboarding module is failing due to unoptimized loops. How would you leverage VPC alongside RDS to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "The root cause here is typical for global scale applications: unoptimized loops degrades the user onboarding. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with RDS to ensure we hit our sub-second load times target safely.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure SQS?",
-    "answer": "A clear grasp of SQS lets you make better architectural trade-offs.  Hard questions around SQS probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Pair your explanation of SQS with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
+    "question": "Machine Coding: Implement a robust data visualization system for a SaaS platform platform. Ensure you incorporate Lambda to prevent blocking the main thread and optimize for WCAG compliance.",
+    "answer": "The root cause here is typical for legacy applications: blocking the main thread degrades the data visualization. Replacing the flawed logic with Lambda provides a robust boundary. I'd pair this with Step Functions to ensure we hit our WCAG compliance target safely.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure SQS?",
-    "answer": "To answer this well, think about SQS from first principles: what problem does it exist to solve, and what are its limits?  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to SQS.  Showing you understand the trade-offs of SQS — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "Machine Coding: Implement a robust authentication system for a fintech platform. Ensure you incorporate API Gateway to prevent unhandled exceptions and optimize for sub-second load times.",
+    "answer": "The root cause here is typical for rapidly scaling applications: unhandled exceptions degrades the authentication. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with Route53 to ensure we hit our sub-second load times target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure S3 to achieve this?",
-    "answer": "When facing a S3 scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same S3 issue elsewhere in the codebase. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
+    "question": "During a critical code review for a resource-constrained application, you notice EventBridge being used improperly in the authentication flow, causing frequent UI freezing. Walk me through how you would optimize this using Lambda to achieve WCAG compliance.",
+    "answer": "To address the frequent UI freezing in this fintech context, I would first isolate the authentication. By implementing EventBridge, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
   },
   {
     "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure RDS?",
-    "answer": "To answer this well, think about RDS from first principles: what problem does it exist to solve, and what are its limits?  Understanding RDS at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Showing you understand the trade-offs of RDS — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a e-commerce platform. Ensure you incorporate DynamoDB to prevent poor garbage collection and optimize for WCAG compliance.",
+    "answer": "When handling frequent server crashes, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize RDS for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure API Gateway to achieve this?",
-    "answer": "Approaching this API Gateway challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Wrap up by adding observability (alerts, dashboards) specifically around API Gateway so future occurrences are caught automatically before users notice.",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained SaaS platform application that suffers from severe memory leaks. Specifically, the user onboarding module is failing due to unhandled exceptions. How would you leverage API Gateway alongside DynamoDB to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "When handling severe memory leaks, API Gateway acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize DynamoDB for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the real-time feed system encounters poor garbage collection, how do you gracefully recover using DynamoDB?",
+    "answer": "The root cause here is typical for high-traffic applications: poor garbage collection degrades the real-time feed. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with CloudWatch to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a data-intensive environment, the user onboarding is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying ECS/EKS at the application layer mitigate massive bundle size?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the user onboarding usage. Then, slowly roll out ECS/EKS behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees smooth 60fps scrolling.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how DynamoDB fits into an auto-scaling architecture.",
-    "answer": "Approaching this DynamoDB challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Review related code paths and check for similar patterns that might harbor the same DynamoDB issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around DynamoDB.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
+    "question": "Machine Coding: Implement a robust payment processing system for a video streaming platform. Ensure you incorporate EventBridge to prevent poor garbage collection and optimize for secure data handling.",
+    "answer": "When handling severe memory leaks, EventBridge acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize EC2 for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure RDS?",
-    "answer": "A clear grasp of RDS lets you make better architectural trade-offs.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to RDS.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Step Functions. Explain the technical trade-offs, particularly regarding massive bundle size and achieving smooth 60fps scrolling.",
+    "answer": "When handling massive bundle size, Step Functions acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Route53 for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a data-intensive healthcare application that suffers from inconsistent state bugs. Specifically, the checkout flow module is failing due to excessive re-renders. How would you leverage EventBridge alongside IAM to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "To address the inconsistent state bugs in this healthcare context, I would first isolate the checkout flow. By implementing EventBridge, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to DynamoDB. Explain the technical trade-offs, particularly regarding massive bundle size and achieving minimal battery drain.",
+    "answer": "The root cause here is typical for high-traffic applications: deadlocks degrades the media upload. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with S3 to ensure we hit our minimal battery drain target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use S3 to monitor and set alarms for billing anomalies?",
-    "answer": "Approaching this S3 challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how SQS fits into an auto-scaling architecture.",
-    "answer": "For a SQS problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around SQS.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure SQS to achieve this?",
-    "answer": "The key to resolving this SQS issue is breaking it into smaller, verifiable steps and validating each hypothesis. Review related code paths and check for similar patterns that might harbor the same SQS issue elsewhere in the codebase. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure Lambda?",
-    "answer": "Lambda comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Understanding Lambda at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Pair your explanation of Lambda with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure CloudFront to achieve this?",
-    "answer": "The key to resolving this CloudFront issue is breaking it into smaller, verifiable steps and validating each hypothesis. For hard problems involving CloudFront, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how CloudWatch fits into an auto-scaling architecture.",
-    "answer": "Diagnosing this CloudWatch issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. For hard problems involving CloudWatch, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "In a legacy environment, the checkout flow is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying VPC at the application layer mitigate high latency spikes?",
+    "answer": "The root cause here is typical for legacy applications: excessive re-renders degrades the checkout flow. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with CloudWatch to ensure we hit our smooth 60fps scrolling target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how RDS fits into an auto-scaling architecture.",
-    "answer": "Diagnosing this RDS issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "Machine Coding: Implement a robust payment processing system for a IoT dashboard platform. Ensure you incorporate API Gateway to prevent blocking the main thread and optimize for 100% uptime.",
+    "answer": "To address the API rate limiting in this IoT dashboard context, I would first isolate the payment processing. By implementing API Gateway, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how VPC fits into an auto-scaling architecture.",
-    "answer": "A solid strategy for this VPC challenge is to map out the data flow first, then identify where things deviate from expectations. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure CloudWatch to achieve this?",
-    "answer": "Diagnosing this CloudWatch issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Wrap up by adding observability (alerts, dashboards) specifically around CloudWatch so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how API Gateway fits into an auto-scaling architecture.",
-    "answer": "The key to resolving this API Gateway issue is breaking it into smaller, verifiable steps and validating each hypothesis. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around API Gateway.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use DynamoDB to monitor and set alarms for billing anomalies?",
-    "answer": "A solid strategy for this DynamoDB challenge is to map out the data flow first, then identify where things deviate from expectations. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use API Gateway to monitor and set alarms for billing anomalies?",
-    "answer": "Diagnosing this API Gateway issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how VPC fits into an auto-scaling architecture.",
-    "answer": "A solid strategy for this VPC challenge is to map out the data flow first, then identify where things deviate from expectations. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around VPC.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS IAM.",
-    "answer": "IAM solves a specific class of problems in frontend/backend development.  Hard questions around IAM probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Pair your explanation of IAM with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: frequent UI freezing is crashing the payment processing. How can EC2 be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "The root cause here is typical for mission-critical applications: blocking the main thread degrades the payment processing. Replacing the flawed logic with EC2 provides a robust boundary. I'd pair this with CloudFront to ensure we hit our sub-second load times target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using API Gateway.",
-    "answer": "When facing a API Gateway scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same API Gateway issue elsewhere in the codebase. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "Machine Coding: Implement a robust media upload system for a video streaming platform. Ensure you incorporate API Gateway to prevent unoptimized loops and optimize for WCAG compliance.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the media upload usage. Then, slowly roll out API Gateway behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees WCAG compliance.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use S3 to monitor and set alarms for billing anomalies?",
-    "answer": "To tackle this S3 problem, start by reproducing the issue in a controlled environment and gathering metrics. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using DynamoDB.",
-    "answer": "For a DynamoDB problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. For hard problems involving DynamoDB, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure IAM?",
-    "answer": "IAM is a foundational concept that directly influences how scalable and maintainable your code is.  Hard questions around IAM probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Demonstrating real-world usage of IAM, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
+    "question": "In a resource-constrained environment, the real-time feed is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying DynamoDB at the application layer mitigate massive bundle size?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the real-time feed usage. Then, slowly roll out DynamoDB behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees minimal battery drain.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure IAM to achieve this?",
-    "answer": "Diagnosing this IAM issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a video streaming platform. Ensure you incorporate VPC to prevent unoptimized loops and optimize for sub-second load times.",
+    "answer": "To address the severe memory leaks in this video streaming context, I would first isolate the search autocomplete. By implementing VPC, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust checkout flow system for a healthcare platform. Ensure you incorporate SQS to prevent unoptimized loops and optimize for minimal battery drain.",
+    "answer": "To address the API rate limiting in this healthcare context, I would first isolate the checkout flow. By implementing SQS, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a global scale application, you notice EC2 being used improperly in the authentication flow, causing severe memory leaks. Walk me through how you would optimize this using S3 to achieve strict data consistency.",
+    "answer": "When handling severe memory leaks, EC2 acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize S3 for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a mission-critical environment, the data visualization is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying S3 at the application layer mitigate API rate limiting?",
+    "answer": "To address the API rate limiting in this real-time gaming context, I would first isolate the data visualization. By implementing S3, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a legacy environment, the data visualization is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying IAM at the application layer mitigate unpredictable race conditions?",
+    "answer": "The root cause here is typical for legacy applications: redundant network calls degrades the data visualization. Replacing the flawed logic with IAM provides a robust boundary. I'd pair this with Lambda to ensure we hit our minimal battery drain target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "How do you secure CloudWatch?",
-    "answer": "CloudWatch is a foundational concept that directly influences how scalable and maintainable your code is.  A practical way to internalize CloudWatch is to build a small demo that isolates it from other concerns.  Demonstrating real-world usage of CloudWatch, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Route53. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving secure data handling.",
+    "answer": "When handling frequent server crashes, Route53 acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize IAM for fallback logic. Validating secure data handling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "How do you secure Route53?",
-    "answer": "Route53 is a foundational concept that directly influences how scalable and maintainable your code is.  Mid-level engineers should be comfortable explaining the performance trade-offs of Route53 and when NOT to use it.  The strongest candidates connect Route53 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS EC2.",
-    "answer": "Understanding EC2 deeply is what separates mid-level from senior engineers.  Hard questions around EC2 probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for EC2\nconst client = new EC2Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure RDS?",
-    "answer": "A clear grasp of RDS lets you make better architectural trade-offs.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to RDS.  Demonstrating real-world usage of RDS, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using EC2.",
-    "answer": "Diagnosing this EC2 issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard EC2 issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure Lambda?",
-    "answer": "To answer this well, think about Lambda from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of Lambda involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  The strongest candidates connect Lambda to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure RDS to achieve this?",
-    "answer": "Start by asking: what changed? For RDS, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same RDS issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for RDS\nconst client = new RDSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure SQS?",
-    "answer": "SQS solves a specific class of problems in frontend/backend development.  Mid-level engineers should be comfortable explaining the performance trade-offs of SQS and when NOT to use it.  Showing you understand the trade-offs of SQS — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use DynamoDB to monitor and set alarms for billing anomalies?",
-    "answer": "For a DynamoDB problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Review related code paths and check for similar patterns that might harbor the same DynamoDB issue elsewhere in the codebase. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS CloudWatch.",
-    "answer": "Understanding CloudWatch deeply is what separates mid-level from senior engineers.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to CloudWatch.  Showing you understand the trade-offs of CloudWatch — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS S3.",
-    "answer": "To answer this well, think about S3 from first principles: what problem does it exist to solve, and what are its limits?  Expert-level use of S3 involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  Showing you understand the trade-offs of S3 — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using API Gateway.",
-    "answer": "A solid strategy for this API Gateway challenge is to map out the data flow first, then identify where things deviate from expectations. For hard problems involving API Gateway, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Wrap up by adding observability (alerts, dashboards) specifically around API Gateway so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS DynamoDB.",
-    "answer": "DynamoDB comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an intermediate level, focus on how DynamoDB interacts with related browser APIs, frameworks, or runtime environments.  Showing you understand the trade-offs of DynamoDB — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure S3?",
-    "answer": "A clear grasp of S3 lets you make better architectural trade-offs.  At an intermediate level, focus on how S3 interacts with related browser APIs, frameworks, or runtime environments.  Demonstrating real-world usage of S3, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how API Gateway fits into an auto-scaling architecture.",
-    "answer": "Start by asking: what changed? For API Gateway, tracing recent deployments or config changes often reveals the root cause quickly. Review related code paths and check for similar patterns that might harbor the same API Gateway issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around API Gateway.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how S3 fits into an auto-scaling architecture.",
-    "answer": "To tackle this S3 problem, start by reproducing the issue in a controlled environment and gathering metrics. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how SQS fits into an auto-scaling architecture.",
-    "answer": "Diagnosing this SQS issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around SQS.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how DynamoDB fits into an auto-scaling architecture.",
-    "answer": "Diagnosing this DynamoDB issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard DynamoDB issues often hide in micro-optimizations or subtle state inconsistencies. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS SQS.",
-    "answer": "SQS solves a specific class of problems in frontend/backend development.  Mid-level engineers should be comfortable explaining the performance trade-offs of SQS and when NOT to use it.  Pair your explanation of SQS with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use API Gateway to monitor and set alarms for billing anomalies?",
-    "answer": "To tackle this API Gateway problem, start by reproducing the issue in a controlled environment and gathering metrics. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard API Gateway issues often hide in micro-optimizations or subtle state inconsistencies. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using Route53.",
-    "answer": "Approaching this Route53 challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. For hard problems involving Route53, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
+    "question": "During a critical code review for a global scale application, you notice Route53 being used improperly in the media upload flow, causing frequent server crashes. Walk me through how you would optimize this using VPC to achieve minimal battery drain.",
+    "answer": "When handling frequent server crashes, Route53 acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize VPC for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use RDS to monitor and set alarms for billing anomalies?",
-    "answer": "When facing a RDS scenario like this, prioritize understanding the failure mode before jumping to a fix. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "You are debugging a severe production issue in a video streaming app: frequent UI freezing is crashing the authentication. How can EventBridge be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "When handling frequent UI freezing, EventBridge acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize API Gateway for fallback logic. Validating secure data handling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "Describe the primary use case for AWS IAM.",
-    "answer": "IAM comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to IAM.  Demonstrating real-world usage of IAM, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for IAM\nconst client = new IAMClient({ region: 'us-east-1' });"
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the user onboarding system encounters excessive re-renders, how do you gracefully recover using Route53?",
+    "answer": "The root cause here is typical for legacy applications: excessive re-renders degrades the user onboarding. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our strict data consistency target safely.",
+    "code": null
   },
   {
     "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure SQS to achieve this?",
-    "answer": "A solid strategy for this SQS challenge is to map out the data flow first, then identify where things deviate from expectations. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around SQS.",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a video streaming platform. Ensure you incorporate Lambda to prevent redundant network calls and optimize for WCAG compliance.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the user onboarding usage. Then, slowly roll out Lambda behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees WCAG compliance.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how VPC fits into an auto-scaling architecture.",
-    "answer": "When facing a VPC scenario like this, prioritize understanding the failure mode before jumping to a fix. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using VPC.",
-    "answer": "To tackle this VPC problem, start by reproducing the issue in a controlled environment and gathering metrics. Review related code paths and check for similar patterns that might harbor the same VPC issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how SQS fits into an auto-scaling architecture.",
-    "answer": "Diagnosing this SQS issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. For hard problems involving SQS, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure Route53 to achieve this?",
-    "answer": "Diagnosing this Route53 issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure CloudFront?",
-    "answer": "To answer this well, think about CloudFront from first principles: what problem does it exist to solve, and what are its limits?  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to CloudFront.  Showing you understand the trade-offs of CloudFront — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "Machine Coding: Implement a robust checkout flow system for a SaaS platform platform. Ensure you incorporate Route53 to prevent deadlocks and optimize for minimal battery drain.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the checkout flow usage. Then, slowly roll out Route53 behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees minimal battery drain.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using VPC.",
-    "answer": "For a VPC problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Review related code paths and check for similar patterns that might harbor the same VPC issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to S3. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the user onboarding usage. Then, slowly roll out S3 behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to ECS/EKS. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving secure data handling.",
+    "answer": "The root cause here is typical for data-intensive applications: redundant network calls degrades the payment processing. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with EventBridge to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a social media app: massive bundle size is crashing the user onboarding. How can API Gateway be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "When handling massive bundle size, API Gateway acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize RDS for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the user onboarding system encounters unhandled exceptions, how do you gracefully recover using SQS?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the user onboarding usage. Then, slowly roll out SQS behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a global scale environment, the authentication is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Route53 at the application layer mitigate massive bundle size?",
+    "answer": "To address the massive bundle size in this healthcare context, I would first isolate the authentication. By implementing Route53, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a legacy environment, the media upload is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying EC2 at the application layer mitigate API rate limiting?",
+    "answer": "When handling API rate limiting, EC2 acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize SQS for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to CloudFront. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving WCAG compliance.",
+    "answer": "To address the frequent server crashes in this healthcare context, I would first isolate the payment processing. By implementing CloudFront, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a global scale environment, the authentication is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Route53 at the application layer mitigate massive bundle size?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out Route53 behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the user onboarding system encounters unoptimized loops, how do you gracefully recover using IAM?",
+    "answer": "When handling inconsistent state bugs, IAM acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Lambda for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a SaaS platform app: frequent server crashes is crashing the payment processing. How can Step Functions be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the payment processing usage. Then, slowly roll out Step Functions behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a fintech platform. Ensure you incorporate EventBridge to prevent redundant network calls and optimize for secure data handling.",
+    "answer": "When handling inconsistent state bugs, EventBridge acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize ECS/EKS for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy video streaming application that suffers from inconsistent state bugs. Specifically, the payment processing module is failing due to poor garbage collection. How would you leverage ECS/EKS alongside API Gateway to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "When handling inconsistent state bugs, ECS/EKS acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize API Gateway for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a real-time gaming app: unpredictable race conditions is crashing the search autocomplete. How can SQS be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "To address the unpredictable race conditions in this real-time gaming context, I would first isolate the search autocomplete. By implementing SQS, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a mission-critical environment, the checkout flow is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying S3 at the application layer mitigate high latency spikes?",
+    "answer": "To address the high latency spikes in this e-commerce context, I would first isolate the checkout flow. By implementing S3, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use API Gateway to monitor and set alarms for billing anomalies?",
-    "answer": "When facing a API Gateway scenario like this, prioritize understanding the failure mode before jumping to a fix. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
+    "question": "During a critical code review for a resource-constrained application, you notice SQS being used improperly in the payment processing flow, causing unpredictable race conditions. Walk me through how you would optimize this using S3 to achieve secure data handling.",
+    "answer": "To address the unpredictable race conditions in this healthcare context, I would first isolate the payment processing. By implementing SQS, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure DynamoDB?",
-    "answer": "A clear grasp of DynamoDB lets you make better architectural trade-offs.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to DynamoDB.  Demonstrating real-world usage of DynamoDB, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
+    "question": "In a resource-constrained environment, the data visualization is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying CloudWatch at the application layer mitigate high latency spikes?",
+    "answer": "When handling high latency spikes, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize SQS for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure EC2?",
-    "answer": "EC2 is a foundational concept that directly influences how scalable and maintainable your code is.  Hard questions around EC2 probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  The strongest candidates connect EC2 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for EC2\nconst client = new EC2Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use EC2 to monitor and set alarms for billing anomalies?",
-    "answer": "For a EC2 problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard EC2 issues often hide in micro-optimizations or subtle state inconsistencies. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a fintech platform. Ensure you incorporate DynamoDB to prevent poor garbage collection and optimize for 100% uptime.",
+    "answer": "To address the API rate limiting in this fintech context, I would first isolate the search autocomplete. By implementing DynamoDB, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use CloudWatch to monitor and set alarms for billing anomalies?",
-    "answer": "When facing a CloudWatch scenario like this, prioritize understanding the failure mode before jumping to a fix. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the search autocomplete system encounters blocking the main thread, how do you gracefully recover using DynamoDB?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the search autocomplete usage. Then, slowly roll out DynamoDB behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a mission-critical application, you notice Route53 being used improperly in the checkout flow flow, causing massive bundle size. Walk me through how you would optimize this using Lambda to achieve WCAG compliance.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the checkout flow usage. Then, slowly roll out Route53 behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a healthcare platform. Ensure you incorporate Step Functions to prevent poor garbage collection and optimize for WCAG compliance.",
+    "answer": "When handling inconsistent state bugs, Step Functions acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize EventBridge for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a legacy fintech application that suffers from massive bundle size. Specifically, the search autocomplete module is failing due to unoptimized loops. How would you leverage DynamoDB alongside IAM to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "When handling massive bundle size, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize IAM for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a legacy application, you notice IAM being used improperly in the real-time feed flow, causing severe memory leaks. Walk me through how you would optimize this using EC2 to achieve 100% uptime.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the real-time feed usage. Then, slowly roll out IAM behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees 100% uptime.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "How do you secure CloudWatch?",
-    "answer": "CloudWatch is a foundational concept that directly influences how scalable and maintainable your code is.  A practical way to internalize CloudWatch is to build a small demo that isolates it from other concerns.  Pair your explanation of CloudWatch with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the search autocomplete system encounters redundant network calls, how do you gracefully recover using RDS?",
+    "answer": "The root cause here is typical for enterprise applications: redundant network calls degrades the search autocomplete. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with CloudFront to ensure we hit our sub-second load times target safely.",
     "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS DynamoDB.",
-    "answer": "DynamoDB is a foundational concept that directly influences how scalable and maintainable your code is.  Hard questions around DynamoDB probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Pair your explanation of DynamoDB with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for DynamoDB\nconst client = new DynamoDBClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure IAM to achieve this?",
-    "answer": "The key to resolving this IAM issue is breaking it into smaller, verifiable steps and validating each hypothesis. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Wrap up by adding observability (alerts, dashboards) specifically around IAM so future occurrences are caught automatically before users notice.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS EC2.",
-    "answer": "A clear grasp of EC2 lets you make better architectural trade-offs.  Hard questions around EC2 probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Demonstrating real-world usage of EC2, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure VPC to achieve this?",
-    "answer": "When facing a VPC scenario like this, prioritize understanding the failure mode before jumping to a fix. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around VPC.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure S3?",
-    "answer": "To answer this well, think about S3 from first principles: what problem does it exist to solve, and what are its limits?  Mid-level engineers should be comfortable explaining the performance trade-offs of S3 and when NOT to use it.  Demonstrating real-world usage of S3, including mistakes you've made and lessons learned, makes for a compelling interview answer.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure VPC to achieve this?",
-    "answer": "To tackle this VPC problem, start by reproducing the issue in a controlled environment and gathering metrics. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard VPC issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around VPC so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Describe the primary use case for AWS Route53.",
-    "answer": "Route53 comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  For beginners, the key insight is understanding the \"why\" behind Route53, not just the syntax.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS SQS.",
-    "answer": "To answer this well, think about SQS from first principles: what problem does it exist to solve, and what are its limits?  Hard questions around SQS probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Showing you understand the trade-offs of SQS — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to ECS/EKS. Explain the technical trade-offs, particularly regarding massive bundle size and achieving secure data handling.",
+    "answer": "To address the massive bundle size in this healthcare context, I would first isolate the data visualization. By implementing ECS/EKS, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
     "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use CloudWatch to monitor and set alarms for billing anomalies?",
-    "answer": "Diagnosing this CloudWatch issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Deep-dive with a profiler or distributed trace to identify the hotspot. Hard CloudWatch issues often hide in micro-optimizations or subtle state inconsistencies. Wrap up by adding observability (alerts, dashboards) specifically around CloudWatch so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use SQS to monitor and set alarms for billing anomalies?",
-    "answer": "When facing a SQS scenario like this, prioritize understanding the failure mode before jumping to a fix. Review related code paths and check for similar patterns that might harbor the same SQS issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using Route53.",
-    "answer": "To tackle this Route53 problem, start by reproducing the issue in a controlled environment and gathering metrics. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
-    "code": "// Example using AWS SDK for Route53\nconst client = new Route53Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "How do you secure VPC?",
-    "answer": "VPC comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  Hard questions around VPC probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use S3 to monitor and set alarms for billing anomalies?",
-    "answer": "When facing a S3 scenario like this, prioritize understanding the failure mode before jumping to a fix. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure RDS?",
-    "answer": "RDS solves a specific class of problems in frontend/backend development.  Understanding RDS at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for RDS\nconst client = new RDSClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how EC2 fits into an auto-scaling architecture.",
-    "answer": "For a EC2 problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. For hard problems involving EC2, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS RDS.",
-    "answer": "Understanding RDS deeply is what separates mid-level from senior engineers.  Understanding RDS at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  The strongest candidates connect RDS to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using Lambda.",
-    "answer": "A solid strategy for this Lambda challenge is to map out the data flow first, then identify where things deviate from expectations. Review related code paths and check for similar patterns that might harbor the same Lambda issue elsewhere in the codebase. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Lambda.",
-    "code": "// Example using AWS SDK for Lambda\nconst client = new LambdaClient({ region: 'us-east-1' });"
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "How do you secure VPC?",
-    "answer": "VPC is a foundational concept that directly influences how scalable and maintainable your code is.  For beginners, the key insight is understanding the \"why\" behind VPC, not just the syntax.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for VPC\nconst client = new VPCClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure DynamoDB?",
-    "answer": "DynamoDB is a foundational concept that directly influences how scalable and maintainable your code is.  Understanding DynamoDB at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
+    "question": "Scenario: You are tasked with refactoring a high-traffic video streaming application that suffers from massive bundle size. Specifically, the checkout flow module is failing due to poor garbage collection. How would you leverage EventBridge alongside S3 to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "When handling massive bundle size, EventBridge acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize S3 for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
     "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure API Gateway to achieve this?",
-    "answer": "For a API Gateway problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around API Gateway so future occurrences are caught automatically before users notice.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS CloudWatch.",
-    "answer": "To answer this well, think about CloudWatch from first principles: what problem does it exist to solve, and what are its limits?  Understanding CloudWatch at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Pair your explanation of CloudWatch with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how S3 fits into an auto-scaling architecture.",
-    "answer": "For a S3 problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around S3.",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained SaaS platform application that suffers from unpredictable race conditions. Specifically, the data visualization module is failing due to blocking the main thread. How would you leverage Route53 alongside API Gateway to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "To address the unpredictable race conditions in this SaaS platform context, I would first isolate the data visualization. By implementing Route53, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
     "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: Your web application suddenly goes viral, and traffic spikes by 10,000%. Explain how API Gateway fits into an auto-scaling architecture.",
-    "answer": "A solid strategy for this API Gateway challenge is to map out the data flow first, then identify where things deviate from expectations. At this complexity level, consider race conditions, edge cases under load, and interactions between services. Introduce feature flags so you can roll back safely. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using API Gateway.",
-    "answer": "Approaching this API Gateway challenge methodically — define the expected behavior, then compare it with the observed behavior to find the gap. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS S3.",
-    "answer": "S3 is a foundational concept that directly influences how scalable and maintainable your code is.  Mid-level engineers should be comfortable explaining the performance trade-offs of S3 and when NOT to use it.  The strongest candidates connect S3 to business outcomes: faster page loads, fewer bugs, better user retention.",
-    "code": "// Example using AWS SDK for S3\nconst client = new S3Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Describe the primary use case for AWS SQS.",
-    "answer": "A clear grasp of SQS lets you make better architectural trade-offs.  At an intermediate level, focus on how SQS interacts with related browser APIs, frameworks, or runtime environments.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS EC2.",
-    "answer": "EC2 comes up frequently in system design and code reviews — knowing it inside-out gives you a significant edge.  At an advanced level, consider internal engine optimizations, V8 internals, or native browser behavior tied to EC2.  Being able to articulate this clearly — with concrete examples — will stand out in any technical interview.",
-    "code": "// Example using AWS SDK for EC2\nconst client = new EC2Client({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudWatch.",
-    "answer": "Diagnosing this CloudWatch issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Once resolved, capture the learnings — update runbooks and share the root cause analysis with the team to build collective knowledge.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
   },
   {
     "topic": "aws",
     "difficulty": "easy",
-    "question": "Scenario: Your company needs to serve static assets globally with sub-millisecond latency. How do you configure CloudWatch to achieve this?",
-    "answer": "Diagnosing this CloudWatch issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around CloudWatch.",
-    "code": "// Example using AWS SDK for CloudWatch\nconst client = new CloudWatchClient({ region: 'us-east-1' });"
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Describe the primary use case for AWS IAM.",
-    "answer": "IAM is a foundational concept that directly influences how scalable and maintainable your code is.  Expert-level use of IAM involves profiling, micro-benchmarking, and understanding how compilers or runtimes handle it under the hood.  The strongest candidates connect IAM to business outcomes: faster page loads, fewer bugs, better user retention.",
+    "question": "During a critical code review for a rapidly scaling application, you notice RDS being used improperly in the data visualization flow, causing API rate limiting. Walk me through how you would optimize this using CloudFront to achieve smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for rapidly scaling applications: unoptimized loops degrades the data visualization. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with CloudFront to ensure we hit our smooth 60fps scrolling target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Describe the primary use case for AWS SQS.",
-    "answer": "Understanding SQS deeply is what separates mid-level from senior engineers.  At an intermediate level, focus on how SQS interacts with related browser APIs, frameworks, or runtime environments.  Pair your explanation of SQS with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
+    "question": "Machine Coding: Implement a robust user onboarding system for a healthcare platform. Ensure you incorporate IAM to prevent poor garbage collection and optimize for WCAG compliance.",
+    "answer": "To address the frequent server crashes in this healthcare context, I would first isolate the user onboarding. By implementing IAM, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use S3 to monitor and set alarms for billing anomalies?",
-    "answer": "A solid strategy for this S3 challenge is to map out the data flow first, then identify where things deviate from expectations. Review related code paths and check for similar patterns that might harbor the same S3 issue elsewhere in the codebase. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the search autocomplete system encounters unhandled exceptions, how do you gracefully recover using Lambda?",
+    "answer": "When handling frequent server crashes, Lambda acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Route53 for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using CloudWatch.",
-    "answer": "To tackle this CloudWatch problem, start by reproducing the issue in a controlled environment and gathering metrics. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use EC2 to monitor and set alarms for billing anomalies?",
-    "answer": "For a EC2 problem of this nature, use observability tools (logs, traces, metrics) to build a clear picture before making changes. Review related code paths and check for similar patterns that might harbor the same EC2 issue elsewhere in the codebase. Verify the fix under realistic load conditions, document the root cause in a post-mortem, and add a regression test to prevent recurrence.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using Lambda.",
-    "answer": "A solid strategy for this Lambda challenge is to map out the data flow first, then identify where things deviate from expectations. For hard problems involving Lambda, consider circuit-breaker patterns and graceful degradation so the system remains partially functional under failure. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around Lambda.",
-    "code": null
-  },
-  {
-    "topic": "aws",
-    "difficulty": "hard",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using S3.",
-    "answer": "Diagnosing this S3 issue requires a systematic approach — begin by isolating variables and checking logs for anomalies. Given the difficulty, implement incremental changes behind a toggle, run canary deployments, and monitor error rates before full rollout. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around S3.",
+    "difficulty": "easy",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the search autocomplete system encounters blocking the main thread, how do you gracefully recover using SQS?",
+    "answer": "When handling high latency spikes, SQS acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize VPC for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "How do you secure SQS?",
-    "answer": "Understanding SQS deeply is what separates mid-level from senior engineers.  Understanding SQS at scale requires thinking about its behavior under high concurrency, large datasets, or constrained environments.  Showing you understand the trade-offs of SQS — not just when to use it but when to avoid it — signals senior-level thinking.",
-    "code": "// Example using AWS SDK for SQS\nconst client = new SQSClient({ region: 'us-east-1' });"
+    "question": "Design architecture for a social media feature handling millions of requests. If the search autocomplete system encounters deadlocks, how do you gracefully recover using SQS?",
+    "answer": "When handling frequent UI freezing, SQS acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Route53 for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using DynamoDB.",
-    "answer": "A solid strategy for this DynamoDB challenge is to map out the data flow first, then identify where things deviate from expectations. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. After the fix, monitor dashboards for at least 24 hours to confirm the issue is gone, then retrospectively strengthen automated testing around DynamoDB.",
+    "question": "Machine Coding: Implement a robust payment processing system for a video streaming platform. Ensure you incorporate EC2 to prevent unhandled exceptions and optimize for WCAG compliance.",
+    "answer": "The root cause here is typical for enterprise applications: unhandled exceptions degrades the payment processing. Replacing the flawed logic with EC2 provides a robust boundary. I'd pair this with CloudFront to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a healthcare app: massive bundle size is crashing the data visualization. How can IAM be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "To address the massive bundle size in this healthcare context, I would first isolate the data visualization. By implementing IAM, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to RDS. Explain the technical trade-offs, particularly regarding API rate limiting and achieving secure data handling.",
+    "answer": "When handling API rate limiting, RDS acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize Step Functions for fallback logic. Validating secure data handling via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "hard",
-    "question": "How do you secure API Gateway?",
-    "answer": "Understanding API Gateway deeply is what separates mid-level from senior engineers.  Hard questions around API Gateway probe your ability to reason about edge cases, memory models, and cross-browser inconsistencies.  Pair your explanation of API Gateway with a brief code example or architecture diagram to make the concept concrete for the interviewer.",
-    "code": "// Example using AWS SDK for APIGateway\nconst client = new APIGatewayClient({ region: 'us-east-1' });"
+    "question": "You are debugging a severe production issue in a SaaS platform app: severe memory leaks is crashing the data visualization. How can Step Functions be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the data visualization usage. Then, slowly roll out Step Functions behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees secure data handling.",
+    "code": null
   },
   {
     "topic": "aws",
-    "difficulty": "medium",
-    "question": "How do you secure CloudWatch?",
-    "answer": "A clear grasp of CloudWatch lets you make better architectural trade-offs.  Mid-level engineers should be comfortable explaining the performance trade-offs of CloudWatch and when NOT to use it.  Showing you understand the trade-offs of CloudWatch — not just when to use it but when to avoid it — signals senior-level thinking.",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a SaaS platform app: API rate limiting is crashing the checkout flow. How can IAM be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "When handling API rate limiting, IAM acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize CloudWatch for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use VPC to monitor and set alarms for billing anomalies?",
-    "answer": "Start by asking: what changed? For VPC, tracing recent deployments or config changes often reveals the root cause quickly. Write a failing test that reproduces the problem first — this gives you a clear success criterion and prevents regression. Close the loop by writing a test that would have caught this earlier, then review the CI pipeline to ensure similar regressions are blocked automatically.",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Lambda. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving minimal battery drain.",
+    "answer": "The root cause here is typical for high-traffic applications: unoptimized loops degrades the search autocomplete. Replacing the flawed logic with Lambda provides a robust boundary. I'd pair this with Step Functions to ensure we hit our minimal battery drain target safely.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You need to process millions of image uploads asynchronously without blocking the user interface. Describe an architecture using RDS.",
-    "answer": "When facing a RDS scenario like this, prioritize understanding the failure mode before jumping to a fix. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around RDS so future occurrences are caught automatically before users notice.",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: frequent UI freezing is crashing the media upload. How can IAM be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "When handling frequent UI freezing, IAM acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Lambda for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the real-time feed system encounters unhandled exceptions, how do you gracefully recover using Lambda?",
+    "answer": "To address the high latency spikes in this SaaS platform context, I would first isolate the real-time feed. By implementing Lambda, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: frequent server crashes is crashing the checkout flow. How can CloudFront be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the checkout flow usage. Then, slowly roll out CloudFront behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the media upload system encounters excessive re-renders, how do you gracefully recover using ECS/EKS?",
+    "answer": "To address the API rate limiting in this IoT dashboard context, I would first isolate the media upload. By implementing ECS/EKS, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy real-time gaming application that suffers from frequent UI freezing. Specifically, the authentication module is failing due to unhandled exceptions. How would you leverage CloudWatch alongside Route53 to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the authentication usage. Then, slowly roll out CloudWatch behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a global scale application, you notice DynamoDB being used improperly in the real-time feed flow, causing severe memory leaks. Walk me through how you would optimize this using EC2 to achieve WCAG compliance.",
+    "answer": "To address the severe memory leaks in this social media context, I would first isolate the real-time feed. By implementing DynamoDB, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
     "code": null
   },
   {
     "topic": "aws",
     "difficulty": "medium",
-    "question": "Scenario: You discover that your AWS bill has doubled over the weekend due to inefficient resource usage. How do you use IAM to monitor and set alarms for billing anomalies?",
-    "answer": "The key to resolving this IAM issue is breaking it into smaller, verifiable steps and validating each hypothesis. Document your hypothesis before testing it. This discipline keeps debugging focused and helps you explain the fix to teammates. Wrap up by adding observability (alerts, dashboards) specifically around IAM so future occurrences are caught automatically before users notice.",
+    "question": "You are debugging a severe production issue in a social media app: massive bundle size is crashing the payment processing. How can API Gateway be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "When handling massive bundle size, API Gateway acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize EC2 for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a healthcare platform. Ensure you incorporate API Gateway to prevent unhandled exceptions and optimize for secure data handling.",
+    "answer": "The root cause here is typical for mission-critical applications: unhandled exceptions degrades the payment processing. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with EC2 to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a high-traffic healthcare application that suffers from high latency spikes. Specifically, the checkout flow module is failing due to unoptimized loops. How would you leverage S3 alongside ECS/EKS to resolve this, ensuring secure data handling is maintained?",
+    "answer": "When handling high latency spikes, S3 acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize ECS/EKS for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Step Functions. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for legacy applications: blocking the main thread degrades the data visualization. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with SQS to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to S3. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the checkout flow usage. Then, slowly roll out S3 behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a global scale environment, the search autocomplete is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying EventBridge at the application layer mitigate frequent UI freezing?",
+    "answer": "The root cause here is typical for global scale applications: deadlocks degrades the search autocomplete. Replacing the flawed logic with EventBridge provides a robust boundary. I'd pair this with S3 to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a social media platform. Ensure you incorporate ECS/EKS to prevent redundant network calls and optimize for 100% uptime.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the search autocomplete usage. Then, slowly roll out ECS/EKS behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a healthcare app: massive bundle size is crashing the search autocomplete. How can EC2 be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "To address the massive bundle size in this healthcare context, I would first isolate the search autocomplete. By implementing EC2, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a mission-critical environment, the user onboarding is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying EC2 at the application layer mitigate inconsistent state bugs?",
+    "answer": "The root cause here is typical for mission-critical applications: blocking the main thread degrades the user onboarding. Replacing the flawed logic with EC2 provides a robust boundary. I'd pair this with EventBridge to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Step Functions. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving sub-second load times.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the user onboarding usage. Then, slowly roll out Step Functions behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a video streaming app: frequent server crashes is crashing the data visualization. How can Route53 be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "When handling frequent server crashes, Route53 acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize RDS for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a healthcare platform. Ensure you incorporate Lambda to prevent deadlocks and optimize for WCAG compliance.",
+    "answer": "To address the high latency spikes in this healthcare context, I would first isolate the search autocomplete. By implementing Lambda, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust checkout flow system for a fintech platform. Ensure you incorporate Step Functions to prevent redundant network calls and optimize for 100% uptime.",
+    "answer": "The root cause here is typical for data-intensive applications: redundant network calls degrades the checkout flow. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with S3 to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a data-intensive SaaS platform application that suffers from massive bundle size. Specifically, the search autocomplete module is failing due to redundant network calls. How would you leverage EventBridge alongside Route53 to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the search autocomplete usage. Then, slowly roll out EventBridge behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a enterprise application, you notice Route53 being used improperly in the user onboarding flow, causing severe memory leaks. Walk me through how you would optimize this using CloudFront to achieve sub-second load times.",
+    "answer": "To address the severe memory leaks in this e-commerce context, I would first isolate the user onboarding. By implementing Route53, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: severe memory leaks is crashing the payment processing. How can CloudWatch be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "The root cause here is typical for resource-constrained applications: redundant network calls degrades the payment processing. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with RDS to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a legacy environment, the user onboarding is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying CloudFront at the application layer mitigate frequent UI freezing?",
+    "answer": "When handling frequent UI freezing, CloudFront acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize SQS for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a mission-critical application, you notice EventBridge being used improperly in the search autocomplete flow, causing frequent UI freezing. Walk me through how you would optimize this using ECS/EKS to achieve 100% uptime.",
+    "answer": "The root cause here is typical for mission-critical applications: redundant network calls degrades the search autocomplete. Replacing the flawed logic with EventBridge provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the data visualization system encounters excessive re-renders, how do you gracefully recover using RDS?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the data visualization usage. Then, slowly roll out RDS behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a SaaS platform app: high latency spikes is crashing the checkout flow. How can Route53 be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "To address the high latency spikes in this SaaS platform context, I would first isolate the checkout flow. By implementing Route53, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a data-intensive application, you notice DynamoDB being used improperly in the search autocomplete flow, causing severe memory leaks. Walk me through how you would optimize this using Step Functions to achieve minimal battery drain.",
+    "answer": "The root cause here is typical for data-intensive applications: redundant network calls degrades the search autocomplete. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with Step Functions to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: massive bundle size is crashing the search autocomplete. How can EventBridge be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "The root cause here is typical for legacy applications: deadlocks degrades the search autocomplete. Replacing the flawed logic with EventBridge provides a robust boundary. I'd pair this with VPC to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "During a critical code review for a high-traffic application, you notice ECS/EKS being used improperly in the user onboarding flow, causing massive bundle size. Walk me through how you would optimize this using S3 to achieve 100% uptime.",
+    "answer": "The root cause here is typical for high-traffic applications: excessive re-renders degrades the user onboarding. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with S3 to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a mission-critical environment, the payment processing is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying API Gateway at the application layer mitigate high latency spikes?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the payment processing usage. Then, slowly roll out API Gateway behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a healthcare app: massive bundle size is crashing the real-time feed. How can DynamoDB be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "When handling massive bundle size, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize EventBridge for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to Route53. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving sub-second load times.",
+    "answer": "To address the frequent server crashes in this SaaS platform context, I would first isolate the payment processing. By implementing Route53, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy social media application that suffers from high latency spikes. Specifically, the user onboarding module is failing due to excessive re-renders. How would you leverage IAM alongside ECS/EKS to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "When handling high latency spikes, IAM acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize ECS/EKS for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust checkout flow system for a video streaming platform. Ensure you incorporate CloudFront to prevent poor garbage collection and optimize for strict data consistency.",
+    "answer": "When handling inconsistent state bugs, CloudFront acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize EC2 for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to CloudFront. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving WCAG compliance.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the authentication usage. Then, slowly roll out CloudFront behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a data-intensive environment, the search autocomplete is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying EventBridge at the application layer mitigate inconsistent state bugs?",
+    "answer": "The root cause here is typical for data-intensive applications: deadlocks degrades the search autocomplete. Replacing the flawed logic with EventBridge provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a video streaming app: unpredictable race conditions is crashing the checkout flow. How can Lambda be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "To address the unpredictable race conditions in this video streaming context, I would first isolate the checkout flow. By implementing Lambda, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a high-traffic IoT dashboard application that suffers from frequent server crashes. Specifically, the data visualization module is failing due to unhandled exceptions. How would you leverage DynamoDB alongside API Gateway to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "The root cause here is typical for high-traffic applications: unhandled exceptions degrades the data visualization. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with API Gateway to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a e-commerce app: frequent UI freezing is crashing the data visualization. How can VPC be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "To address the frequent UI freezing in this e-commerce context, I would first isolate the data visualization. By implementing VPC, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a video streaming app: massive bundle size is crashing the real-time feed. How can DynamoDB be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "When handling massive bundle size, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Lambda for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a high-traffic application, you notice API Gateway being used improperly in the checkout flow flow, causing severe memory leaks. Walk me through how you would optimize this using IAM to achieve WCAG compliance.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the checkout flow usage. Then, slowly roll out API Gateway behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice CloudWatch being used improperly in the payment processing flow, causing massive bundle size. Walk me through how you would optimize this using API Gateway to achieve strict data consistency.",
+    "answer": "When handling massive bundle size, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize API Gateway for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a video streaming app: API rate limiting is crashing the data visualization. How can SQS be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "The root cause here is typical for legacy applications: unoptimized loops degrades the data visualization. Replacing the flawed logic with SQS provides a robust boundary. I'd pair this with VPC to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice EventBridge being used improperly in the search autocomplete flow, causing unpredictable race conditions. Walk me through how you would optimize this using CloudWatch to achieve WCAG compliance.",
+    "answer": "To address the unpredictable race conditions in this fintech context, I would first isolate the search autocomplete. By implementing EventBridge, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a global scale healthcare application that suffers from inconsistent state bugs. Specifically, the user onboarding module is failing due to excessive re-renders. How would you leverage CloudFront alongside VPC to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "To address the inconsistent state bugs in this healthcare context, I would first isolate the user onboarding. By implementing CloudFront, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a video streaming app: severe memory leaks is crashing the authentication. How can Route53 be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "The root cause here is typical for resource-constrained applications: redundant network calls degrades the authentication. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with S3 to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a global scale application, you notice DynamoDB being used improperly in the media upload flow, causing API rate limiting. Walk me through how you would optimize this using VPC to achieve strict data consistency.",
+    "answer": "When handling API rate limiting, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize VPC for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the authentication system encounters poor garbage collection, how do you gracefully recover using CloudWatch?",
+    "answer": "The root cause here is typical for data-intensive applications: poor garbage collection degrades the authentication. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with SQS to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a SaaS platform platform. Ensure you incorporate CloudWatch to prevent excessive re-renders and optimize for secure data handling.",
+    "answer": "When handling unpredictable race conditions, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize S3 for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to ECS/EKS. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving sub-second load times.",
+    "answer": "To address the inconsistent state bugs in this healthcare context, I would first isolate the media upload. By implementing ECS/EKS, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale social media application that suffers from unpredictable race conditions. Specifically, the media upload module is failing due to unoptimized loops. How would you leverage IAM alongside CloudWatch to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "To address the unpredictable race conditions in this social media context, I would first isolate the media upload. By implementing IAM, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling fintech application that suffers from massive bundle size. Specifically, the checkout flow module is failing due to poor garbage collection. How would you leverage Step Functions alongside DynamoDB to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "The root cause here is typical for rapidly scaling applications: poor garbage collection degrades the checkout flow. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with DynamoDB to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to RDS. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving secure data handling.",
+    "answer": "When handling inconsistent state bugs, RDS acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize S3 for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the real-time feed system encounters unoptimized loops, how do you gracefully recover using IAM?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the real-time feed usage. Then, slowly roll out IAM behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to ECS/EKS. Explain the technical trade-offs, particularly regarding massive bundle size and achieving smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the checkout flow usage. Then, slowly roll out ECS/EKS behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust user onboarding system for a real-time gaming platform. Ensure you incorporate API Gateway to prevent blocking the main thread and optimize for WCAG compliance.",
+    "answer": "To address the inconsistent state bugs in this real-time gaming context, I would first isolate the user onboarding. By implementing API Gateway, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice DynamoDB being used improperly in the authentication flow, causing massive bundle size. Walk me through how you would optimize this using RDS to achieve smooth 60fps scrolling.",
+    "answer": "To address the massive bundle size in this IoT dashboard context, I would first isolate the authentication. By implementing DynamoDB, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust payment processing system for a video streaming platform. Ensure you incorporate EventBridge to prevent poor garbage collection and optimize for strict data consistency.",
+    "answer": "To address the high latency spikes in this video streaming context, I would first isolate the payment processing. By implementing EventBridge, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust checkout flow system for a IoT dashboard platform. Ensure you incorporate Step Functions to prevent unoptimized loops and optimize for WCAG compliance.",
+    "answer": "When handling unpredictable race conditions, Step Functions acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize IAM for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the authentication system encounters poor garbage collection, how do you gracefully recover using Route53?",
+    "answer": "The root cause here is typical for enterprise applications: poor garbage collection degrades the authentication. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with Step Functions to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a high-traffic video streaming application that suffers from API rate limiting. Specifically, the payment processing module is failing due to poor garbage collection. How would you leverage API Gateway alongside ECS/EKS to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the payment processing usage. Then, slowly roll out API Gateway behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the media upload is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Step Functions at the application layer mitigate unpredictable race conditions?",
+    "answer": "When handling unpredictable race conditions, Step Functions acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize API Gateway for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling healthcare application that suffers from unpredictable race conditions. Specifically, the authentication module is failing due to unhandled exceptions. How would you leverage Lambda alongside DynamoDB to resolve this, ensuring secure data handling is maintained?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the authentication usage. Then, slowly roll out Lambda behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: severe memory leaks is crashing the user onboarding. How can IAM be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "When handling severe memory leaks, IAM acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Step Functions for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a data-intensive environment, the data visualization is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying ECS/EKS at the application layer mitigate severe memory leaks?",
+    "answer": "The root cause here is typical for data-intensive applications: excessive re-renders degrades the data visualization. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with IAM to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the payment processing system encounters unoptimized loops, how do you gracefully recover using EC2?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the payment processing usage. Then, slowly roll out EC2 behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a real-time gaming platform. Ensure you incorporate ECS/EKS to prevent unoptimized loops and optimize for minimal battery drain.",
+    "answer": "When handling API rate limiting, ECS/EKS acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize DynamoDB for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a healthcare app: inconsistent state bugs is crashing the real-time feed. How can Lambda be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "When handling inconsistent state bugs, Lambda acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize CloudWatch for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to IAM. Explain the technical trade-offs, particularly regarding API rate limiting and achieving minimal battery drain.",
+    "answer": "To address the API rate limiting in this fintech context, I would first isolate the user onboarding. By implementing IAM, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling social media application that suffers from severe memory leaks. Specifically, the payment processing module is failing due to deadlocks. How would you leverage ECS/EKS alongside Step Functions to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the payment processing. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with Step Functions to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a data-intensive environment, the user onboarding is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying SQS at the application layer mitigate massive bundle size?",
+    "answer": "The root cause here is typical for data-intensive applications: deadlocks degrades the user onboarding. Replacing the flawed logic with SQS provides a robust boundary. I'd pair this with VPC to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a e-commerce app: severe memory leaks is crashing the user onboarding. How can SQS be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "When handling severe memory leaks, SQS acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize DynamoDB for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the real-time feed system encounters poor garbage collection, how do you gracefully recover using VPC?",
+    "answer": "The root cause here is typical for legacy applications: poor garbage collection degrades the real-time feed. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with CloudWatch to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a fintech app: frequent UI freezing is crashing the payment processing. How can RDS be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "When handling frequent UI freezing, RDS acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize IAM for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to IAM. Explain the technical trade-offs, particularly regarding massive bundle size and achieving sub-second load times.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the search autocomplete usage. Then, slowly roll out IAM behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a social media app: frequent server crashes is crashing the user onboarding. How can EventBridge be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the user onboarding usage. Then, slowly roll out EventBridge behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a rapidly scaling application, you notice CloudWatch being used improperly in the payment processing flow, causing inconsistent state bugs. Walk me through how you would optimize this using DynamoDB to achieve sub-second load times.",
+    "answer": "When handling inconsistent state bugs, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize DynamoDB for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to ECS/EKS. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving strict data consistency.",
+    "answer": "To address the unpredictable race conditions in this e-commerce context, I would first isolate the data visualization. By implementing ECS/EKS, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a mission-critical environment, the authentication is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying RDS at the application layer mitigate high latency spikes?",
+    "answer": "The root cause here is typical for mission-critical applications: redundant network calls degrades the authentication. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with VPC to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust authentication system for a fintech platform. Ensure you incorporate CloudWatch to prevent excessive re-renders and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for enterprise applications: excessive re-renders degrades the authentication. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with EC2 to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the data visualization system encounters redundant network calls, how do you gracefully recover using ECS/EKS?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the data visualization usage. Then, slowly roll out ECS/EKS behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a healthcare app: inconsistent state bugs is crashing the payment processing. How can Route53 be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the payment processing usage. Then, slowly roll out Route53 behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a enterprise environment, the authentication is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying EventBridge at the application layer mitigate massive bundle size?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the authentication usage. Then, slowly roll out EventBridge behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a data-intensive social media application that suffers from API rate limiting. Specifically, the media upload module is failing due to deadlocks. How would you leverage S3 alongside CloudFront to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "When handling API rate limiting, S3 acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize CloudFront for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust data visualization system for a social media platform. Ensure you incorporate S3 to prevent excessive re-renders and optimize for secure data handling.",
+    "answer": "The root cause here is typical for resource-constrained applications: excessive re-renders degrades the data visualization. Replacing the flawed logic with S3 provides a robust boundary. I'd pair this with IAM to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: severe memory leaks is crashing the data visualization. How can IAM be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the data visualization usage. Then, slowly roll out IAM behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "During a critical code review for a data-intensive application, you notice VPC being used improperly in the checkout flow flow, causing frequent UI freezing. Walk me through how you would optimize this using ECS/EKS to achieve minimal battery drain.",
+    "answer": "When handling frequent UI freezing, VPC acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize ECS/EKS for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the media upload system encounters excessive re-renders, how do you gracefully recover using S3?",
+    "answer": "The root cause here is typical for high-traffic applications: excessive re-renders degrades the media upload. Replacing the flawed logic with S3 provides a robust boundary. I'd pair this with CloudFront to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the data visualization system encounters redundant network calls, how do you gracefully recover using SQS?",
+    "answer": "The root cause here is typical for data-intensive applications: redundant network calls degrades the data visualization. Replacing the flawed logic with SQS provides a robust boundary. I'd pair this with API Gateway to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust checkout flow system for a IoT dashboard platform. Ensure you incorporate DynamoDB to prevent excessive re-renders and optimize for smooth 60fps scrolling.",
+    "answer": "To address the frequent UI freezing in this IoT dashboard context, I would first isolate the checkout flow. By implementing DynamoDB, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to SQS. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving strict data consistency.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the checkout flow usage. Then, slowly roll out SQS behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a real-time gaming platform. Ensure you incorporate S3 to prevent deadlocks and optimize for smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for resource-constrained applications: deadlocks degrades the media upload. Replacing the flawed logic with S3 provides a robust boundary. I'd pair this with EventBridge to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a enterprise environment, the media upload is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying ECS/EKS at the application layer mitigate high latency spikes?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the media upload usage. Then, slowly roll out ECS/EKS behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a high-traffic video streaming application that suffers from frequent UI freezing. Specifically, the search autocomplete module is failing due to unoptimized loops. How would you leverage Route53 alongside EC2 to resolve this, ensuring strict data consistency is maintained?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the search autocomplete usage. Then, slowly roll out Route53 behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a global scale environment, the search autocomplete is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying EC2 at the application layer mitigate unpredictable race conditions?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the search autocomplete usage. Then, slowly roll out EC2 behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "During a critical code review for a legacy application, you notice RDS being used improperly in the checkout flow flow, causing unpredictable race conditions. Walk me through how you would optimize this using IAM to achieve 100% uptime.",
+    "answer": "The root cause here is typical for legacy applications: redundant network calls degrades the checkout flow. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with IAM to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a resource-constrained environment, the real-time feed is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying SQS at the application layer mitigate frequent server crashes?",
+    "answer": "When handling frequent server crashes, SQS acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize IAM for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a mission-critical e-commerce application that suffers from inconsistent state bugs. Specifically, the real-time feed module is failing due to blocking the main thread. How would you leverage DynamoDB alongside EventBridge to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "The root cause here is typical for mission-critical applications: blocking the main thread degrades the real-time feed. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with EventBridge to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to VPC. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving WCAG compliance.",
+    "answer": "The root cause here is typical for rapidly scaling applications: blocking the main thread degrades the authentication. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with S3 to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to DynamoDB. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving sub-second load times.",
+    "answer": "When handling inconsistent state bugs, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Step Functions for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust checkout flow system for a e-commerce platform. Ensure you incorporate ECS/EKS to prevent poor garbage collection and optimize for minimal battery drain.",
+    "answer": "To address the high latency spikes in this e-commerce context, I would first isolate the checkout flow. By implementing ECS/EKS, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the real-time feed system encounters excessive re-renders, how do you gracefully recover using EC2?",
+    "answer": "When handling unpredictable race conditions, EC2 acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize CloudWatch for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the authentication system encounters poor garbage collection, how do you gracefully recover using CloudFront?",
+    "answer": "The root cause here is typical for data-intensive applications: poor garbage collection degrades the authentication. Replacing the flawed logic with CloudFront provides a robust boundary. I'd pair this with API Gateway to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a real-time gaming platform. Ensure you incorporate Step Functions to prevent excessive re-renders and optimize for smooth 60fps scrolling.",
+    "answer": "To address the massive bundle size in this real-time gaming context, I would first isolate the media upload. By implementing Step Functions, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the user onboarding system encounters redundant network calls, how do you gracefully recover using EC2?",
+    "answer": "The root cause here is typical for rapidly scaling applications: redundant network calls degrades the user onboarding. Replacing the flawed logic with EC2 provides a robust boundary. I'd pair this with DynamoDB to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a legacy environment, the user onboarding is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying DynamoDB at the application layer mitigate massive bundle size?",
+    "answer": "To address the massive bundle size in this e-commerce context, I would first isolate the user onboarding. By implementing DynamoDB, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to IAM. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving sub-second load times.",
+    "answer": "To address the frequent server crashes in this social media context, I would first isolate the user onboarding. By implementing IAM, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a resource-constrained environment, the payment processing is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Lambda at the application layer mitigate inconsistent state bugs?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the payment processing usage. Then, slowly roll out Lambda behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a global scale real-time gaming application that suffers from massive bundle size. Specifically, the search autocomplete module is failing due to poor garbage collection. How would you leverage Step Functions alongside CloudWatch to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "When handling massive bundle size, Step Functions acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize CloudWatch for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a fintech app: severe memory leaks is crashing the authentication. How can DynamoDB be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the authentication usage. Then, slowly roll out DynamoDB behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the authentication system encounters excessive re-renders, how do you gracefully recover using EventBridge?",
+    "answer": "To address the frequent server crashes in this video streaming context, I would first isolate the authentication. By implementing EventBridge, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a SaaS platform app: severe memory leaks is crashing the authentication. How can CloudFront be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "When handling severe memory leaks, CloudFront acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize EventBridge for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust authentication system for a healthcare platform. Ensure you incorporate SQS to prevent unhandled exceptions and optimize for minimal battery drain.",
+    "answer": "To address the severe memory leaks in this healthcare context, I would first isolate the authentication. By implementing SQS, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy SaaS platform application that suffers from unpredictable race conditions. Specifically, the media upload module is failing due to unhandled exceptions. How would you leverage S3 alongside Lambda to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "To address the unpredictable race conditions in this SaaS platform context, I would first isolate the media upload. By implementing S3, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a resource-constrained environment, the data visualization is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying API Gateway at the application layer mitigate massive bundle size?",
+    "answer": "To address the massive bundle size in this social media context, I would first isolate the data visualization. By implementing API Gateway, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a mission-critical application, you notice Lambda being used improperly in the user onboarding flow, causing inconsistent state bugs. Walk me through how you would optimize this using Route53 to achieve smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the user onboarding usage. Then, slowly roll out Lambda behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to Route53. Explain the technical trade-offs, particularly regarding API rate limiting and achieving 100% uptime.",
+    "answer": "When handling API rate limiting, Route53 acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize API Gateway for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice ECS/EKS being used improperly in the search autocomplete flow, causing severe memory leaks. Walk me through how you would optimize this using RDS to achieve 100% uptime.",
+    "answer": "The root cause here is typical for resource-constrained applications: deadlocks degrades the search autocomplete. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with RDS to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to API Gateway. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the authentication usage. Then, slowly roll out API Gateway behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the authentication system encounters excessive re-renders, how do you gracefully recover using EventBridge?",
+    "answer": "The root cause here is typical for legacy applications: excessive re-renders degrades the authentication. Replacing the flawed logic with EventBridge provides a robust boundary. I'd pair this with IAM to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the search autocomplete system encounters unoptimized loops, how do you gracefully recover using Step Functions?",
+    "answer": "When handling frequent UI freezing, Step Functions acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize DynamoDB for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a real-time gaming app: high latency spikes is crashing the search autocomplete. How can IAM be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the search autocomplete usage. Then, slowly roll out IAM behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a global scale application, you notice SQS being used improperly in the media upload flow, causing massive bundle size. Walk me through how you would optimize this using S3 to achieve WCAG compliance.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the media upload usage. Then, slowly roll out SQS behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the media upload system encounters unoptimized loops, how do you gracefully recover using CloudFront?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the media upload usage. Then, slowly roll out CloudFront behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a data-intensive application, you notice API Gateway being used improperly in the real-time feed flow, causing severe memory leaks. Walk me through how you would optimize this using Lambda to achieve strict data consistency.",
+    "answer": "When handling severe memory leaks, API Gateway acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Lambda for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: frequent UI freezing is crashing the checkout flow. How can DynamoDB be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "To address the frequent UI freezing in this IoT dashboard context, I would first isolate the checkout flow. By implementing DynamoDB, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained real-time gaming application that suffers from frequent UI freezing. Specifically, the user onboarding module is failing due to excessive re-renders. How would you leverage SQS alongside CloudFront to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the user onboarding usage. Then, slowly roll out SQS behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to VPC. Explain the technical trade-offs, particularly regarding high latency spikes and achieving WCAG compliance.",
+    "answer": "The root cause here is typical for global scale applications: deadlocks degrades the media upload. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with IAM to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to IAM. Explain the technical trade-offs, particularly regarding API rate limiting and achieving secure data handling.",
+    "answer": "The root cause here is typical for enterprise applications: unoptimized loops degrades the checkout flow. Replacing the flawed logic with IAM provides a robust boundary. I'd pair this with SQS to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a global scale environment, the user onboarding is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying RDS at the application layer mitigate frequent UI freezing?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the user onboarding usage. Then, slowly roll out RDS behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the checkout flow system encounters poor garbage collection, how do you gracefully recover using VPC?",
+    "answer": "To address the inconsistent state bugs in this social media context, I would first isolate the checkout flow. By implementing VPC, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a data-intensive environment, the real-time feed is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying VPC at the application layer mitigate API rate limiting?",
+    "answer": "When handling API rate limiting, VPC acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize CloudFront for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a resource-constrained environment, the authentication is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Lambda at the application layer mitigate severe memory leaks?",
+    "answer": "To address the severe memory leaks in this real-time gaming context, I would first isolate the authentication. By implementing Lambda, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a high-traffic environment, the user onboarding is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying DynamoDB at the application layer mitigate frequent server crashes?",
+    "answer": "The root cause here is typical for high-traffic applications: unhandled exceptions degrades the user onboarding. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with VPC to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a mission-critical social media application that suffers from API rate limiting. Specifically, the search autocomplete module is failing due to deadlocks. How would you leverage EC2 alongside Lambda to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "When handling API rate limiting, EC2 acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Lambda for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a legacy healthcare application that suffers from API rate limiting. Specifically, the data visualization module is failing due to blocking the main thread. How would you leverage Lambda alongside DynamoDB to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the data visualization usage. Then, slowly roll out Lambda behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to DynamoDB. Explain the technical trade-offs, particularly regarding massive bundle size and achieving secure data handling.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the real-time feed usage. Then, slowly roll out DynamoDB behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a healthcare app: frequent UI freezing is crashing the media upload. How can ECS/EKS be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "When handling frequent UI freezing, ECS/EKS acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize API Gateway for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a SaaS platform app: unpredictable race conditions is crashing the media upload. How can VPC be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "The root cause here is typical for legacy applications: poor garbage collection degrades the media upload. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with Lambda to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to CloudFront. Explain the technical trade-offs, particularly regarding API rate limiting and achieving secure data handling.",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the payment processing. Replacing the flawed logic with CloudFront provides a robust boundary. I'd pair this with EC2 to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy SaaS platform application that suffers from unpredictable race conditions. Specifically, the data visualization module is failing due to poor garbage collection. How would you leverage S3 alongside Route53 to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the data visualization usage. Then, slowly roll out S3 behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to EC2. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the checkout flow usage. Then, slowly roll out EC2 behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a high-traffic application, you notice API Gateway being used improperly in the data visualization flow, causing severe memory leaks. Walk me through how you would optimize this using S3 to achieve 100% uptime.",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the data visualization usage. Then, slowly roll out API Gateway behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a data-intensive application, you notice EventBridge being used improperly in the user onboarding flow, causing massive bundle size. Walk me through how you would optimize this using Step Functions to achieve secure data handling.",
+    "answer": "To address the massive bundle size in this social media context, I would first isolate the user onboarding. By implementing EventBridge, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust real-time feed system for a SaaS platform platform. Ensure you incorporate VPC to prevent unoptimized loops and optimize for WCAG compliance.",
+    "answer": "The root cause here is typical for global scale applications: unoptimized loops degrades the real-time feed. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with CloudFront to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a social media app: unpredictable race conditions is crashing the real-time feed. How can SQS be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the real-time feed usage. Then, slowly roll out SQS behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a healthcare app: frequent server crashes is crashing the search autocomplete. How can S3 be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "To address the frequent server crashes in this healthcare context, I would first isolate the search autocomplete. By implementing S3, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust authentication system for a real-time gaming platform. Ensure you incorporate EC2 to prevent blocking the main thread and optimize for smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out EC2 behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to CloudWatch. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the authentication usage. Then, slowly roll out CloudWatch behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to CloudFront. Explain the technical trade-offs, particularly regarding API rate limiting and achieving 100% uptime.",
+    "answer": "To address the API rate limiting in this social media context, I would first isolate the data visualization. By implementing CloudFront, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling video streaming application that suffers from API rate limiting. Specifically, the user onboarding module is failing due to blocking the main thread. How would you leverage DynamoDB alongside IAM to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "The root cause here is typical for rapidly scaling applications: blocking the main thread degrades the user onboarding. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with IAM to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "During a critical code review for a enterprise application, you notice Route53 being used improperly in the data visualization flow, causing massive bundle size. Walk me through how you would optimize this using API Gateway to achieve sub-second load times.",
+    "answer": "To address the massive bundle size in this e-commerce context, I would first isolate the data visualization. By implementing Route53, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the authentication system encounters blocking the main thread, how do you gracefully recover using Step Functions?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out Step Functions behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a data-intensive application, you notice Lambda being used improperly in the authentication flow, causing inconsistent state bugs. Walk me through how you would optimize this using S3 to achieve 100% uptime.",
+    "answer": "When handling inconsistent state bugs, Lambda acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize S3 for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "During a critical code review for a high-traffic application, you notice API Gateway being used improperly in the search autocomplete flow, causing frequent UI freezing. Walk me through how you would optimize this using Route53 to achieve smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the search autocomplete usage. Then, slowly roll out API Gateway behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a data-intensive application, you notice CloudWatch being used improperly in the data visualization flow, causing massive bundle size. Walk me through how you would optimize this using API Gateway to achieve secure data handling.",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the data visualization usage. Then, slowly roll out CloudWatch behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust user onboarding system for a social media platform. Ensure you incorporate ECS/EKS to prevent poor garbage collection and optimize for smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for enterprise applications: poor garbage collection degrades the user onboarding. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with VPC to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust checkout flow system for a real-time gaming platform. Ensure you incorporate VPC to prevent deadlocks and optimize for smooth 60fps scrolling.",
+    "answer": "When handling severe memory leaks, VPC acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize DynamoDB for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a data-intensive IoT dashboard application that suffers from high latency spikes. Specifically, the checkout flow module is failing due to unhandled exceptions. How would you leverage DynamoDB alongside API Gateway to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "When handling high latency spikes, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize API Gateway for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a resource-constrained application, you notice DynamoDB being used improperly in the checkout flow flow, causing inconsistent state bugs. Walk me through how you would optimize this using RDS to achieve minimal battery drain.",
+    "answer": "The root cause here is typical for resource-constrained applications: poor garbage collection degrades the checkout flow. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with RDS to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a legacy environment, the payment processing is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying Route53 at the application layer mitigate API rate limiting?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the payment processing usage. Then, slowly roll out Route53 behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust data visualization system for a video streaming platform. Ensure you incorporate CloudWatch to prevent poor garbage collection and optimize for 100% uptime.",
+    "answer": "When handling high latency spikes, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Route53 for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale social media application that suffers from unpredictable race conditions. Specifically, the search autocomplete module is failing due to deadlocks. How would you leverage EC2 alongside CloudWatch to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "To address the unpredictable race conditions in this social media context, I would first isolate the search autocomplete. By implementing EC2, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: high latency spikes is crashing the payment processing. How can SQS be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "To address the high latency spikes in this real-time gaming context, I would first isolate the payment processing. By implementing SQS, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a mission-critical application, you notice VPC being used improperly in the authentication flow, causing massive bundle size. Walk me through how you would optimize this using RDS to achieve 100% uptime.",
+    "answer": "To address the massive bundle size in this e-commerce context, I would first isolate the authentication. By implementing VPC, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a mission-critical environment, the authentication is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying API Gateway at the application layer mitigate high latency spikes?",
+    "answer": "To address the high latency spikes in this healthcare context, I would first isolate the authentication. By implementing API Gateway, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to VPC. Explain the technical trade-offs, particularly regarding massive bundle size and achieving smooth 60fps scrolling.",
+    "answer": "To address the massive bundle size in this e-commerce context, I would first isolate the search autocomplete. By implementing VPC, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust media upload system for a SaaS platform platform. Ensure you incorporate Step Functions to prevent deadlocks and optimize for strict data consistency.",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the media upload. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with S3 to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a data-intensive environment, the checkout flow is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Lambda at the application layer mitigate high latency spikes?",
+    "answer": "The root cause here is typical for data-intensive applications: blocking the main thread degrades the checkout flow. Replacing the flawed logic with Lambda provides a robust boundary. I'd pair this with EventBridge to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice EC2 being used improperly in the payment processing flow, causing unpredictable race conditions. Walk me through how you would optimize this using RDS to achieve smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the payment processing usage. Then, slowly roll out EC2 behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a data-intensive environment, the media upload is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Step Functions at the application layer mitigate frequent server crashes?",
+    "answer": "To address the frequent server crashes in this real-time gaming context, I would first isolate the media upload. By implementing Step Functions, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a high-traffic IoT dashboard application that suffers from API rate limiting. Specifically, the search autocomplete module is failing due to unhandled exceptions. How would you leverage Route53 alongside Lambda to resolve this, ensuring secure data handling is maintained?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the search autocomplete usage. Then, slowly roll out Route53 behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a e-commerce feature handling millions of requests. If the real-time feed system encounters unhandled exceptions, how do you gracefully recover using CloudWatch?",
+    "answer": "When handling frequent UI freezing, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize DynamoDB for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a data-intensive video streaming application that suffers from inconsistent state bugs. Specifically, the authentication module is failing due to excessive re-renders. How would you leverage VPC alongside Route53 to resolve this, ensuring secure data handling is maintained?",
+    "answer": "The root cause here is typical for data-intensive applications: excessive re-renders degrades the authentication. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with Route53 to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a resource-constrained environment, the checkout flow is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Lambda at the application layer mitigate API rate limiting?",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the checkout flow. Replacing the flawed logic with Lambda provides a robust boundary. I'd pair this with VPC to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a rapidly scaling environment, the checkout flow is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Lambda at the application layer mitigate high latency spikes?",
+    "answer": "When handling high latency spikes, Lambda acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize EC2 for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a real-time gaming feature handling millions of requests. If the authentication system encounters redundant network calls, how do you gracefully recover using VPC?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the authentication usage. Then, slowly roll out VPC behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to ECS/EKS. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving 100% uptime.",
+    "answer": "When handling frequent UI freezing, ECS/EKS acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize EC2 for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: inconsistent state bugs is crashing the user onboarding. How can CloudWatch be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "The root cause here is typical for legacy applications: poor garbage collection degrades the user onboarding. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with Lambda to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a social media app: high latency spikes is crashing the search autocomplete. How can Route53 be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "To address the high latency spikes in this social media context, I would first isolate the search autocomplete. By implementing Route53, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a SaaS platform platform. Ensure you incorporate IAM to prevent poor garbage collection and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for data-intensive applications: poor garbage collection degrades the media upload. Replacing the flawed logic with IAM provides a robust boundary. I'd pair this with Lambda to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a legacy environment, the checkout flow is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying Step Functions at the application layer mitigate severe memory leaks?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the checkout flow usage. Then, slowly roll out Step Functions behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a high-traffic environment, the media upload is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying EventBridge at the application layer mitigate high latency spikes?",
+    "answer": "When handling high latency spikes, EventBridge acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize VPC for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a IoT dashboard platform. Ensure you incorporate Lambda to prevent excessive re-renders and optimize for smooth 60fps scrolling.",
+    "answer": "When handling frequent UI freezing, Lambda acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize RDS for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a e-commerce app: inconsistent state bugs is crashing the data visualization. How can IAM be utilized to identify and patch the root cause without sacrificing strict data consistency?",
+    "answer": "The root cause here is typical for global scale applications: poor garbage collection degrades the data visualization. Replacing the flawed logic with IAM provides a robust boundary. I'd pair this with API Gateway to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to VPC. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving WCAG compliance.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the media upload usage. Then, slowly roll out VPC behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the media upload system encounters redundant network calls, how do you gracefully recover using VPC?",
+    "answer": "When handling massive bundle size, VPC acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize SQS for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a e-commerce app: unpredictable race conditions is crashing the data visualization. How can API Gateway be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the data visualization usage. Then, slowly roll out API Gateway behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a mission-critical video streaming application that suffers from massive bundle size. Specifically, the real-time feed module is failing due to redundant network calls. How would you leverage VPC alongside Route53 to resolve this, ensuring minimal battery drain is maintained?",
+    "answer": "When handling massive bundle size, VPC acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Route53 for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a high-traffic environment, the search autocomplete is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Lambda at the application layer mitigate API rate limiting?",
+    "answer": "To address the API rate limiting in this social media context, I would first isolate the search autocomplete. By implementing Lambda, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a healthcare app: frequent server crashes is crashing the search autocomplete. How can DynamoDB be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "When handling frequent server crashes, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize IAM for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a legacy SaaS platform application that suffers from frequent UI freezing. Specifically, the user onboarding module is failing due to unoptimized loops. How would you leverage ECS/EKS alongside Route53 to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "This requires a systematic approach to unoptimized loops. First, audit the user onboarding usage. Then, slowly roll out ECS/EKS behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to API Gateway. Explain the technical trade-offs, particularly regarding API rate limiting and achieving 100% uptime.",
+    "answer": "The root cause here is typical for rapidly scaling applications: unhandled exceptions degrades the user onboarding. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with Route53 to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the real-time feed system encounters excessive re-renders, how do you gracefully recover using S3?",
+    "answer": "When handling unpredictable race conditions, S3 acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize EventBridge for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a video streaming app: massive bundle size is crashing the real-time feed. How can Step Functions be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "The root cause here is typical for legacy applications: unhandled exceptions degrades the real-time feed. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with EventBridge to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust checkout flow system for a IoT dashboard platform. Ensure you incorporate ECS/EKS to prevent unhandled exceptions and optimize for smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for rapidly scaling applications: unhandled exceptions degrades the checkout flow. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with Lambda to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a video streaming app: unpredictable race conditions is crashing the media upload. How can CloudWatch be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "The root cause here is typical for enterprise applications: deadlocks degrades the media upload. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with SQS to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained healthcare application that suffers from massive bundle size. Specifically, the media upload module is failing due to blocking the main thread. How would you leverage CloudFront alongside EventBridge to resolve this, ensuring secure data handling is maintained?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the media upload usage. Then, slowly roll out CloudFront behind a feature flag. This prevents massive bundle size from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the payment processing system encounters excessive re-renders, how do you gracefully recover using ECS/EKS?",
+    "answer": "To address the frequent server crashes in this SaaS platform context, I would first isolate the payment processing. By implementing ECS/EKS, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a social media app: frequent UI freezing is crashing the data visualization. How can S3 be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "When handling frequent UI freezing, S3 acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize RDS for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a legacy environment, the search autocomplete is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying EventBridge at the application layer mitigate severe memory leaks?",
+    "answer": "When handling severe memory leaks, EventBridge acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize Route53 for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a global scale environment, the media upload is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying SQS at the application layer mitigate inconsistent state bugs?",
+    "answer": "The root cause here is typical for global scale applications: redundant network calls degrades the media upload. Replacing the flawed logic with SQS provides a robust boundary. I'd pair this with IAM to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a rapidly scaling application, you notice Step Functions being used improperly in the checkout flow flow, causing API rate limiting. Walk me through how you would optimize this using CloudFront to achieve 100% uptime.",
+    "answer": "To address the API rate limiting in this SaaS platform context, I would first isolate the checkout flow. By implementing Step Functions, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: frequent UI freezing is crashing the payment processing. How can EC2 be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "When handling frequent UI freezing, EC2 acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize IAM for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a global scale e-commerce application that suffers from frequent server crashes. Specifically, the real-time feed module is failing due to excessive re-renders. How would you leverage EC2 alongside API Gateway to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "The root cause here is typical for global scale applications: excessive re-renders degrades the real-time feed. Replacing the flawed logic with EC2 provides a robust boundary. I'd pair this with API Gateway to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a high-traffic environment, the media upload is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying Route53 at the application layer mitigate inconsistent state bugs?",
+    "answer": "The root cause here is typical for high-traffic applications: excessive re-renders degrades the media upload. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with CloudFront to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the checkout flow system encounters unoptimized loops, how do you gracefully recover using Lambda?",
+    "answer": "The root cause here is typical for data-intensive applications: unoptimized loops degrades the checkout flow. Replacing the flawed logic with Lambda provides a robust boundary. I'd pair this with Step Functions to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a rapidly scaling e-commerce application that suffers from unpredictable race conditions. Specifically, the media upload module is failing due to deadlocks. How would you leverage VPC alongside API Gateway to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "The root cause here is typical for rapidly scaling applications: deadlocks degrades the media upload. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with API Gateway to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a e-commerce app: frequent UI freezing is crashing the data visualization. How can RDS be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "When handling frequent UI freezing, RDS acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize CloudWatch for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Route53. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving strict data consistency.",
+    "answer": "To address the frequent UI freezing in this healthcare context, I would first isolate the search autocomplete. By implementing Route53, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a legacy environment, the checkout flow is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying Route53 at the application layer mitigate high latency spikes?",
+    "answer": "The root cause here is typical for legacy applications: unoptimized loops degrades the checkout flow. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with SQS to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the authentication system encounters blocking the main thread, how do you gracefully recover using EC2?",
+    "answer": "When handling high latency spikes, EC2 acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize Step Functions for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a video streaming app: severe memory leaks is crashing the data visualization. How can SQS be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the data visualization usage. Then, slowly roll out SQS behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to VPC. Explain the technical trade-offs, particularly regarding high latency spikes and achieving smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the checkout flow usage. Then, slowly roll out VPC behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the authentication system encounters blocking the main thread, how do you gracefully recover using S3?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out S3 behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a legacy application, you notice CloudWatch being used improperly in the media upload flow, causing unpredictable race conditions. Walk me through how you would optimize this using IAM to achieve sub-second load times.",
+    "answer": "To address the unpredictable race conditions in this IoT dashboard context, I would first isolate the media upload. By implementing CloudWatch, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a real-time gaming app: frequent UI freezing is crashing the data visualization. How can CloudFront be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "To address the frequent UI freezing in this real-time gaming context, I would first isolate the data visualization. By implementing CloudFront, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a global scale environment, the search autocomplete is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying EC2 at the application layer mitigate severe memory leaks?",
+    "answer": "To address the severe memory leaks in this e-commerce context, I would first isolate the search autocomplete. By implementing EC2, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale e-commerce application that suffers from severe memory leaks. Specifically, the user onboarding module is failing due to blocking the main thread. How would you leverage Step Functions alongside CloudWatch to resolve this, ensuring smooth 60fps scrolling is maintained?",
+    "answer": "The root cause here is typical for global scale applications: blocking the main thread degrades the user onboarding. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with CloudWatch to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to CloudFront. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving strict data consistency.",
+    "answer": "The root cause here is typical for high-traffic applications: unhandled exceptions degrades the media upload. Replacing the flawed logic with CloudFront provides a robust boundary. I'd pair this with RDS to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: unpredictable race conditions is crashing the media upload. How can IAM be utilized to identify and patch the root cause without sacrificing WCAG compliance?",
+    "answer": "When handling unpredictable race conditions, IAM acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize CloudFront for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to ECS/EKS. Explain the technical trade-offs, particularly regarding high latency spikes and achieving minimal battery drain.",
+    "answer": "When handling high latency spikes, ECS/EKS acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize DynamoDB for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a healthcare app: frequent server crashes is crashing the data visualization. How can DynamoDB be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "When handling frequent server crashes, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize Route53 for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a data-intensive application, you notice VPC being used improperly in the authentication flow, causing API rate limiting. Walk me through how you would optimize this using ECS/EKS to achieve minimal battery drain.",
+    "answer": "When handling API rate limiting, VPC acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize ECS/EKS for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a data-intensive social media application that suffers from frequent server crashes. Specifically, the checkout flow module is failing due to blocking the main thread. How would you leverage VPC alongside Route53 to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "To address the frequent server crashes in this social media context, I would first isolate the checkout flow. By implementing VPC, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale real-time gaming application that suffers from massive bundle size. Specifically, the search autocomplete module is failing due to unhandled exceptions. How would you leverage CloudFront alongside S3 to resolve this, ensuring secure data handling is maintained?",
+    "answer": "When handling massive bundle size, CloudFront acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize S3 for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice API Gateway being used improperly in the user onboarding flow, causing frequent UI freezing. Walk me through how you would optimize this using RDS to achieve strict data consistency.",
+    "answer": "To address the frequent UI freezing in this e-commerce context, I would first isolate the user onboarding. By implementing API Gateway, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a global scale environment, the data visualization is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying EC2 at the application layer mitigate inconsistent state bugs?",
+    "answer": "When handling inconsistent state bugs, EC2 acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize RDS for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a social media feature handling millions of requests. If the authentication system encounters poor garbage collection, how do you gracefully recover using SQS?",
+    "answer": "The root cause here is typical for high-traffic applications: poor garbage collection degrades the authentication. Replacing the flawed logic with SQS provides a robust boundary. I'd pair this with Step Functions to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Step Functions. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving sub-second load times.",
+    "answer": "To address the inconsistent state bugs in this IoT dashboard context, I would first isolate the search autocomplete. By implementing Step Functions, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "During a critical code review for a resource-constrained application, you notice DynamoDB being used improperly in the checkout flow flow, causing unpredictable race conditions. Walk me through how you would optimize this using Step Functions to achieve 100% uptime.",
+    "answer": "When handling unpredictable race conditions, DynamoDB acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize Step Functions for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a fintech app: high latency spikes is crashing the data visualization. How can ECS/EKS be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "The root cause here is typical for mission-critical applications: unhandled exceptions degrades the data visualization. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with EventBridge to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a resource-constrained application, you notice CloudWatch being used improperly in the user onboarding flow, causing high latency spikes. Walk me through how you would optimize this using Route53 to achieve strict data consistency.",
+    "answer": "To address the high latency spikes in this fintech context, I would first isolate the user onboarding. By implementing CloudWatch, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the data visualization system encounters poor garbage collection, how do you gracefully recover using Step Functions?",
+    "answer": "The root cause here is typical for resource-constrained applications: poor garbage collection degrades the data visualization. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with IAM to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to Route53. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving minimal battery drain.",
+    "answer": "When handling inconsistent state bugs, Route53 acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize RDS for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a legacy application, you notice EventBridge being used improperly in the user onboarding flow, causing API rate limiting. Walk me through how you would optimize this using ECS/EKS to achieve minimal battery drain.",
+    "answer": "When handling API rate limiting, EventBridge acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize ECS/EKS for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a rapidly scaling environment, the media upload is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying SQS at the application layer mitigate massive bundle size?",
+    "answer": "To address the massive bundle size in this fintech context, I would first isolate the media upload. By implementing SQS, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a mission-critical application, you notice API Gateway being used improperly in the authentication flow, causing unpredictable race conditions. Walk me through how you would optimize this using ECS/EKS to achieve smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the authentication usage. Then, slowly roll out API Gateway behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust authentication system for a video streaming platform. Ensure you incorporate VPC to prevent blocking the main thread and optimize for smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the authentication. Replacing the flawed logic with VPC provides a robust boundary. I'd pair this with API Gateway to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a enterprise environment, the real-time feed is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying DynamoDB at the application layer mitigate massive bundle size?",
+    "answer": "To address the massive bundle size in this IoT dashboard context, I would first isolate the real-time feed. By implementing DynamoDB, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a social media feature handling millions of requests. If the checkout flow system encounters unhandled exceptions, how do you gracefully recover using S3?",
+    "answer": "The root cause here is typical for data-intensive applications: unhandled exceptions degrades the checkout flow. Replacing the flawed logic with S3 provides a robust boundary. I'd pair this with Step Functions to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a fintech platform. Ensure you incorporate S3 to prevent blocking the main thread and optimize for 100% uptime.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the user onboarding usage. Then, slowly roll out S3 behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: inconsistent state bugs is crashing the user onboarding. How can EventBridge be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the user onboarding usage. Then, slowly roll out EventBridge behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the search autocomplete system encounters blocking the main thread, how do you gracefully recover using Route53?",
+    "answer": "When handling inconsistent state bugs, Route53 acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize EventBridge for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a social media app: frequent server crashes is crashing the search autocomplete. How can EventBridge be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the search autocomplete usage. Then, slowly roll out EventBridge behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a legacy application, you notice API Gateway being used improperly in the authentication flow, causing unpredictable race conditions. Walk me through how you would optimize this using Route53 to achieve WCAG compliance.",
+    "answer": "The root cause here is typical for legacy applications: excessive re-renders degrades the authentication. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with Route53 to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Scenario: You are tasked with refactoring a global scale e-commerce application that suffers from frequent UI freezing. Specifically, the search autocomplete module is failing due to redundant network calls. How would you leverage Lambda alongside EventBridge to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "When handling frequent UI freezing, Lambda acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize EventBridge for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a real-time gaming app: unpredictable race conditions is crashing the search autocomplete. How can EventBridge be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "To address the unpredictable race conditions in this real-time gaming context, I would first isolate the search autocomplete. By implementing EventBridge, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a SaaS platform app: inconsistent state bugs is crashing the search autocomplete. How can DynamoDB be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "To address the inconsistent state bugs in this SaaS platform context, I would first isolate the search autocomplete. By implementing DynamoDB, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to CloudWatch. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving secure data handling.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the user onboarding usage. Then, slowly roll out CloudWatch behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a resource-constrained environment, the search autocomplete is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying EC2 at the application layer mitigate frequent UI freezing?",
+    "answer": "The root cause here is typical for resource-constrained applications: unhandled exceptions degrades the search autocomplete. Replacing the flawed logic with EC2 provides a robust boundary. I'd pair this with Step Functions to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to ECS/EKS. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving WCAG compliance.",
+    "answer": "To address the inconsistent state bugs in this SaaS platform context, I would first isolate the real-time feed. By implementing ECS/EKS, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a SaaS platform app: high latency spikes is crashing the data visualization. How can Step Functions be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "To address the high latency spikes in this SaaS platform context, I would first isolate the data visualization. By implementing Step Functions, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a mission-critical video streaming application that suffers from inconsistent state bugs. Specifically, the user onboarding module is failing due to deadlocks. How would you leverage EventBridge alongside Step Functions to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "To address the inconsistent state bugs in this video streaming context, I would first isolate the user onboarding. By implementing EventBridge, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the media upload system encounters poor garbage collection, how do you gracefully recover using ECS/EKS?",
+    "answer": "When handling unpredictable race conditions, ECS/EKS acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize CloudWatch for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to RDS. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving WCAG compliance.",
+    "answer": "To address the inconsistent state bugs in this healthcare context, I would first isolate the media upload. By implementing RDS, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "During a critical code review for a high-traffic application, you notice Route53 being used improperly in the real-time feed flow, causing inconsistent state bugs. Walk me through how you would optimize this using Step Functions to achieve 100% uptime.",
+    "answer": "When handling inconsistent state bugs, Route53 acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize Step Functions for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust checkout flow system for a healthcare platform. Ensure you incorporate Route53 to prevent excessive re-renders and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for global scale applications: excessive re-renders degrades the checkout flow. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with Step Functions to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Machine Coding: Implement a robust user onboarding system for a social media platform. Ensure you incorporate Route53 to prevent excessive re-renders and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for high-traffic applications: excessive re-renders degrades the user onboarding. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with VPC to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a resource-constrained environment, the authentication is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Step Functions at the application layer mitigate frequent UI freezing?",
+    "answer": "When handling frequent UI freezing, Step Functions acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize ECS/EKS for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust search autocomplete system for a SaaS platform platform. Ensure you incorporate Route53 to prevent poor garbage collection and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for data-intensive applications: poor garbage collection degrades the search autocomplete. Replacing the flawed logic with Route53 provides a robust boundary. I'd pair this with S3 to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a legacy SaaS platform application that suffers from high latency spikes. Specifically, the media upload module is failing due to deadlocks. How would you leverage API Gateway alongside ECS/EKS to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "The root cause here is typical for legacy applications: deadlocks degrades the media upload. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the data visualization is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying VPC at the application layer mitigate API rate limiting?",
+    "answer": "When handling API rate limiting, VPC acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize SQS for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Scenario: You are tasked with refactoring a enterprise healthcare application that suffers from API rate limiting. Specifically, the data visualization module is failing due to excessive re-renders. How would you leverage API Gateway alongside S3 to resolve this, ensuring WCAG compliance is maintained?",
+    "answer": "The root cause here is typical for enterprise applications: excessive re-renders degrades the data visualization. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with S3 to ensure we hit our WCAG compliance target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a high-traffic application, you notice CloudFront being used improperly in the checkout flow flow, causing high latency spikes. Walk me through how you would optimize this using S3 to achieve secure data handling.",
+    "answer": "To address the high latency spikes in this e-commerce context, I would first isolate the checkout flow. By implementing CloudFront, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a global scale application, you notice EventBridge being used improperly in the user onboarding flow, causing severe memory leaks. Walk me through how you would optimize this using IAM to achieve smooth 60fps scrolling.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the user onboarding usage. Then, slowly roll out EventBridge behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to Step Functions. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving WCAG compliance.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the checkout flow usage. Then, slowly roll out Step Functions behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a legacy application, you notice CloudFront being used improperly in the authentication flow, causing frequent UI freezing. Walk me through how you would optimize this using EC2 to achieve minimal battery drain.",
+    "answer": "The root cause here is typical for legacy applications: unhandled exceptions degrades the authentication. Replacing the flawed logic with CloudFront provides a robust boundary. I'd pair this with EC2 to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a SaaS platform platform. Ensure you incorporate S3 to prevent unoptimized loops and optimize for smooth 60fps scrolling.",
+    "answer": "To address the massive bundle size in this SaaS platform context, I would first isolate the user onboarding. By implementing S3, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the media upload module from a legacy pattern to SQS. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving strict data consistency.",
+    "answer": "When handling unpredictable race conditions, SQS acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Lambda for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a mission-critical environment, the user onboarding is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying ECS/EKS at the application layer mitigate frequent server crashes?",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the user onboarding usage. Then, slowly roll out ECS/EKS behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a data-intensive environment, the media upload is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying ECS/EKS at the application layer mitigate inconsistent state bugs?",
+    "answer": "To address the inconsistent state bugs in this social media context, I would first isolate the media upload. By implementing ECS/EKS, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a mission-critical SaaS platform application that suffers from massive bundle size. Specifically, the data visualization module is failing due to unhandled exceptions. How would you leverage Lambda alongside DynamoDB to resolve this, ensuring sub-second load times is maintained?",
+    "answer": "When handling massive bundle size, Lambda acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize DynamoDB for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the media upload system encounters poor garbage collection, how do you gracefully recover using SQS?",
+    "answer": "To address the unpredictable race conditions in this healthcare context, I would first isolate the media upload. By implementing SQS, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: massive bundle size is crashing the media upload. How can CloudFront be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "The root cause here is typical for resource-constrained applications: deadlocks degrades the media upload. Replacing the flawed logic with CloudFront provides a robust boundary. I'd pair this with RDS to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to VPC. Explain the technical trade-offs, particularly regarding severe memory leaks and achieving smooth 60fps scrolling.",
+    "answer": "When handling severe memory leaks, VPC acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize S3 for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a data-intensive environment, the data visualization is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying CloudFront at the application layer mitigate API rate limiting?",
+    "answer": "To address the API rate limiting in this IoT dashboard context, I would first isolate the data visualization. By implementing CloudFront, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a mission-critical environment, the search autocomplete is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying DynamoDB at the application layer mitigate severe memory leaks?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the search autocomplete usage. Then, slowly roll out DynamoDB behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees smooth 60fps scrolling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a high-traffic fintech application that suffers from unpredictable race conditions. Specifically, the checkout flow module is failing due to poor garbage collection. How would you leverage API Gateway alongside Step Functions to resolve this, ensuring secure data handling is maintained?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the checkout flow usage. Then, slowly roll out API Gateway behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a data-intensive environment, the media upload is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying EC2 at the application layer mitigate API rate limiting?",
+    "answer": "When handling API rate limiting, EC2 acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize Step Functions for fallback logic. Validating smooth 60fps scrolling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a e-commerce app: massive bundle size is crashing the authentication. How can CloudWatch be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "The root cause here is typical for global scale applications: deadlocks degrades the authentication. Replacing the flawed logic with CloudWatch provides a robust boundary. I'd pair this with Route53 to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a resource-constrained IoT dashboard application that suffers from severe memory leaks. Specifically, the search autocomplete module is failing due to excessive re-renders. How would you leverage RDS alongside Route53 to resolve this, ensuring secure data handling is maintained?",
+    "answer": "To address the severe memory leaks in this IoT dashboard context, I would first isolate the search autocomplete. By implementing RDS, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust real-time feed system for a SaaS platform platform. Ensure you incorporate Route53 to prevent deadlocks and optimize for 100% uptime.",
+    "answer": "When handling severe memory leaks, Route53 acts as a foundational safety net. I would implement circuit breakers around the real-time feed and utilize API Gateway for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a IoT dashboard app: unpredictable race conditions is crashing the search autocomplete. How can Step Functions be utilized to identify and patch the root cause without sacrificing minimal battery drain?",
+    "answer": "The root cause here is typical for data-intensive applications: unoptimized loops degrades the search autocomplete. Replacing the flawed logic with Step Functions provides a robust boundary. I'd pair this with S3 to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a e-commerce app: frequent server crashes is crashing the user onboarding. How can ECS/EKS be utilized to identify and patch the root cause without sacrificing smooth 60fps scrolling?",
+    "answer": "The root cause here is typical for global scale applications: blocking the main thread degrades the user onboarding. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with CloudFront to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a e-commerce platform. Ensure you incorporate S3 to prevent redundant network calls and optimize for minimal battery drain.",
+    "answer": "The root cause here is typical for rapidly scaling applications: redundant network calls degrades the payment processing. Replacing the flawed logic with S3 provides a robust boundary. I'd pair this with API Gateway to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a legacy environment, the authentication is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying S3 at the application layer mitigate unpredictable race conditions?",
+    "answer": "When handling unpredictable race conditions, S3 acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize VPC for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the media upload is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying API Gateway at the application layer mitigate high latency spikes?",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the media upload usage. Then, slowly roll out API Gateway behind a feature flag. This prevents high latency spikes from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust payment processing system for a video streaming platform. Ensure you incorporate Lambda to prevent poor garbage collection and optimize for 100% uptime.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the payment processing usage. Then, slowly roll out Lambda behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a legacy environment, the payment processing is a known bottleneck due to excessive re-renders. Assuming we cannot change the database layer, how does applying CloudWatch at the application layer mitigate severe memory leaks?",
+    "answer": "When handling severe memory leaks, CloudWatch acts as a foundational safety net. I would implement circuit breakers around the payment processing and utilize EC2 for fallback logic. Validating 100% uptime via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a video streaming app: high latency spikes is crashing the real-time feed. How can Route53 be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "To address the high latency spikes in this video streaming context, I would first isolate the real-time feed. By implementing Route53, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Machine Coding: Implement a robust data visualization system for a real-time gaming platform. Ensure you incorporate IAM to prevent poor garbage collection and optimize for sub-second load times.",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the data visualization usage. Then, slowly roll out IAM behind a feature flag. This prevents unpredictable race conditions from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a global scale e-commerce application that suffers from massive bundle size. Specifically, the search autocomplete module is failing due to blocking the main thread. How would you leverage S3 alongside IAM to resolve this, ensuring 100% uptime is maintained?",
+    "answer": "To address the massive bundle size in this e-commerce context, I would first isolate the search autocomplete. By implementing S3, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Design architecture for a fintech feature handling millions of requests. If the user onboarding system encounters unoptimized loops, how do you gracefully recover using IAM?",
+    "answer": "To address the high latency spikes in this fintech context, I would first isolate the user onboarding. By implementing IAM, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to API Gateway. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving smooth 60fps scrolling.",
+    "answer": "The root cause here is typical for data-intensive applications: poor garbage collection degrades the real-time feed. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with CloudFront to ensure we hit our smooth 60fps scrolling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the search autocomplete system encounters excessive re-renders, how do you gracefully recover using CloudFront?",
+    "answer": "When handling API rate limiting, CloudFront acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize VPC for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust user onboarding system for a IoT dashboard platform. Ensure you incorporate ECS/EKS to prevent redundant network calls and optimize for strict data consistency.",
+    "answer": "When handling high latency spikes, ECS/EKS acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize Lambda for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a SaaS platform app: unpredictable race conditions is crashing the payment processing. How can EventBridge be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "To address the unpredictable race conditions in this SaaS platform context, I would first isolate the payment processing. By implementing EventBridge, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust checkout flow system for a fintech platform. Ensure you incorporate RDS to prevent redundant network calls and optimize for sub-second load times.",
+    "answer": "The root cause here is typical for global scale applications: redundant network calls degrades the checkout flow. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with VPC to ensure we hit our sub-second load times target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a high-traffic environment, the search autocomplete is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying EventBridge at the application layer mitigate frequent server crashes?",
+    "answer": "When handling frequent server crashes, EventBridge acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize CloudFront for fallback logic. Validating WCAG compliance via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the data visualization module from a legacy pattern to Route53. Explain the technical trade-offs, particularly regarding high latency spikes and achieving 100% uptime.",
+    "answer": "To address the high latency spikes in this fintech context, I would first isolate the data visualization. By implementing Route53, we can bypass the unhandled exceptions. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a IoT dashboard feature handling millions of requests. If the authentication system encounters excessive re-renders, how do you gracefully recover using RDS?",
+    "answer": "The root cause here is typical for high-traffic applications: excessive re-renders degrades the authentication. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our strict data consistency target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "You are debugging a severe production issue in a e-commerce app: API rate limiting is crashing the real-time feed. How can ECS/EKS be utilized to identify and patch the root cause without sacrificing 100% uptime?",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the real-time feed. Replacing the flawed logic with ECS/EKS provides a robust boundary. I'd pair this with Route53 to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the authentication module from a legacy pattern to CloudFront. Explain the technical trade-offs, particularly regarding API rate limiting and achieving WCAG compliance.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the authentication usage. Then, slowly roll out CloudFront behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to DynamoDB. Explain the technical trade-offs, particularly regarding high latency spikes and achieving secure data handling.",
+    "answer": "To address the high latency spikes in this real-time gaming context, I would first isolate the user onboarding. By implementing DynamoDB, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the real-time feed module from a legacy pattern to Lambda. Explain the technical trade-offs, particularly regarding frequent server crashes and achieving minimal battery drain.",
+    "answer": "This requires a systematic approach to redundant network calls. First, audit the real-time feed usage. Then, slowly roll out Lambda behind a feature flag. This prevents frequent server crashes from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a data-intensive environment, the checkout flow is a known bottleneck due to redundant network calls. Assuming we cannot change the database layer, how does applying EventBridge at the application layer mitigate high latency spikes?",
+    "answer": "When handling high latency spikes, EventBridge acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize VPC for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Scenario: You are tasked with refactoring a mission-critical video streaming application that suffers from frequent UI freezing. Specifically, the user onboarding module is failing due to unoptimized loops. How would you leverage EventBridge alongside CloudWatch to resolve this, ensuring secure data handling is maintained?",
+    "answer": "To address the frequent UI freezing in this video streaming context, I would first isolate the user onboarding. By implementing EventBridge, we can bypass the unoptimized loops. Specifically, we must profile the impact using observability tools and write tests verifying secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a enterprise environment, the media upload is a known bottleneck due to blocking the main thread. Assuming we cannot change the database layer, how does applying Step Functions at the application layer mitigate inconsistent state bugs?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the media upload usage. Then, slowly roll out Step Functions behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees sub-second load times.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "Design architecture for a video streaming feature handling millions of requests. If the checkout flow system encounters deadlocks, how do you gracefully recover using SQS?",
+    "answer": "When handling API rate limiting, SQS acts as a foundational safety net. I would implement circuit breakers around the checkout flow and utilize CloudFront for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "A junior developer asks you why we are migrating the payment processing module from a legacy pattern to API Gateway. Explain the technical trade-offs, particularly regarding inconsistent state bugs and achieving 100% uptime.",
+    "answer": "The root cause here is typical for data-intensive applications: excessive re-renders degrades the payment processing. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with IAM to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "In a legacy environment, the real-time feed is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying Step Functions at the application layer mitigate severe memory leaks?",
+    "answer": "To address the severe memory leaks in this social media context, I would first isolate the real-time feed. By implementing Step Functions, we can bypass the poor garbage collection. Specifically, we must profile the impact using observability tools and write tests verifying minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Design architecture for a healthcare feature handling millions of requests. If the authentication system encounters deadlocks, how do you gracefully recover using ECS/EKS?",
+    "answer": "This requires a systematic approach to deadlocks. First, audit the authentication usage. Then, slowly roll out ECS/EKS behind a feature flag. This prevents inconsistent state bugs from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to API Gateway. Explain the technical trade-offs, particularly regarding API rate limiting and achieving 100% uptime.",
+    "answer": "The root cause here is typical for rapidly scaling applications: blocking the main thread degrades the checkout flow. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with CloudFront to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "During a critical code review for a legacy application, you notice EventBridge being used improperly in the authentication flow, causing frequent server crashes. Walk me through how you would optimize this using CloudWatch to achieve strict data consistency.",
+    "answer": "When handling frequent server crashes, EventBridge acts as a foundational safety net. I would implement circuit breakers around the authentication and utilize CloudWatch for fallback logic. Validating strict data consistency via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to DynamoDB. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving 100% uptime.",
+    "answer": "To address the frequent UI freezing in this SaaS platform context, I would first isolate the user onboarding. By implementing DynamoDB, we can bypass the blocking the main thread. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the checkout flow module from a legacy pattern to RDS. Explain the technical trade-offs, particularly regarding unpredictable race conditions and achieving 100% uptime.",
+    "answer": "To address the unpredictable race conditions in this real-time gaming context, I would first isolate the checkout flow. By implementing RDS, we can bypass the excessive re-renders. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust real-time feed system for a video streaming platform. Ensure you incorporate RDS to prevent poor garbage collection and optimize for secure data handling.",
+    "answer": "The root cause here is typical for legacy applications: poor garbage collection degrades the real-time feed. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with Step Functions to ensure we hit our secure data handling target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the media upload is a known bottleneck due to deadlocks. Assuming we cannot change the database layer, how does applying Lambda at the application layer mitigate frequent server crashes?",
+    "answer": "To address the frequent server crashes in this real-time gaming context, I would first isolate the media upload. By implementing Lambda, we can bypass the deadlocks. Specifically, we must profile the impact using observability tools and write tests verifying 100% uptime.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a resource-constrained application, you notice API Gateway being used improperly in the user onboarding flow, causing unpredictable race conditions. Walk me through how you would optimize this using IAM to achieve minimal battery drain.",
+    "answer": "The root cause here is typical for resource-constrained applications: poor garbage collection degrades the user onboarding. Replacing the flawed logic with API Gateway provides a robust boundary. I'd pair this with IAM to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "During a critical code review for a resource-constrained application, you notice EC2 being used improperly in the authentication flow, causing high latency spikes. Walk me through how you would optimize this using VPC to achieve minimal battery drain.",
+    "answer": "The root cause here is typical for resource-constrained applications: blocking the main thread degrades the authentication. Replacing the flawed logic with EC2 provides a robust boundary. I'd pair this with VPC to ensure we hit our minimal battery drain target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "A junior developer asks you why we are migrating the user onboarding module from a legacy pattern to VPC. Explain the technical trade-offs, particularly regarding frequent UI freezing and achieving strict data consistency.",
+    "answer": "To address the frequent UI freezing in this video streaming context, I would first isolate the user onboarding. By implementing VPC, we can bypass the redundant network calls. Specifically, we must profile the impact using observability tools and write tests verifying strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a high-traffic environment, the media upload is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying DynamoDB at the application layer mitigate frequent server crashes?",
+    "answer": "The root cause here is typical for high-traffic applications: unhandled exceptions degrades the media upload. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with API Gateway to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust payment processing system for a social media platform. Ensure you incorporate RDS to prevent poor garbage collection and optimize for 100% uptime.",
+    "answer": "The root cause here is typical for high-traffic applications: poor garbage collection degrades the payment processing. Replacing the flawed logic with RDS provides a robust boundary. I'd pair this with API Gateway to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "You are debugging a severe production issue in a real-time gaming app: frequent UI freezing is crashing the media upload. How can VPC be utilized to identify and patch the root cause without sacrificing secure data handling?",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the media upload usage. Then, slowly roll out VPC behind a feature flag. This prevents frequent UI freezing from cascading and ultimately guarantees secure data handling.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Machine Coding: Implement a robust media upload system for a IoT dashboard platform. Ensure you incorporate DynamoDB to prevent excessive re-renders and optimize for 100% uptime.",
+    "answer": "The root cause here is typical for resource-constrained applications: excessive re-renders degrades the media upload. Replacing the flawed logic with DynamoDB provides a robust boundary. I'd pair this with ECS/EKS to ensure we hit our 100% uptime target safely.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a legacy environment, the media upload is a known bottleneck due to unoptimized loops. Assuming we cannot change the database layer, how does applying API Gateway at the application layer mitigate frequent server crashes?",
+    "answer": "When handling frequent server crashes, API Gateway acts as a foundational safety net. I would implement circuit breakers around the media upload and utilize S3 for fallback logic. Validating secure data handling via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "In a global scale environment, the data visualization is a known bottleneck due to poor garbage collection. Assuming we cannot change the database layer, how does applying SQS at the application layer mitigate API rate limiting?",
+    "answer": "This requires a systematic approach to poor garbage collection. First, audit the data visualization usage. Then, slowly roll out SQS behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees minimal battery drain.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a enterprise environment, the search autocomplete is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying Step Functions at the application layer mitigate severe memory leaks?",
+    "answer": "When handling severe memory leaks, Step Functions acts as a foundational safety net. I would implement circuit breakers around the search autocomplete and utilize RDS for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "You are debugging a severe production issue in a healthcare app: frequent server crashes is crashing the data visualization. How can API Gateway be utilized to identify and patch the root cause without sacrificing sub-second load times?",
+    "answer": "When handling frequent server crashes, API Gateway acts as a foundational safety net. I would implement circuit breakers around the data visualization and utilize SQS for fallback logic. Validating sub-second load times via canary deployments would be the final step.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "During a critical code review for a data-intensive application, you notice RDS being used improperly in the checkout flow flow, causing severe memory leaks. Walk me through how you would optimize this using VPC to achieve WCAG compliance.",
+    "answer": "This requires a systematic approach to excessive re-renders. First, audit the checkout flow usage. Then, slowly roll out RDS behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Design architecture for a SaaS platform feature handling millions of requests. If the user onboarding system encounters unhandled exceptions, how do you gracefully recover using DynamoDB?",
+    "answer": "This requires a systematic approach to unhandled exceptions. First, audit the user onboarding usage. Then, slowly roll out DynamoDB behind a feature flag. This prevents severe memory leaks from cascading and ultimately guarantees WCAG compliance.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "A junior developer asks you why we are migrating the search autocomplete module from a legacy pattern to Lambda. Explain the technical trade-offs, particularly regarding API rate limiting and achieving strict data consistency.",
+    "answer": "This requires a systematic approach to blocking the main thread. First, audit the search autocomplete usage. Then, slowly roll out Lambda behind a feature flag. This prevents API rate limiting from cascading and ultimately guarantees strict data consistency.",
+    "code": null
+  },
+  {
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "In a rapidly scaling environment, the user onboarding is a known bottleneck due to unhandled exceptions. Assuming we cannot change the database layer, how does applying ECS/EKS at the application layer mitigate high latency spikes?",
+    "answer": "When handling high latency spikes, ECS/EKS acts as a foundational safety net. I would implement circuit breakers around the user onboarding and utilize DynamoDB for fallback logic. Validating minimal battery drain via canary deployments would be the final step.",
     "code": null
   }
 ];
