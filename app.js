@@ -232,17 +232,19 @@ function render() {
     
     return `
       <div class="q-card" data-idx="${start + i}">
-        <div class="q-tags">
-          <div style="display:flex; align-items:center;">
-            <input type="checkbox" class="q-checkbox" data-id="${qId}" ${state.selected.has(qId) ? 'checked' : ''}>
+        <input type="checkbox" class="q-checkbox" data-id="${qId}" ${state.selected.has(qId) ? 'checked' : ''}>
+        <div class="q-content">
+          <div class="q-text">${escapeHtml(q.question)}</div>
+          <div class="q-meta">
             <span class="q-topic" style="color:${tData?.color}">
               <span class="topic-dot" style="background-color:${tData?.color}"></span>
               ${tData?.label || q.topic}
             </span>
           </div>
+        </div>
+        <div class="q-tags">
           <span class="q-diff ${q.difficulty}">${q.difficulty}</span>
         </div>
-        <div class="q-text">${escapeHtml(q.question)}</div>
       </div>
     `;
   }).join('');
@@ -396,4 +398,37 @@ function escapeHtml(str) {
   })[m]);
 }
 
-window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('DOMContentLoaded', () => {
+  init();
+
+  // Mobile sidebar drawer
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  const hamburger = document.getElementById('hamburgerBtn');
+  const closeBtnEl = document.getElementById('sidebarClose');
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburger) hamburger.addEventListener('click', openSidebar);
+  if (closeBtnEl) closeBtnEl.addEventListener('click', closeSidebar);
+  if (overlay) overlay.addEventListener('click', closeSidebar);
+
+  // Close sidebar when a topic is selected on mobile
+  if (sidebar) {
+    sidebar.addEventListener('click', (e) => {
+      if (e.target.closest('.topic-btn') && window.innerWidth <= 600) {
+        closeSidebar();
+      }
+    });
+  }
+});
